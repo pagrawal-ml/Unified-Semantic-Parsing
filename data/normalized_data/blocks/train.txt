@@ -1,0 +1,1277 @@
+select the block that is below e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) SW.reverse string-above string-= e0
+find the blocks with length and height of 3 inches	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-height string-= number3 en.inch
+which special brick is e0	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-is_special
+find me all blocks below the smallest numbers of blocks	SW.countSuperlative entity-en.block string-min string-below entity-en.block
+find a block between e0 and a block above e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-above string-= e0 )
+which brick is 3 or 6 inches high	SW.filter entity-en.block string-height string-= SW.concat
+is there a block piled on top of e0	SW.filter entity-en.block string-above string-= e0
+find me a block that has a special block to its right	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-is_special )
+choose the brick to the right of the 3 inch block	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+find the block above two blocks	SW.countComparative entity-en.block SW.reverse string-below string-= number2 entity-en.block
+select a brick to the right of the brick directly below e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-below string-= e0 )
+what brick is no more than 3 inches high	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity number3 en.inch )
+block whose height is at most 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity number3 en.inch )
+find the block that has a length of 3 inches and is below e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-below string-= e0
+what is the width of the block	string-sum SW.getProperty entity-en.block string-width
+block right of e0 which is 3 inches high	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-height string-= number3 en.inch
+e0 block rght of e1	SW.filter ( SW.filter entity-en.block string-right string-= e1 ) string-shape string-= e0
+find me all blocks that e0 is left and right of	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-right string-= e0
+choose a block that is shorter than e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+block left of block above e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-left string-= e0 )
+find me all the bricks at least 3 inches long	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity number3 en.inch )
+find me a block at most 6 inches wide	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.concat )
+select the block whose width is 3 inches	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+select a block that has less than two colors	SW.countComparative entity-en.block string-color string-< number2
+select the block that is to the left of e0 and that has a length of 3 inches	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-length string-= number3 en.inch
+which brick is wider than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity number3 en.inch )
+find me all blocks  with at most two blocks left of it	SW.countComparative entity-en.block SW.reverse string-left string-<= number2 entity-en.block
+what block is at least as tall as e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me all the blocks at least as long as e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+what block is above the 3 inch high block	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+2 blocks right of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-right string-= e0 )
+find a block with a height no more than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity number3 en.inch )
+find me a block that is to the left of two or less blocks	SW.countComparative entity-en.block string-left string-<= number2 entity-en.block
+find the block that is above e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-above string-= e0 )
+find a block of 3 height above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-height string-= number3 en.inch
+find me all blocks with at most two blocks to the left	SW.countComparative entity-en.block string-left string-< number2 entity-en.block
+what is the left most block	SW.countSuperlative entity-en.block string-max SW.reverse string-left entity-en.block
+block two spaces above e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-above string-= e0 )
+block to right of two or more blocks	SW.countComparative entity-en.block string-right string-> number2 entity-en.block
+find the block that has the smallest length	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-length
+what is the height of e0	SW.getProperty e0 string-height
+what brick has more than 2 bricks below it	SW.countComparative entity-en.block SW.reverse string-below string-> number2 entity-en.block
+block below e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) SW.reverse string-above string-= e0
+find a block without a length of 3 inches	SW.filter entity-en.block string-length string-!= number3 en.inch
+block two up from e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+block whose height is 3 inches and that is below e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-below string-= e0
+what block is below the special block	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-is_special )
+what 3 inch brick is to the left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-length string-= number3 en.inch
+find me all blocks above e0	SW.filter entity-en.block string-above string-= e0
+what is the number of blocks	.size entity-en.block
+find me all blocks shorter than e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+find the block that is to the right of e0 with a width of 3 inches	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-width string-= number3 en.inch
+select the block above the right one	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block SW.reverse string-above string-= en.block.block1 )
+find me all blocks left of 3 inch wide blocks	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+find me all blocks with a length longer than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.concat )
+which brick is above e0	SW.filter entity-en.block string-above string-= e0
+which brick is 3 inches wide and to the right of e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-right string-= e0
+select a brick that is at least 3 inches wide	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity number3 en.inch )
+find me all the e0 blocks	SW.filter entity-en.block string-shape string-= e0
+find me all blocks above that is left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) SW.reverse string-above string-= e0
+3 inch wide block above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-width string-= number3 en.inch
+which block is below block that is at the right of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-right string-= e0 )
+find me all blocks whose width is smaller than 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.concat )
+block that is special and whose length is 3 inches	SW.filter ( SW.filter entity-en.block string-is_special ) string-length string-= number3 en.inch
+which brick is farthest to the left	SW.countSuperlative entity-en.block string-min SW.reverse string-right entity-en.block
+find me all 3 inch wide blocks right of e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-right string-= e0
+find me all 3 inch tall blocks that e0 is right of	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-right string-= e0
+block above block that is below e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-below string-= e0 )
+what special blocks are above e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-above string-= e0
+3 inch wide block to the right of e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-right string-= e0
+find me all blocks that is left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-left string-= e0
+3 inches long block and that is above e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-above string-= e0
+what block has the same width as block 1s height	SW.filter entity-en.block string-width string-= SW.getProperty en.block.block1 string-height
+which block is below the block below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+which block is the same height as e0	SW.filter entity-en.block string-height string-= SW.getProperty e0 string-height
+block which has block 1s below and right	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= en.block.block1 ) string-left string-= en.block.block1
+what block is to the left of e0 and has a width of 3 inches	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-width string-= number3 en.inch
+block below block right of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+select the least colorful brick	SW.countSuperlative entity-en.block string-min string-color
+find me all blocks below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-below string-= e0
+find a block under and to the right of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) SW.reverse string-left string-= e0
+block which is at the right of most number of blocks	SW.countSuperlative entity-en.block string-max SW.reverse string-right entity-en.block
+find me all blocks with less than 2 shapes	SW.countComparative entity-en.block string-shape string-< number2
+find me all 3 inch long blocks  that e0 is left of	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-length string-= number3 en.inch
+select a block below e0 that is 3 inches long	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-below string-= e0
+what block is left of the least number of blocks	SW.countSuperlative entity-en.block string-min SW.reverse string-left entity-en.block
+find me all blocks left of e0 blocks	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-shape string-= e0 )
+find the block that has a width of 3 inches and is above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-width string-= number3 en.inch
+find me all the blocks with less than 2 blocks above it	SW.countComparative entity-en.block SW.reverse string-above string-< number2 entity-en.block
+select the e0 block that is left of e1	SW.filter ( SW.filter entity-en.block string-left string-= e1 ) string-shape string-= e0
+find the block to the left of the largest number of blocks	SW.countSuperlative entity-en.block string-max string-left entity-en.block
+find blocks above e0 and below e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-below string-= e0
+what blocks are to the left and below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-left string-= e0
+find a block below and to the right of e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-below string-= e0 )
+what block is to the left of and below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+a e0 or a e1	SW.concat
+find a block the same color as e0	SW.filter entity-en.block string-color string-= SW.getProperty e0 string-color
+select the block with a length of 3 inches that is above e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-above string-= e0
+what shape is e0	SW.getProperty e0 string-shape
+find me all blocks with less than 2 colors	SW.countComparative entity-en.block string-color string-< number2
+what block is e0 below and to the left of	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) SW.reverse string-left string-= e0
+find the block underneath e0 that is also 3 inches long	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-length string-= number3 en.inch
+find a block that is beneath either e0 or e1	SW.filter entity-en.block string-below string-= SW.concat
+find the block that is right of e0 and has a width of 3 inches	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-width string-= number3 en.inch
+select the block that e0 is not below	SW.filter entity-en.block SW.reverse string-below string-!= e0
+select the block that is at least 3 inches tall	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity number3 en.inch )
+select the special block that is to the right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-is_special
+choose a block below the 3 inch brick	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+find the block with 3 inches of width	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) SW.reverse string-above string-= en.block.block1
+what color is e0	SW.getProperty e0 string-color
+find me all blocks above and to the right of e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) SW.reverse string-left string-= e0
+what is the block above that has its length as 3 inches	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+select the block that e0 is above with a width of 3 inches	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-width string-= number3 en.inch
+block not right of e0	SW.filter entity-en.block SW.reverse string-left string-!= e0
+find a block with the same height as e0	SW.filter entity-en.block string-height string-= SW.getProperty e0 string-height
+block above e0 block	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-shape string-= e0 )
+block that is right of block that is special	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-is_special )
+find me all the blocks below and to the left of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-left string-= e0 )
+choose a block that is at most 2 block to the left	SW.countComparative entity-en.block SW.reverse string-left string-<= number2 entity-en.block
+choose a block that is left of e0	SW.filter entity-en.block string-left string-= e0
+which brick has a width less than the length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find the block with the most colors	SW.countSuperlative entity-en.block string-max string-color
+find me the block that is to the right of the special block	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-is_special )
+block whose length is at most height of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+select the block that is to the left of two or more blocks	SW.countComparative entity-en.block string-left string->= number2 entity-en.block
+block that more than two block is left of	SW.countComparative entity-en.block SW.reverse string-left string-> number2 entity-en.block
+block which is at the left of the block below e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+find the longest block	SW.superlative entity-en.block string-max SW.ensureNumericProperty string-length
+find a block above at most two blocks	SW.countComparative entity-en.block SW.reverse string-below string-<= number2 entity-en.block
+find a block 6 inches or less long	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.concat )
+look right of e0 and find 3 inch block	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-left string-= e0
+find me a 3 inch long special block	SW.filter ( SW.filter entity-en.block string-is_special ) string-length string-= number3 en.inch
+find the block taller than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity number3 en.inch )
+name a block with e0 below and to the right	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-right string-= e0
+e0 block left of e1	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e1 ) string-shape string-= e0
+what is the length of e0	SW.getProperty e0 string-length
+block that is special and that is left of e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-left string-= e0
+block that is below block whose length is 3 inches	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+block less than two blocks below	SW.countComparative entity-en.block SW.reverse string-below string-< number2 entity-en.block
+find me all the blocks two blocks left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-left string-= e0 )
+select the e0 blocks	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-shape string-= e0 )
+what is the number of bricks	.size entity-en.block
+find me a block with at most two blocks to the left of it	SW.countComparative entity-en.block string-right string-<= number2 entity-en.block
+which brick is longer than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity number3 en.inch )
+find me a block that is not a e0	SW.filter entity-en.block string-shape string-!= e0
+block which does not have e0 above	SW.filter entity-en.block SW.reverse string-above string-!= e0
+find me all blocks underneath at least 2 blocks	SW.countComparative entity-en.block string-below string-> number2 entity-en.block
+block left of blocks 1 and 2	SW.filter entity-en.block SW.reverse string-left string-= SW.concat
+find me all special blocks that e0 is under	SW.filter ( SW.filter entity-en.block string-is_special ) SW.reverse string-below string-= e0
+select the block that has a width of 3 inches and is below e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) SW.reverse string-below string-= e0
+find me all 3 or 6 inch wide blocks	SW.filter entity-en.block string-width string-= SW.concat
+select a block that has width and height of 3 inches each	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-height string-= number3 en.inch
+find me all the blocks shorter than e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+block whose length is at most length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find the block that is to the left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) SW.reverse string-left string-= e0
+find a block taller than e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+which is the 3 inches tall block at the left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-height string-= number3 en.inch
+which brick is furthest to the left	SW.countSuperlative entity-en.block string-max string-left entity-en.block
+what is the length of the block	string-sum SW.getProperty entity-en.block string-length
+find me all 3 inch tall blocks that e0 is left of	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-height string-= number3 en.inch
+locate a block that is on the left side of the smallest number of blocks	SW.countSuperlative entity-en.block string-min string-left entity-en.block
+two blocks right of e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+block to the left of e0 thats 3 inches wide	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-width string-= number3 en.inch
+select the bricks that are less than 6 inches tall then select the bricks that are less than 3 inches tall	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.concat )
+below and left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) SW.reverse string-right string-= e0
+get me a block above and to the left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) SW.reverse string-below string-= e0
+choose the block above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-above string-= e0
+find me all 3 inch tall blocks that e0 is above	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-above string-= e0
+block that the most number of block is left of	SW.countSuperlative entity-en.block string-max SW.reverse string-left entity-en.block
+find blocks wider than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity number3 en.inch )
+block around e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-left string-= e0
+second left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+what is the average length of the bricks	string-avg SW.getProperty entity-en.block string-length
+find me all blocks below two block	SW.countComparative entity-en.block string-below string-< number2 entity-en.block
+a special block whose shape is e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-shape string-= e0
+left and above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-above string-= e0
+find the block located beneath e0 that has a 3 inch diameter	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-below string-= e0
+which brick is below the brick shaped like a e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-shape string-= e0 )
+block with same color as of e0	SW.filter entity-en.block string-color string-= SW.getProperty e0 string-color
+select the block that has two shapes	SW.countComparative entity-en.block string-shape string-= number2
+block that has the smallest height	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-height
+what block is to the right and above e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-above string-= e0
+find a block that has a length of less than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity number3 en.inch )
+find a block shorter than the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+block on bottom	SW.countComparative entity-en.block string-below string->= number2 entity-en.block
+left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-left string-= e0
+which brick is no wider than e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me the block in the shape of a e0 above e1	SW.filter ( SW.filter entity-en.block string-above string-= e1 ) string-shape string-= e0
+special block to right of e0	SW.filter ( SW.filter entity-en.block string-is_special ) SW.reverse string-left string-= e0
+block above block one	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= en.block.block1 ) string-above string-= en.block.block1
+find me the block that is to the right of the block that e0 is above	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+blocks of two or more colors	SW.countComparative entity-en.block string-color string->= number2
+find me all blocks with at most 2 blocks to the right of it	SW.countComparative entity-en.block SW.reverse string-right string-<= number2 entity-en.block
+find the block below the special block	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-is_special )
+choose a block that is to the left of e0	SW.countComparative entity-en.block SW.reverse string-left string-< number2 entity-en.block
+what brick is below a brick that is 3 inches long	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+find the block up 1 and right 1 of e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-right string-= e0 )
+which brick is 3 inches wide and 3 inches high	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-width string-= number3 en.inch
+what block is as tall as e0 is wide	SW.filter entity-en.block string-height string-= SW.getProperty e0 string-width
+what is the average height of the blocks	string-avg SW.getProperty entity-en.block string-height
+block that is right of e0 and that is right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-right string-= e0
+what block is e0 or e1 to the right of	SW.filter entity-en.block SW.reverse string-right string-= SW.concat
+what block is taller than e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+name a block that has two or more shapes	SW.countComparative entity-en.block string-shape string->= number2
+locate the block with a length that exceeds the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me all the blocks as long as e0	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-length
+find me all blocks below 3 inch high blocks	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find me all blocks below the special blocks	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-is_special )
+select the block that is on the left side of the block that is 3 inches in length	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+what block is above the block that is 3 inches long	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+what block is to the left and below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+which brick has a length shorter than the length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find me all blocks as wide or wider than e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+block that is below the least number of block	SW.countSuperlative entity-en.block string-min string-below entity-en.block
+find the block whose height is 3 inches	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-right string-= en.block.block1
+find me the block with the least blocks below it	SW.countSuperlative entity-en.block string-min string-above entity-en.block
+find me all blocks that is to the right of the least number of blocks	SW.countSuperlative entity-en.block string-min string-right entity-en.block
+block is at the second left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+find me the block that is to the left of the block that e0 is above	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+which block is at the very bottom	SW.countSuperlative entity-en.block string-min SW.reverse string-above entity-en.block
+which brick is to the left of the 3 inch brick	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+find me all blocks at least 3 inches wide	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity number3 en.inch )
+choose a block that is taller than 3 or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.concat )
+find the block that has a height of 3 inches and that e0 is to the right of	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-right string-= e0
+find me all blocks left of e0 or e1	SW.filter entity-en.block string-left string-= SW.concat
+find the block with a height less than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity number3 en.inch )
+select the brick that is to the furthest left	SW.countSuperlative entity-en.block string-max SW.reverse string-right entity-en.block
+what block is to the right of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-right string-= e0
+find me all special blocks that is below	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-is_special )
+is there a block to the right of either e0 or e1	SW.filter entity-en.block string-right string-= SW.concat
+what block is 3 inches tall and e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-shape string-= e0
+find me all blocks with at least 2 blocks above it	SW.countComparative entity-en.block SW.reverse string-above string->= number2 entity-en.block
+what block is to the right of the 3 inch long block	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+which brick has no more than two blocks to its left	SW.countComparative entity-en.block string-right string-<= number2 entity-en.block
+what e0 blocks are above e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) SW.reverse string-below string-= e1
+find me all e0 blocks that is right of e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-right string-= e1
+block that is below block whose height is 3 inches	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find me all blocks with the same width as e0	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-width
+what block is of 3 inches height and above e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-above string-= e0
+find a block with a length greater than e0 is tall	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+which type of block has the most shapes	SW.countSuperlative entity-en.block string-max string-shape
+locate block one or e0	SW.concat
+which brick is shaped like a e0	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-shape string-= e0
+block left and above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-below string-= e0
+find me all blocks above at most 2 blocks	SW.countComparative entity-en.block string-above string-<= number2 entity-en.block
+is there a block with a width equal to either 3 or 6 inches	SW.filter entity-en.block string-width string-= SW.concat
+block above 1 block and left of 1 block	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= en.block.block1 ) SW.reverse string-left string-= en.block.block1
+find me all the 3 inch wide blocks below e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-below string-= e0
+find me all blocks with height and width equal to 3 inches	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-height string-= number3 en.inch
+find the block that e0 is above	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-above string-= e0
+select the blocks above and below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-below string-= e0
+find me all blocks right of the block that e0 is below	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+find me all blocks with more than 2 colors	SW.countComparative entity-en.block string-color string-> number2
+find me all the bricks with 2 blocks above it	SW.countComparative entity-en.block SW.reverse string-above string-= number2 entity-en.block
+select the brick that has the least blocks to the left of it	SW.countSuperlative entity-en.block string-max string-right entity-en.block
+what block has e0 on its right and is e1	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-shape string-= e1
+block whose width is smaller than height of e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+which block has two blocks above it	SW.countComparative entity-en.block SW.reverse string-above string-= number2 entity-en.block
+select the block that e0 is below	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-below string-= e0
+find me all the blocks longer than e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find me all the bricks with a smaller width than e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+which brick is shorter than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity number3 en.inch )
+find me all blocks with at least 2 blocks to the right of it	SW.countComparative entity-en.block SW.reverse string-right string-> number2 entity-en.block
+select the block which is right to e0 with 3 inches	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-right string-= e0
+left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) SW.reverse string-right string-= e0
+find me all blocks over that e0 is above	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+find me all blocks longer than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity number3 en.inch )
+right of e0 and e1	SW.filter entity-en.block SW.reverse string-left string-= SW.concat
+find a block wider than e0 is tall	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+block to the left of e0	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-left string-= e0 )
+block below and left from e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) SW.reverse string-right string-= e0
+find me the block that e0 is below and that has a length of 3 inches	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-length string-= number3 en.inch
+is there a block piled on top of either e0 or e1	SW.filter entity-en.block string-above string-= SW.concat
+which brick is at most 3 or 6 inches long	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.concat )
+is there a block on the right side of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-right string-= e0
+find a block with less that two blocks above it	SW.countComparative entity-en.block string-below string-< number2 entity-en.block
+select the blocks to the left of and above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-above string-= e0
+block whose shape is a e0 and whose width is 3 inches	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-width string-= number3 en.inch
+how long is the block	string-sum SW.getProperty entity-en.block string-length
+what brick is at least 3 or 6 inches	SW.concat
+block below and to left of e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) SW.reverse string-right string-= e0
+find a block taller than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.concat )
+select all bricks that are not 3 inches wide	SW.filter entity-en.block string-width string-!= number3 en.inch
+find a block whose width is three inches that e0 is to the right of	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-width string-= number3 en.inch
+find me all 3 inch wide blocks that is right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-width string-= number3 en.inch
+choose a brick that is at least 3 inches wide	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity SW.concat )
+select all e0 blocks	SW.filter entity-en.block string-shape string-= e0
+above e0 or e1	SW.filter entity-en.block SW.reverse string-below string-= SW.concat
+block to the left of a block that e0 is left of	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+find me all blocks no bigger than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity number3 en.inch )
+find a block shorter than 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.concat )
+select the block that e0 is not below it	SW.filter entity-en.block string-above string-!= e0
+block whose length is 3 inches	SW.filter entity-en.block string-length string-= number3 en.inch
+what block below e0 is 3 inches wide	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-below string-= e0
+select the blocks to the left of e0	SW.filter entity-en.block string-left string-= e0
+block above at most two block	SW.countComparative entity-en.block SW.reverse string-above string-<= number2 entity-en.block
+block whose height is not 3 inches	SW.filter entity-en.block string-height string-!= number3 en.inch
+what block is two blocks to the right of e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+which brick is no higher than 3 or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.concat )
+find me the block that is to the left of e0 whose shape is a e1	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-shape string-= e1
+block whose width is width of e0	SW.filter entity-en.block string-width string-= SW.getProperty e0 string-width
+block that is right of block that is right of e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-right string-= e0 )
+what block is above a block that is three inches in height	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find me all special blocks left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-is_special
+block left of e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-shape string-= e0 )
+what block is to the right of the block that e0 is to the right of	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+find a block that is at least the same height as e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+block that has the largest height	SW.superlative entity-en.block string-max SW.ensureNumericProperty string-height
+find me the block with the least colors	SW.countSuperlative entity-en.block string-min string-color
+find the block that is in the shape of a e0 that e1 is to the right of	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) SW.reverse string-right string-= e1
+what block is to the left of the block that is to the right of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-right string-= e0 )
+select the special 3 inch tall block	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-is_special
+block right of e0 block	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-shape string-= e0 )
+select the brick two bricks left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-left string-= e0 )
+is there a block with a width that equals 3 or 6 inches maximum	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.concat )
+block at the right of a special block	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-is_special )
+there is a block below e0 and a block above that one find it	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-below string-= e0 )
+what block three inches in width is left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-width string-= number3 en.inch
+find me all 3 inch tall blocks which e0 is above	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-height string-= number3 en.inch
+block that is special and that is right of e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-right string-= e0
+block that is above e0	SW.filter entity-en.block string-above string-= e0
+find a block 6 inches or shorter	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.concat )
+find a block that is above e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me all blocks that is above and right of e0	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+find me all blocks with less than 2 blocks to the left	SW.countComparative entity-en.block SW.reverse string-left string-< number2 entity-en.block
+what block has at most two blocks above it	SW.countComparative entity-en.block string-below string-<= number2 entity-en.block
+third block to the left	SW.filter entity-en.block string-left string-= SW.concat
+find me all the bricks that have at most 2 blocks below it	SW.countComparative entity-en.block SW.reverse string-below string-<= number2 entity-en.block
+find me all the e0 or e1 bricks	SW.filter entity-en.block string-shape string-= SW.concat
+find me all 3 or 6 inch long blocks	SW.filter entity-en.block string-length string-= SW.concat
+find me all blocks that e0 is left and above	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+below and right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-above string-= e0
+what block is below the 3 inch long block	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+block that two block is right of	SW.countComparative entity-en.block SW.reverse string-right string-= number2 entity-en.block
+which special block is to the left of e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-left string-= e0
+select blocks that have a height of 3 inches and are to the right of e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-right string-= e0
+what block has the most blocks below it	SW.countSuperlative entity-en.block string-max string-above entity-en.block
+select the block above the left one	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= en.block.block1 ) string-left string-= en.block.block1
+select the brick that is below and to the left of e0	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-below string-= e0 )
+find me all blocks not left of e0	SW.filter entity-en.block string-left string-!= e0
+what e0 block is left of e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-left string-= e1
+select the block to the left of the block above e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-above string-= e0 )
+find a 3 inch wide e0 block	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-width string-= number3 en.inch
+find me all blocks over and right of e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-right string-= e0
+which brick is below the brick to the right of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-right string-= e0 )
+3 inch block left of e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-right string-= e0
+find me all blocks that is left and right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-left string-= e0
+find me all blocks that is right of the block which e0 is right of	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+what is the height of e0	SW.getProperty e0 string-height
+find the block below and to the left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-below string-= e0 )
+what block is above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) SW.reverse string-above string-= e0
+block whose length is at least length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find me all e0 blocks that e1 is below	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e1 ) string-shape string-= e0
+find me all 3 inch tall blocks	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find a block 6 inches long or less	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.concat )
+find me all the blocks left and below e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-below string-= e0 )
+what block has two or more shapes	SW.countComparative entity-en.block string-shape string->= number2
+e0 to right of e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-right string-= e1
+which brick is left of e0 or e1	SW.filter entity-en.block string-left string-= SW.concat
+find me all e0 blocks left of e1	SW.filter ( SW.filter entity-en.block string-left string-= e1 ) string-shape string-= e0
+find me a block that is to the left of the block with a width of 3 inches	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+find me all blocks to the right and above e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-below string-= e0
+which block is above and to left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-above string-= e0
+find me all the blocks taller than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.concat )
+block that has e0 at right and below	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+get the blocks below e0	SW.filter entity-en.block SW.reverse string-above string-= e0
+locate a 3inch lwide block	SW.filter entity-en.block string-width string-= number3 en.inch
+choose the brick that is the least thick	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-width
+what is the average height of the bricks	string-avg SW.getProperty entity-en.block string-height
+find the shortest block	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-height
+select a block with two blocks below it	SW.countComparative entity-en.block string-above string->= number2 entity-en.block
+find me the block that e0 is below and above	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) SW.reverse string-above string-= e0
+find a block with a diameter that is wider than 3 inches total	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity number3 en.inch )
+find me all blocks with at most 2 colors	SW.countComparative entity-en.block string-color string-<= number2
+what is the width of e0	SW.getProperty e0 string-width
+choose a block that is the right of e0	SW.countComparative entity-en.block SW.reverse string-right string-<= number2 entity-en.block
+find the block with the most shapes	SW.countSuperlative entity-en.block string-max string-shape
+block that is special and that is special	SW.filter ( SW.filter entity-en.block string-is_special ) string-is_special
+which block has a length smaller than block 1s width	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty en.block.block1 string-width  )
+block left of a block that is left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-left string-= e0 )
+find a special block above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-is_special
+what block is to the left of the 3 inch wide block	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+find me all blocks right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-right string-= e0
+left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-right string-= e0
+find me all blocks that is right of e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-right string-= e0 )
+select all blocks with height equal to the length of e0	SW.filter entity-en.block string-height string-= SW.getProperty e0 string-length
+find me all the 3 inch tall e0 bricks	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-height string-= number3 en.inch
+block left of 2 blocks	SW.countComparative entity-en.block string-left string->= number2 entity-en.block
+find me all blocks that e0 is right and below	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+2nd left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+3 inch block right of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-height string-= number3 en.inch
+the block below block one and to the right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-below string-= e0
+find blocks above e0 or e1	SW.filter entity-en.block SW.reverse string-below string-= SW.concat
+select the block that is to the right of e0 and has a height of 3 inches	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-height string-= number3 en.inch
+select the block that e0 is to the left and below	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-below string-= e0
+block left from 3 inch block	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+choose a block that is shape like a e0 or e1	SW.filter entity-en.block string-shape string-= SW.concat
+find me all blocks at most as wide as e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find me all blocks with less than 2 blocks below it	SW.countComparative entity-en.block SW.reverse string-below string-< number2 entity-en.block
+block above 3 inches long block	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-left string-= e0
+find those blocks with lengths that exceed either 3 or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.concat )
+block of height not more than width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me all blocks below that e0 is above	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) SW.reverse string-above string-= e0
+what block is longer than e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+block with maximum two colors	SW.countComparative entity-en.block string-color string-<= number2
+block wider than e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+select the e0 block below e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) SW.reverse string-above string-= e1
+what block is shorter than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity number3 en.inch )
+select the block with a width of 3 inches	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) SW.reverse string-right string-= en.block.block1
+which brick is no longer than e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+select the lower block that is 3 inches tall	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+locate the block beneath the block that has a width of 3 inches	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+choose a block which is as long as e0 is wide	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-width
+select the block to the right of e0	SW.filter entity-en.block string-right string-= e0
+block that the least number of block is above	SW.countSuperlative entity-en.block string-min SW.reverse string-above entity-en.block
+find me all blocks below e0 blocks	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-shape string-= e0 )
+block below and to right of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+find me all blocks with at least 2 blocks to the right	SW.countComparative entity-en.block string-left string->= number2 entity-en.block
+what block is to the right of the block that is three inches wide	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+block right and below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-below string-= e0
+select the block that e0 is not to the left of	SW.filter entity-en.block SW.reverse string-left string-!= e0
+find a block that e0 is above and to the left of	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) SW.reverse string-left string-= e0
+select the 3 or 6 inch wide block	SW.filter entity-en.block string-width string-= SW.concat
+block with height of either 3 inches or 6 inches	SW.filter entity-en.block string-height string-= SW.concat
+choose a brick that is to the left of a brick that is 3 inches wide	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+which block is to the left of the block that e0 is below	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+find me all special blocks left of something	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-is_special )
+find blocks that are at least as tall as e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+which brick is 2 bricks to the right of e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-right string-= e0 )
+choose block at right of block over e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-above string-= e0 )
+block below e0 which is 3 inches long	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-length string-= number3 en.inch
+find a block with a length and width of 3 inches each side	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-width string-= number3 en.inch
+above and left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) SW.reverse string-right string-= e0
+select all blocks that are 3 inches long	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-length string-= number3 en.inch
+find me all the blocks shorter than e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+block whose height is at most 3 inches or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.concat )
+locate the block with the least amount of blocks beside it on the left	SW.countSuperlative entity-en.block string-min SW.reverse string-left entity-en.block
+find the block located to the right of at least two other blocks	SW.countComparative entity-en.block SW.reverse string-left string->= number2 entity-en.block
+select a brick that is no bigger than 3 inches long	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity number3 en.inch )
+what blocks are both above and below e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-below string-= e0
+find me all blocks taller than e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+select the brick with the least number of blocks to the left of it	SW.countSuperlative entity-en.block string-min SW.reverse string-left entity-en.block
+find me all 3 inch long blocks	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+get the second block above e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me all blocks over that e0 is left of	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+which block is below e0 that is at least 3 inches high	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-width string-= number3 en.inch
+what block is above and to the left of e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) SW.reverse string-left string-= e0
+find the blocks who have a height of 3 inches are are to the left of e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-left string-= e0
+find me all blocks which e0 is right and left of	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+select the block right of e0 that is 3 inches tall	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-height string-= number3 en.inch
+find the block to the right of the 3 inch tall block	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find me all blocks that e0 is below	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) SW.reverse string-below string-= e0
+block whose height is larger than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity number3 en.inch )
+find me a block that has less than two blocks below it	SW.countComparative entity-en.block SW.reverse string-below string-< number2 entity-en.block
+block above most number of blocks	SW.countSuperlative entity-en.block string-max string-above entity-en.block
+what block is above the 3 inch wide block	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+find me all blocks 2 blocks from the right	SW.countComparative entity-en.block string-right string-= number2 entity-en.block
+select the block that is 3 inches in length and is above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-length string-= number3 en.inch
+which block is above the brick that is 3 inches high	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find a block taller than e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+block that is below e0 or e1	SW.filter entity-en.block string-below string-= SW.concat
+choose the most shapeless block	SW.countSuperlative entity-en.block string-min string-shape
+block below block one	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-below string-= en.block.block1 )
+which brick is not 3 inches wide	SW.filter entity-en.block string-width string-!= number3 en.inch
+what block three inches in height is above e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-above string-= e0
+right and below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-above string-= e0
+which blocks have a height equal to the width of e0	SW.filter entity-en.block string-height string-= SW.getProperty e0 string-width
+left and below of e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+what block has a width of 3 inches and is above e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-above string-= e0
+block above and right from e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-left string-= e0 )
+what block is to the left of the block above e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me all blocks above that e0 is right of	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+find a block buried under at least two other blocks	SW.countComparative entity-en.block SW.reverse string-above string->= number2 entity-en.block
+which brick is at least 3 inches long	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity number3 en.inch )
+select the blocks that are to the right of e0 blocks	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-shape string-= e0 )
+what is the blocks height	string-sum SW.getProperty entity-en.block string-height
+select a block above block one that is 3 inches long	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= en.block.block1 ) string-length string-= number3 en.inch
+which brick is the same shape as e0	SW.filter entity-en.block string-shape string-= SW.getProperty e0 string-shape
+select a brick that is at least as wide as e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find the block that is left to the block of 3 inches	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+find me all blocks right of that e0 is above	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+gather all the blocks that are not 3 inches long	SW.filter entity-en.block string-height string-!= number3 en.inch
+select the blocks that are above and below e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-above string-= e0
+which one is a 3 inch special block	SW.filter ( SW.filter entity-en.block string-is_special ) string-width string-= number3 en.inch
+what block is to the left of the 3 inch tall block	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find a block with a 3 inch long block below it	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+find me the block that is to the right of two or more blocks	SW.countComparative entity-en.block string-right string->= number2 entity-en.block
+which brick has a width smaller than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity number3 en.inch )
+find me all blocks above e0	SW.filter entity-en.block SW.reverse string-below string-= e0
+select the e0 shaped block	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= en.block.block1 ) string-shape string-= e0
+what blocks have a height not equal to 3 inches	SW.filter entity-en.block string-height string-!= number3 en.inch
+block whose length is larger than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity number3 en.inch )
+block that less than two block is left of	SW.countComparative entity-en.block SW.reverse string-left string-< number2 entity-en.block
+find the block that has a height that does not surpass the height of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+select me the block that is above e0 and has a height of 3 inches	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-height string-= number3 en.inch
+find the blocks that are to the left of e0	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-left string-= e0 )
+is there a block beneath two other blocks	SW.countComparative entity-en.block SW.reverse string-above string-= number2 entity-en.block
+which brick is taller than e0 is high	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me all 3 inch tall blocks right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-height string-= number3 en.inch
+average height of block	string-avg SW.getProperty entity-en.block string-height
+locate a block that is shorter than 3 inches or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.concat )
+block above less than two blocks	SW.countComparative entity-en.block string-above string-< number2 entity-en.block
+what is the number of the block	.size entity-en.block
+find me all the bricks at least as wide as e0 is tall	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+find the tallest block	SW.superlative entity-en.block string-max SW.ensureNumericProperty string-height
+find me all blocks below e0 which e0 is also below	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) SW.reverse string-below string-= e0
+the block beneath the block which is less than two	SW.countComparative entity-en.block SW.reverse string-above string-< number2 entity-en.block
+see block above e0 and get block left of that one	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+select brick whose length is more than the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+select the block above e0 that is 3 inches wide	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-above string-= e0
+choose a block above the least populated bricks	SW.countSuperlative entity-en.block string-min string-above entity-en.block
+find me a block with two or less colors	SW.countComparative entity-en.block string-color string-<= number2
+find me all the special blocks above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-is_special
+find the block with the most blocks to the right of	SW.countSuperlative entity-en.block string-max string-right entity-en.block
+cannot paraphase	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-right string-= en.block.block1 )
+select blocks that have a length of 3 icnhes and are to the right of e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-right string-= e0
+find the block that is to the left of e0	SW.filter entity-en.block SW.reverse string-left string-= e0
+block whose length is larger than 3 inches or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.concat )
+select the block on the right side of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-left string-= e0
+what brick has no more than two bricks to its left	SW.countComparative entity-en.block SW.reverse string-left string-<= number2 entity-en.block
+what brick is both unique and 3 inches	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-is_special
+below and left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-below string-= e0
+which brick is below less than two bricks	SW.countComparative entity-en.block string-below string-< number2 entity-en.block
+which brick is below a brick that is 3 inches wide	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+tell me the number of blocks	.size entity-en.block
+find me all the 3 inch long blocks	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-length string-= number3 en.inch
+find the block located on the left side of the special block	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-is_special )
+e0 block below e1	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e1 ) string-shape string-= e0
+what block is to the left of block one	SW.filter ( SW.filter entity-en.block string-left string-= en.block.block1 ) string-left string-= en.block.block1
+find me all blocks below 2 blocks	SW.countComparative entity-en.block string-below string-= number2 entity-en.block
+find the block that is to the right of e0 whose shape is also a e1	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-shape string-= e1
+block below two other blocks	SW.countComparative entity-en.block string-below string->= number2 entity-en.block
+find me all blocks shorter than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity number3 en.inch )
+find the block with 3 inches of height	SW.filter entity-en.block string-height string-= number3 en.inch
+find me all special blocks that e0 is left of	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-is_special
+select the block that is two blocks above that block	SW.countComparative entity-en.block SW.reverse string-above string-= number2 entity-en.block
+find me all the bricks below e0 or e1	SW.filter entity-en.block string-below string-= SW.concat
+the blocks under e0 are smaller	SW.countComparative entity-en.block SW.reverse string-below string-< number2 entity-en.block
+block longer than width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me a block that is either 3 or 6 inches tall	SW.filter entity-en.block string-height string-= SW.concat
+find me all 3 inch long blocks that e0 is right of	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-right string-= e0
+3 inch block to right of e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-left string-= e0
+find me all 3 inch wide and long blocks	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-length string-= number3 en.inch
+find the single block that is located to the right of the largest number of blocks	SW.countSuperlative entity-en.block string-max SW.reverse string-left entity-en.block
+what block has the greatest height	SW.superlative entity-en.block string-max SW.ensureNumericProperty string-height
+get me a block below and above e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-above string-= e0
+select a block with a length larger than the length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find me all e0 blocks which is right of e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-right string-= e1
+what block is to the left of the most blocks	SW.countSuperlative entity-en.block string-max SW.reverse string-right entity-en.block
+what e0 block is above e1	SW.filter ( SW.filter entity-en.block string-above string-= e1 ) string-shape string-= e0
+3 inch tall bock below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-height string-= number3 en.inch
+e0 block above e1	SW.filter ( SW.filter entity-en.block string-above string-= e1 ) string-shape string-= e0
+find a block with two or less blocks to the right of it	SW.countComparative entity-en.block SW.reverse string-right string-<= number2 entity-en.block
+select all special blocks above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-is_special
+find me all e0 blocks that is left or right of e1	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e1 ) string-shape string-= e0
+select a block who has width greater than or equal to block 1s height	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity SW.getProperty en.block.block1 string-height  )
+get a block above any e0 block	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-shape string-= e0 )
+block left and above e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-below string-= e0
+find me a block that is below at most two blocks	SW.countComparative entity-en.block SW.reverse string-above string-<= number2 entity-en.block
+width of e0	SW.getProperty e0 string-width
+what brick is 3 inches wide and 3 inches high	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-height string-= number3 en.inch
+find me a block with a width of three inches that e0 is below	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-width string-= number3 en.inch
+choose a brick that is wider than e0 is high	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+what block has the fewest shapes	SW.countSuperlative entity-en.block string-min string-shape
+find me all e0 blocks that is left of e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-left string-= e1
+block that is above block whose length is 3 inches	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+choose a block that is taller than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity number3 en.inch )
+right of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-left string-= e0
+find me all 3 inch tall special blocks	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-is_special
+find me all blocks with a length shorter than the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+what block is below e0 and has a height of 3 inches	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-height string-= number3 en.inch
+find a block with the least number of blocks below it	SW.countSuperlative entity-en.block string-min SW.reverse string-below entity-en.block
+find me all blocks with at least 2 shapes	SW.countComparative entity-en.block string-shape string-> number2
+choose a block to the left of e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-left string-= e0 )
+find all the special blocks that are 3 inches long	SW.filter ( SW.filter entity-en.block string-is_special ) string-length string-= number3 en.inch
+find me all blocks below e0 or e1	SW.filter entity-en.block SW.reverse string-above string-= SW.concat
+find the block underneath e0 that is 3 inches long	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-below string-= e0
+find a block that is at least 3 to 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.concat )
+which brick is to the right of the special brick	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-is_special )
+find me all blocks that e0 is above and right of	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me all blocks not above e0	SW.filter entity-en.block string-above string-!= e0
+block that is below block that is left of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-left string-= e0 )
+what is the total width of the brick	string-sum SW.getProperty entity-en.block string-width
+choose a 3 inch tall brick	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity number3 en.inch )
+find me a e0 block 3 inches long	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-shape string-= e0
+3 inch wide block below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-width string-= number3 en.inch
+find me the block that is to the left of e0 with a height of 3 inches	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-height string-= number3 en.inch
+select all bricks right of e0 or e1	SW.filter entity-en.block string-right string-= SW.concat
+what block is longer than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity number3 en.inch )
+which block is farthest to the left	SW.countSuperlative entity-en.block string-min string-right entity-en.block
+find me all the blocks with more than 2 blocks above it	SW.countComparative entity-en.block SW.reverse string-above string-> number2 entity-en.block
+find me all the bricks wider than the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me all blocks as wider than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity SW.concat )
+which brick is higher than e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+select the blocks that have a height less than or equal to block 1s length	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty en.block.block1 string-length  )
+find a block to the right of a block 3 in height	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+which block is to the left of e0	SW.filter entity-en.block string-right string-!= e0
+choose e0 or e1	SW.concat
+is there a block located to the left of another block that is 3 inches long	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+which block is above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-above string-= e0
+which brick is furthest to the right	SW.countSuperlative entity-en.block string-min string-left entity-en.block
+block whose length is larger than width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find a block with a e0 block below it	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-shape string-= e0 )
+what is the block above special block	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-is_special )
+name a block of 3inch width above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-width string-= number3 en.inch
+find me all blocks whose width is shorter than the height of e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+select a brick whose length is at least the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+block above and rigth from e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-below string-= e0
+get the block that is 3 inches tall found left of e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-left string-= e0
+is there a block to the right of e0 and to the left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-left string-= e0
+find me any e0 block	SW.filter entity-en.block string-shape string-= e0
+find me a block above at least two blocks	SW.countComparative entity-en.block SW.reverse string-below string->= number2 entity-en.block
+select all bricks with length of 1	SW.filter entity-en.block string-height string-= SW.getProperty en.block.block1 string-length
+block left and above e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) SW.reverse string-below string-= e0
+which block has a width of less than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.concat )
+block two below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+find me the block that e0 is to the right of	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-below string-= e0
+find me all blocks that e0 is left and under	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-below string-= e0
+find a block shaped like a e0	SW.filter entity-en.block string-shape string-= e0
+block at the left of least number of blocks	SW.countSuperlative entity-en.block string-min string-left entity-en.block
+select the brick that has the least blocks to the right of it	SW.countSuperlative entity-en.block string-min string-left entity-en.block
+which block is at least 3 or 6 inches long	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.concat )
+what is the average width of the blocks	string-avg SW.getProperty entity-en.block string-width
+which brick is at least 3 inches high	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity number3 en.inch )
+block to the right of at least 2 blocks	SW.countComparative entity-en.block string-right string->= number2 entity-en.block
+select the block that is below the block to the right of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-right string-= e0 )
+find the skinniest block	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-width
+find me the block that is above e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-above string-= e0 )
+2 blocks below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+which special brick is to the right of e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-right string-= e0
+block a above block that is above e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-above string-= e0 )
+block whose length is at least 3 inches or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.concat )
+find all special blocks to the right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-is_special
+which block is above and to the right of e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me a block wider than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity number3 en.inch )
+find me the block that has a height of 3 inches	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find the block below the block under e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+which brick is above e0 or e1	SW.filter entity-en.block string-above string-= SW.concat
+find all blocks above 2 or fewer blocks	SW.countComparative entity-en.block string-above string-<= number2 entity-en.block
+what block is shorter then e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+which brick has two blocks below it	SW.countComparative entity-en.block SW.reverse string-below string-< number2 entity-en.block
+block that is left of e0 or e1	SW.filter entity-en.block string-left string-= SW.concat
+which brick is not to the left of e0	SW.filter entity-en.block string-left string-!= e0
+choose a block that is right of a 3 inch brick	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find the e0 shaped block below e1	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e1 ) string-shape string-= e0
+block that is below e0 and whose width is 3 inches	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-width string-= number3 en.inch
+choose the most colorful block	SW.countSuperlative entity-en.block string-max string-color
+block below and right of e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+locate the block that is on top of at least one other block and that has a length of 3 inches	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+select all blocks above e0	SW.filter entity-en.block string-below string-!= e0
+find the block that e0 is to the left of and above	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-above string-= e0
+find a block with a diameter that does not surpass the height of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+find me a e0 or e1 shaped block	SW.filter entity-en.block string-shape string-= SW.concat
+find the block with the e0 block above it	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-shape string-= e0 )
+which block is the tallest	SW.superlative entity-en.block string-max SW.ensureNumericProperty string-height
+find me all 3 inch tall blocks left of e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-left string-= e0
+block left of block one	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= en.block.block1 ) string-left string-= en.block.block1
+left of and below e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-below string-= e0 )
+which block is to the left of no more than two blocks	SW.countComparative entity-en.block string-left string-<= number2 entity-en.block
+find me all blocks below of which is above e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-above string-= e0
+block two right from e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-right string-= e0 )
+find me all special 3 inch long blocks	SW.filter ( SW.filter entity-en.block string-is_special ) string-length string-= number3 en.inch
+e0 block right of e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-right string-= e1
+find me a block to the right of either e0 or e1	SW.filter entity-en.block string-right string-= SW.concat
+block that is left of block that is below e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-below string-= e0 )
+find a e0 block with a 3 inch height	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-height string-= number3 en.inch
+block two above e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+block that is right of less than two block	SW.countComparative entity-en.block string-right string-< number2 entity-en.block
+find me all 3 inch high blocks	SW.filter entity-en.block string-height string-= number3 en.inch
+find me all blocks that is below which e0 is right of	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+the unique 3 inch wide block	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-is_special
+choose the brick that is 3 inches high below e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-below string-= e0
+which block is closest to the bottom	SW.countSuperlative entity-en.block string-max SW.reverse string-above entity-en.block
+find me all blocks and and over e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me all blocks at least 3 inches in width	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity number3 en.inch )
+find a block to the right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-right string-= e0
+which e0 blocks are to the right of e1	SW.filter ( SW.filter entity-en.block string-right string-= e1 ) string-shape string-= e0
+which special block is 3 inches high	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-is_special
+the 3x3 inch block	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-width string-= number3 en.inch
+find me the block that is to the left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-left string-= e0
+find me all blocks below and to the right of e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) SW.reverse string-left string-= e0
+find a block that is 3 inches long	SW.filter entity-en.block string-length string-= number3 en.inch
+block right and up from e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-above string-= e0
+e0 right of e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-right string-= e1
+find a block that is right of at least two blocks	SW.countComparative entity-en.block SW.reverse string-right string->= number2 entity-en.block
+select the blocks below and to the left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) SW.reverse string-left string-= e0
+find me all the blocks right of the e0 block	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-shape string-= e0 )
+block that is left of block whose height is 3 inches	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+what block has two or less shapes	SW.countComparative entity-en.block string-shape string-<= number2
+select all blocks whose length at a maximum of 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.concat )
+2 blocks right of e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+what block is 3 or less inches tall	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity number3 en.inch )
+find me all blocks as high as e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+block to the right and below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-right string-= e0 )
+what block has the most blocks to the right of it	SW.countSuperlative entity-en.block string-max string-left entity-en.block
+block whose length is 3 inches and whose shape is a e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-shape string-= e0
+select the blocks below e0	SW.countComparative entity-en.block string-below string->= number2 entity-en.block
+is there a block to the right of the block that is underneath e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-below string-= e0 )
+which block is the same color as e0	SW.filter entity-en.block string-color string-= SW.getProperty e0 string-color
+find me the block that e0 is to ther right of and that has a shape of a e1	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-shape string-= e1
+find me the block that is below the block that is below e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+what block is at least as tall as e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+select a block that has a length of more than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity number3 en.inch )
+block to right of two others	SW.countComparative entity-en.block string-right string-= number2 entity-en.block
+what special blocks are left of e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-left string-= e0
+select the block that is above e0 with a length of 3 inches	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-length string-= number3 en.inch
+select the left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-above string-= e0
+what is the height of e0	SW.getProperty e0 string-height
+select the block that is to the right of more than 2 blocks	SW.countComparative entity-en.block string-right string-> number2 entity-en.block
+block whose length is not 3 inches	SW.filter entity-en.block string-length string-!= number3 en.inch
+select the blocks that are 3 inches wide	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+find me a 3 inch long block	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-length string-= number3 en.inch
+what block is above the block that is to the left of e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+find me the block that is to the left of the block that is to the right of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-right string-= e0
+what block is to the right of e0 and is in the shape of a e1	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-shape string-= e1
+block whose length is at least width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+block that is right of at most one block	SW.countComparative entity-en.block string-right string-< number2 entity-en.block
+a 3 inch brick that is shaped like a e0	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-width string-= number3 en.inch
+select the 3 inch wide special block	SW.filter ( SW.filter entity-en.block string-is_special ) string-width string-= number3 en.inch
+find a block with the least blocks to the left of	SW.countSuperlative entity-en.block string-min string-left entity-en.block
+block with more than two shapes	SW.countComparative entity-en.block string-shape string-> number2
+find me all 3 inch tall blocks that e0 is right of	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-height string-= number3 en.inch
+select all 3 inch high blocks	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-height string-= number3 en.inch
+block to the right of e0 and above it	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-below string-= e0
+find the block located beneath the second block that is located to the left of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-left string-= e0 )
+what block is longer than e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find the 3 inch wide special block	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-is_special
+get a block to the left of e0 or e1	SW.filter entity-en.block SW.reverse string-right string-= SW.concat
+which brick is no wider than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity number3 en.inch )
+which brick has no more than 2 bricks to its right	SW.countComparative entity-en.block SW.reverse string-right string-<= number2 entity-en.block
+find me a block that e0 is to the left of	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+which block is the shortest	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-height
+above e0 to the left	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+which brick is to the left of the brick that is 3 inches tall	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+select the e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-is_special
+find me all blocks that e0 is below and above	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) SW.reverse string-above string-= e0
+what special blocks have a length of 3 inches	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-is_special
+block not to right of e0	SW.filter entity-en.block SW.reverse string-right string-!= e0
+select the brick that is above the least number of blocks	SW.countSuperlative entity-en.block string-min string-above entity-en.block
+find me all blocks at e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-right string-= e0 )
+find the block with a height that does not surpass either 3 or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.concat )
+which brick is as long as e0 is tall	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-height
+block that has e0 above and below	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-below string-= e0
+e0 shaped block that is to the left of e1	SW.filter ( SW.filter entity-en.block string-left string-= e1 ) string-shape string-= e0
+select the block with the biggest width	SW.superlative entity-en.block string-max SW.ensureNumericProperty string-width
+find me all special blocks above e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-above string-= e0
+which brick is at least as long as e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+what block is below two blocks	SW.countComparative entity-en.block string-below string-= number2 entity-en.block
+are there any 3inch long blocks to the right of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-length string-= number3 en.inch
+find me all the blocks above 3 inch long blocks	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+what block is below the block that e0 is below	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+block as long as e0 is wide	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-width
+find me a block with two blocks to the left of it	SW.countComparative entity-en.block SW.reverse string-left string->= number2 entity-en.block
+find me the blocks that are more than two shapes	SW.countComparative entity-en.block string-shape string-> number2
+what block is unique and shaped like a e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-shape string-= e0
+select the 3 inch tall block below e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-height string-= number3 en.inch
+find me all the blocks as tall as e0	SW.filter entity-en.block string-height string-= SW.getProperty e0 string-height
+what shape is e0	SW.getProperty e0 string-shape
+find the block that is special and to the right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-is_special
+what block has e0 above and left	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-below string-= e0
+which brick is no wider than e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find me all blocks above that e0 is below	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+what block is below the block that e0 is to the left of	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+find me either e0 or e1	SW.concat
+3 inches high block below e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-below string-= e0
+what block is left and below e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-below string-= e0
+find me all blocks as wide as e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+choose a 3 inch block under e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-width string-= number3 en.inch
+which brick has more than two bricks above it	SW.countComparative entity-en.block SW.reverse string-above string-> number2 entity-en.block
+select the special block to the right of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-is_special
+find a block that is on the left side of two other blocks	SW.countComparative entity-en.block SW.reverse string-right string-= number2 entity-en.block
+find the block that is right and below e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+select a block with equivalent width to e0	SW.filter entity-en.block string-width string-= SW.getProperty e0 string-width
+find the block above the least blocks	SW.countSuperlative entity-en.block string-min SW.reverse string-below entity-en.block
+block to left of two or more blocks	SW.countComparative entity-en.block string-left string->= number2 entity-en.block
+what brick is as wide as e0 is long	SW.filter entity-en.block string-width string-= SW.getProperty e0 string-length
+what block is to the right and below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-right string-= e0 )
+choose a block that is the right of the furthest block to the left	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-left string-= en.block.block1 )
+which block is longer than e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+what block has the shape of a e0 and is to the left of e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-left string-= e1
+get me a block to the right of a 3inch block	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+find me all 3 inch wide blocks that e0 is above	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) SW.reverse string-above string-= e0
+block that is right of at most two block	SW.countComparative entity-en.block string-right string-<= number2 entity-en.block
+find the block underneath the e0 block	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-shape string-= e0 )
+find me all special blocks right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-is_special
+find me all blocks with 2 blocks below it	SW.countComparative entity-en.block SW.reverse string-below string-= number2 entity-en.block
+block below two or more blocks	SW.countComparative entity-en.block string-below string-> number2 entity-en.block
+select the block that is to the left of the block that e0 is above	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) SW.reverse string-above string-= e0
+block below 3 inches wide block	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+select the 3 inch block below e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-below string-= e0
+number of block	.size entity-en.block
+find all e0 blocks below e1	SW.filter ( SW.filter entity-en.block string-below string-= e1 ) string-shape string-= e0
+find me a block below at least two blocks	SW.countComparative entity-en.block SW.reverse string-above string->= number2 entity-en.block
+find me all blocks that is left or right of e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+special block right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-is_special
+find me a block with a height of 3 inches that e0 is to the left of	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-left string-= e0
+find me all the blocks right of 3 inch long blocks	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+find the block with the same shape as e0	SW.filter entity-en.block string-shape string-= SW.getProperty e0 string-shape
+what color is e0	SW.getProperty e0 string-color
+is there a block that is to the left of e0 that is also 3 inches in length	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-left string-= e0
+find me all e0 blocks which e1 is right of	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) SW.reverse string-right string-= e1
+block that more than two block is right of	SW.countComparative entity-en.block SW.reverse string-right string-> number2 entity-en.block
+what brick has at least 2 bricks to its right	SW.countComparative entity-en.block SW.reverse string-right string->= number2 entity-en.block
+choose a block no bigger than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity number3 en.inch )
+which e0 block is 3 inches wide	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-shape string-= e0
+find me all the special e0 blocks	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-is_special
+2 blocks below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-below string-= e0 )
+block whose length is at most either 3 inches or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.concat )
+choose a block that is the same width as block 1s length	SW.filter entity-en.block string-width string-= SW.getProperty en.block.block1 string-length
+what blocks are left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-left string-= e0
+find the blocks that are above and left to the e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-left string-= e0
+find all special blocks that are 3 inches wide	SW.filter ( SW.filter entity-en.block string-is_special ) string-width string-= number3 en.inch
+select a special e0 block	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-is_special
+find the block that e0 is below	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+which block of 3 width is to the right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-width string-= number3 en.inch
+look right of e0 and get the special block	SW.filter ( SW.filter entity-en.block string-is_special ) SW.reverse string-left string-= e0
+block 3 inches high and long	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-length string-= number3 en.inch
+which brick is closest to the bottom	SW.countSuperlative entity-en.block string-min string-above entity-en.block
+which brick is to the left of e0	SW.filter entity-en.block string-left string-= e0
+what block is e0 below and to the right of	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+find me all blocks front and left of e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+bloch longer than the length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+locate the block with a diameter less than that of e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me the block that is above the block that is below e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+find me all blocks right to whatever e0 is left of	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+find me all the blocks below at most 1 blocks	SW.countComparative entity-en.block string-below string-< number2 entity-en.block
+block below e0 and e1	SW.filter entity-en.block SW.reverse string-above string-= SW.concat
+choose the block below the special looking e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-is_special
+which brick is to the left of less than two bricks	SW.countComparative entity-en.block string-left string-< number2 entity-en.block
+select blocks that are two colors	SW.countComparative entity-en.block string-color string-= number2
+are there any blocks whose height is that of either 3 inches or 6 inches at most	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.concat )
+find all blocks that are below blocks with height equal to 3 inches	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find me all blocks above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) SW.reverse string-below string-= e0
+either e0 or e1	SW.concat
+find me all blocks right of 3 inch high blocks	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+is there a block that has only one block to the left of it	SW.countComparative entity-en.block string-right string-< number2 entity-en.block
+find me all special blocks that is right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-is_special
+what block is 3 tall and has e0 on its left	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-left string-= e0
+choose a special block that is below e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-below string-= e0
+what block is left of a 3 inch block	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+bock right of block that is right of e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-right string-= e0 )
+find a block to the left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-left string-= e0
+block whose shape is not a e0	SW.filter entity-en.block string-shape string-!= e0
+select a block with less than two colors	SW.countComparative entity-en.block string-color string-< number2
+choose the block beneath the 2 block	SW.countComparative entity-en.block SW.reverse string-below string-> number2 entity-en.block
+what block is to the right of and below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+what is the block below and left of e0	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+find me all the blocks that has at most 2 blocks to the left	SW.countComparative entity-en.block string-right string-<= number2 entity-en.block
+select the brick with the least blocks above it	SW.countSuperlative entity-en.block string-min SW.reverse string-above entity-en.block
+find me all blocks above e0 blocks	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-shape string-= e0 )
+what brick is as long as e0 is wide	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-width
+find me all blocks above and to the left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) SW.reverse string-right string-= e0
+3 inches long block which has e0 at left	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-length string-= number3 en.inch
+find the total height of the blocks	string-sum SW.getProperty entity-en.block string-height
+what is the total width of the block	string-sum SW.getProperty entity-en.block string-width
+block that is shorter than e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+block left from two others	SW.countComparative entity-en.block string-left string-= number2 entity-en.block
+what block is above the block of block1	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-below string-= en.block.block1 )
+block left of e0	SW.filter entity-en.block SW.reverse string-right string-= e0
+find me all blocks not right of e0	SW.filter entity-en.block string-right string-!= e0
+choose a block that is as thick as e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find me all blocks as long as e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+which brick is above the brick to the right of e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-right string-= e0 )
+find the shortest block	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-height
+what block has e0 at right and left	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-left string-= e0
+gather all the blocks that are 3 inches or more	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity number3 en.inch )
+choose the brick that is above the brick to the left of e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-left string-= e0 )
+choose the block that is below and to the left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-below string-= e0 )
+block whose height is 3 inches and whose width is 3 inches	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-width string-= number3 en.inch
+block above two others	SW.countComparative entity-en.block string-above string-= number2 entity-en.block
+find me all blocks right of 3 inch tall blocks	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find the block that e0 is above and below	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+find the special block to the left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-is_special
+find me all blocks 2 below e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+which e0 shaped block is to the right of e1	SW.filter ( SW.filter entity-en.block string-right string-= e1 ) string-shape string-= e0
+find me a block with a e0 shape and has a length of 3 inches	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-length string-= number3 en.inch
+locate the block that is no taller in inches than the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+select the block that e0 is to the right and above	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+which block has the shortest length	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-length
+block that has e0 or e1 at right	SW.filter entity-en.block SW.reverse string-right string-= SW.concat
+find the block that is on the other side of a block located to the left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-left string-= e0 )
+choose the brick below e0 that is 3 inches long	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-below string-= e0
+bricks that are the same size as e0	SW.filter entity-en.block string-width string-= SW.getProperty e0 string-width
+3 inch block right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-height string-= number3 en.inch
+block that is right of block whose height is 3 inches	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find me all blocks 2 below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-below string-= e0 )
+find me a 3inch wide block to the right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-width string-= number3 en.inch
+what blocks are below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-below string-= e0 )
+is there a block whose diameter and length is an equal 3 inches in both those directions	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-width string-= number3 en.inch
+block whose shape is a e0	SW.filter entity-en.block string-shape string-= e0
+choose a block that is not e0 shaped	SW.filter entity-en.block string-shape string-!= e0
+which brick is not below e0	SW.filter entity-en.block string-below string-!= e0
+which brick is no higher than e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+select bricks that are at least 3 inches high	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity SW.concat )
+find me all the blocks above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-above string-= e0
+find a block the same shape as e0	SW.filter entity-en.block string-shape string-= SW.getProperty e0 string-shape
+find me all 3 inch high special blocks	SW.filter ( SW.filter entity-en.block string-is_special ) string-height string-= number3 en.inch
+select the blocks left of and above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-below string-= e0
+find the block that is underneath e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-below string-= e0
+get the special block from right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-is_special
+find me all blocks with less than 2 blocks to the right of it	SW.countComparative entity-en.block SW.reverse string-right string-< number2 entity-en.block
+select the 3 inch long block to the right of e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-right string-= e0
+select the block above e0 and on the left side	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-above string-= e0
+choose a block that is under e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-below string-= e0
+select the blocks below e0	SW.filter entity-en.block string-below string-= e0
+find the blocks that have two shapes or less	SW.countComparative entity-en.block string-shape string-<= number2
+what block is to the right of the 3 inch wide block	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+3 inch tall block right from e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-left string-= e0
+find me all blocks below and right of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-below string-= e0
+find me the block that is above the block that e0 is below	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+block right of block which is left of e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-left string-= e0 )
+what block is to the right of e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+select the shortest block	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-length
+choose a block that is smaller than e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+3 inches wide block at the right of e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) SW.reverse string-left string-= e0
+find me all blocks that e0 is right and below of	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-below string-= e0
+select the block to the right of the least amount of blocks	SW.countSuperlative entity-en.block string-min SW.reverse string-right entity-en.block
+3 inch tall block  above e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-above string-= e0
+choose a brick that is no higher than e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+block whose length is smaller than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity number3 en.inch )
+find me the block that e0 is below and to the left of	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+select the blocks to the right of greater that two blocks	SW.countComparative entity-en.block string-right string-> number2 entity-en.block
+what block is as long as e0 is wide	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-width
+find me all the blocks above e0 or e1	SW.filter entity-en.block string-above string-= SW.concat
+e0 block above e1	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e1 ) string-shape string-= e0
+select the block above on the left	SW.filter ( SW.filter entity-en.block string-left string-= en.block.block1 ) string-above string-= en.block.block1
+select all the e0 blocks above block1	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= en.block.block1 ) string-shape string-= e0
+find the block with only one color	SW.countComparative entity-en.block string-color string-< number2
+find me a special e0 block	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-is_special
+which brick is to the right of e0 or e1	SW.filter entity-en.block string-right string-= SW.concat
+find the block that is at least 3 inches long	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity number3 en.inch )
+choose a block that is below and to the left of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-left string-= e0 )
+select a block with height less than e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+find the blocks that have a width of 3 inches and are to the left of e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) SW.reverse string-left string-= e0
+3 inch long block below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-length string-= number3 en.inch
+block that is shorter than block one	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty en.block.block1 string-height  )
+block below block that is above e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-above string-= e0 )
+which brick has no more than 2 colors	SW.countComparative entity-en.block string-color string-<= number2
+select the blocks above e0 and 2	SW.filter entity-en.block SW.reverse string-below string-= SW.concat
+what is the average height of a brick	string-avg SW.getProperty entity-en.block string-height
+block that has a width of 3 inches and is below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-width string-= number3 en.inch
+block right of at least two block	SW.countComparative entity-en.block string-right string->= number2 entity-en.block
+which brick is below no more than two bricks	SW.countComparative entity-en.block string-below string-<= number2 entity-en.block
+select blocks that are below and to the left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-left string-= e0
+find me all blocks taller than the length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find me all the 3 inch long bricks left of e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-left string-= e0
+the third block to the right	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-right string-= en.block.block1 )
+find me all blocks below and to the right of e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-right string-= e0
+block above least number of blocks	SW.countSuperlative entity-en.block string-min SW.reverse string-above entity-en.block
+what block is 3 inches or less long	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity number3 en.inch )
+3 inch block below e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) SW.reverse string-above string-= e0
+find me all 3 inch wide blocks above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-width string-= number3 en.inch
+3 inch block left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-length string-= number3 en.inch
+find me all blocks not 3 inches high	SW.filter entity-en.block string-height string-!= number3 en.inch
+find the block with the same length as e0	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-length
+block left of more than 2 blocks	SW.countComparative entity-en.block string-left string-> number2 entity-en.block
+block whose height is larger than width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+select the block right of e0	SW.countComparative entity-en.block string-right string-= number2 entity-en.block
+block that is left of the block above e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-left string-= e0 )
+what block is to the left of either e0 or e1	SW.filter entity-en.block string-left string-= SW.concat
+which brick is at least as high as e0 is long	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+find me all special blocks that e0 is below	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-is_special
+choose a block that is not 3 inches	SW.filter entity-en.block string-length string-!= number3 en.inch
+find me all blocks that have two shapes	SW.countComparative entity-en.block string-shape string-= number2
+find me all blocks left and below e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-below string-= e0
+which blocks are left of singleorfewer blocks	SW.countComparative entity-en.block string-left string-< number2 entity-en.block
+find the block located on top of the highest number of other blocks	SW.countSuperlative entity-en.block string-max string-above entity-en.block
+select the block below e0 and e1	SW.filter entity-en.block SW.reverse string-above string-= SW.concat
+select the 3 inch high block above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-height string-= number3 en.inch
+find me all blocks that is above 3 inch tall blocks	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+block above e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-shape string-= e0 )
+name a block that has e0 on its left	SW.filter entity-en.block SW.reverse string-left string-= e0
+block that is at the right of most number of blocks	SW.countSuperlative entity-en.block string-max string-right entity-en.block
+what block is to the left of the least blocks	SW.countSuperlative entity-en.block string-min SW.reverse string-right entity-en.block
+select the block that is above the smallest group of blocks	SW.countSuperlative entity-en.block string-min SW.reverse string-below entity-en.block
+find me all blocks that e0 is left and below	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-above string-= e0
+what block has a width of three inches and that e0 is below	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) SW.reverse string-below string-= e0
+left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) SW.reverse string-left string-= e0
+block above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) SW.reverse string-below string-= e0
+which block is the same length as e0	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-length
+find me the special block on top of the block	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-is_special )
+select a block that has a width that is the same width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+what block has e0 left and right	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+choose a block between 3 or 6 inches	SW.concat
+find me all special blocks that e0 is right of	SW.filter ( SW.filter entity-en.block string-is_special ) SW.reverse string-right string-= e0
+which blocks are right of e0 or e1	SW.filter entity-en.block string-right string-= SW.concat
+what 3 inches long block is above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-length string-= number3 en.inch
+block whose length is length of e0	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-length
+what is the total length of the blocks	string-sum SW.getProperty entity-en.block string-length
+what block has a width of 3 inches and is to the left of e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-left string-= e0
+find the block with a length shorter than that of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+block in e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-left string-= e0
+blocks of more than two colours	SW.countComparative entity-en.block string-color string-> number2
+find me all blocks that is 2 blocks below e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+block that is not right of e0	SW.filter entity-en.block string-right string-!= e0
+select the block to the right of the block above e0	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+find me all blocks with more than 2 blocks to the left of it	SW.countComparative entity-en.block SW.reverse string-left string-> number2 entity-en.block
+3 inch long block above e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-above string-= e0
+block right of the block below e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+what block is left of e0 and 3 inches in length	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-left string-= e0
+find a block that is is left of block two	SW.countComparative entity-en.block SW.reverse string-left string->= number2 entity-en.block
+what block is the block to the right and below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+choose a block that is 3 inches and shaped like a e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-shape string-= e0
+find a block whose height is smaller than the length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+which block has less than two blocks to its right	SW.countComparative entity-en.block SW.reverse string-right string-< number2 entity-en.block
+locate the block beneath e0 that also has a width of 3 inches	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-width string-= number3 en.inch
+find me all blocks that is right of more than 2 blocks	SW.countComparative entity-en.block string-right string-> number2 entity-en.block
+find me all blocks with length less than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity number3 en.inch )
+find a block with height equal to block 1s length	SW.filter entity-en.block string-height string-= SW.getProperty en.block.block1 string-length
+find special blocks with e0 above them	SW.filter ( SW.filter entity-en.block string-is_special ) SW.reverse string-above string-= e0
+which brick is higher than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-> ( SW.ensureNumericEntity number3 en.inch )
+block that is below block that is below e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-below string-= e0 )
+select the block with the most shapes	SW.countSuperlative entity-en.block string-max string-shape
+find me all the blocks with at most 2 shapes	SW.countComparative entity-en.block string-shape string-<= number2
+block that has e0 in the right and left	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-right string-= e0
+select the special block above e0	SW.filter ( SW.filter entity-en.block string-is_special ) SW.reverse string-below string-= e0
+find me the block that is to the left and below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-above string-= e0
+choose a block between 3 and 6 inches wide	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.concat )
+find me all the blocks that are special	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-is_special )
+select a block to the left of e0 that is 3 inches long	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-left string-= e0
+what block is to the right of e0 and has a length of 3 inches	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-length string-= number3 en.inch
+find the block that is to the right of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-right string-= e0
+find me all blocks above a e0 block	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-shape string-= e0 )
+find me all blocks that is above and right of e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+is there a block piled on any other block but only one	SW.countComparative entity-en.block string-above string-< number2 entity-en.block
+find the block with 3 inches in length	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+how wide is e0	SW.getProperty e0 string-width
+what block has height less than or equal to the length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+block that is right of block that is above e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-above string-= e0 )
+what is the total width of the blocks	string-sum SW.getProperty entity-en.block string-width
+block with lowest width	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-width
+find me all the blocks left of special blocks	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-is_special )
+what block is to left of more than two blocks	SW.countComparative entity-en.block SW.reverse string-right string-> number2 entity-en.block
+block above e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me all blocks right and below e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-right string-= e0 )
+block above 3 inch tall block	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+locate a block with a width that is more than either 3 or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity SW.concat )
+select the block that is to the left and above e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-above string-= e0
+find me all blocks below 3 inch long blocks	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+which block is only a single color	SW.countComparative entity-en.block string-color string-< number2
+find me the block that is above and to the left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-below string-= e0
+select the block to the left of the special block	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-is_special )
+what e0 block is to the right of e1	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-right string-= e1
+find the 3 inch long block	SW.filter entity-en.block string-length string-= number3 en.inch
+block within 2 blocks to the left	SW.countComparative entity-en.block SW.reverse string-left string-<= number2 entity-en.block
+what is the average block width	string-avg SW.getProperty entity-en.block string-width
+find me all 3 inch long blocks which e0 is below	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-below string-= e0
+which block has a width of either 3 or 6 inches	SW.filter entity-en.block string-width string-= SW.concat
+what block is to the left of more than two blocks	SW.countComparative entity-en.block string-left string-> number2 entity-en.block
+find me all blocks with a width shorter than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity number3 en.inch )
+select the block above the block to the right e0	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-left string-= e0 )
+find me all the blocks as tall as the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+select block below and to the left of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-left string-= e0 )
+find a block below the block on the right of e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+find me all blocks left and above e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) SW.reverse string-below string-= e0
+what block has the most blocks above it	SW.countSuperlative entity-en.block string-max string-below entity-en.block
+right of block above e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+find me all blocks with at least 2 blocks below	SW.countComparative entity-en.block SW.reverse string-below string->= number2 entity-en.block
+block above and left of e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) SW.reverse string-right string-= e0
+not more than 3 inches wide block	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity number3 en.inch )
+find me all blocks at most 3 inches wide	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity number3 en.inch )
+block that has the most number of shape	SW.countSuperlative entity-en.block string-max string-shape
+left and above e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-left string-= e0
+select all blocks that are in the shape of a e0	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-shape string-= e0 )
+block right of 3 inch wide block	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+find me all blocks right of e0 or e1	SW.filter entity-en.block SW.reverse string-right string-= SW.concat
+locate the block that has a shape other than that of a e0	SW.filter entity-en.block string-shape string-!= e0
+look below and right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-below string-= e0
+what block is to the left of the block that e0 is below	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+block that has the smallest width	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-width
+find me all the bricks  longer than the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me all blocks below that e0 is left of	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-below string-= e0 )
+which block has the largest height	SW.superlative entity-en.block string-max SW.ensureNumericProperty string-height
+block that is right of e0 and whose length is 3 inches	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-length string-= number3 en.inch
+find me all the blocks as tall as e0 is long	SW.filter entity-en.block string-height string-= SW.getProperty e0 string-length
+block above block one and to the right	SW.filter ( SW.filter entity-en.block string-right string-= en.block.block1 ) SW.reverse string-below string-= en.block.block1
+find a block that is to the right of two blocks	SW.countComparative entity-en.block string-right string-<= number2 entity-en.block
+select the pyramidshape blocks above e0	SW.filter ( SW.filter entity-en.block string-shape string-= en.shape.pyramid ) string-above string-= e0
+find me all blocks above which e0 is right of	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-above string-= e0
+find me all blocks that above and below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) SW.reverse string-below string-= e0
+what block has a length of 3 inches and e0 above it	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-length string-= number3 en.inch
+which brick has the least number of shapes	SW.countSuperlative entity-en.block string-min string-shape
+block whose length is width of e0	SW.filter entity-en.block string-length string-= SW.getProperty e0 string-width
+find me all the blocks not below e0	SW.filter entity-en.block string-below string-!= e0
+what is the total height of the blocks	string-sum SW.getProperty entity-en.block string-height
+choose a block that looks just like e0	SW.filter entity-en.block string-shape string-= SW.getProperty e0 string-shape
+find me a 3 inch tall e0 block	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-height string-= number3 en.inch
+3 inch block above e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-above string-= e0
+what block is to the right and above e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-below string-= e0
+find me all blocks below 3 inch wide blocks	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+what brick has at least two bricks to its left	SW.countComparative entity-en.block SW.reverse string-left string->= number2 entity-en.block
+which brick is shorter than e0 is high	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me all blocks at least the same height as e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+find the 3inch long block which is located to the right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-length string-= number3 en.inch
+block that is above block which is right of e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-right string-= e0 )
+find the block that is not less than 3 inches tall	SW.filter entity-en.block SW.ensureNumericProperty string-height  string->= ( SW.ensureNumericEntity number3 en.inch )
+find me all blocks below which e0 is above	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-below string-= e0 )
+choose the block above the speciallooking e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-is_special
+what block is shorter than e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+select the block above the right	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= en.block.block1 ) SW.reverse string-right string-= en.block.block1
+select the blocks that are 3 inches long	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+3 inch block above e0	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-below string-= e0
+what is the length of e0	SW.getProperty e0 string-length
+find the block that is shaped like a e0 or a e1	SW.filter entity-en.block string-shape string-= SW.concat
+block above 3 inch block	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+block whose length is at most width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+what block is to the right of e0 and has a width of 3 inches	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-width string-= number3 en.inch
+find me all blocks left of 2 blocks	SW.countComparative entity-en.block string-left string-= number2 entity-en.block
+is there a block on top of the e0 block	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-shape string-= e0 )
+block whose width is smaller than length of e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+3 inches high block	SW.filter entity-en.block string-height string-= number3 en.inch
+block that block one isnt left of	SW.filter entity-en.block SW.reverse string-left string-!= en.block.block1
+find me a block with equal or less width than e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+block below special block	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-is_special )
+block that at most two block is below	SW.countComparative entity-en.block SW.reverse string-below string-<= number2 entity-en.block
+which special brick is 3 inches wide	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-is_special
+how wide is e0	SW.getProperty e0 string-width
+block below 2 blocks	SW.countComparative entity-en.block string-below string-= number2 entity-en.block
+select the block that is special and below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-is_special
+find me all blocks below that e0 is right of	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-below string-= e0 )
+is there a block with the same color as e0	SW.filter entity-en.block string-color string-= SW.getProperty e0 string-color
+special block to right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-is_special
+height of e0	SW.getProperty e0 string-height
+block above at leat two blocks	SW.countComparative entity-en.block SW.reverse string-above string->= number2 entity-en.block
+find the block of 3 inches height and placed in left	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+what is the color of e0	SW.getProperty e0 string-color
+select block to the left of two blocks	SW.countComparative entity-en.block SW.reverse string-right string-= number2 entity-en.block
+a 3 inch block has a block on top of it find that block	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+find me all the blocks left of 3 inch tall blocks	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find me the block that e0 is below	SW.filter entity-en.block SW.reverse string-below string-= e0
+find me all blocks above and right of e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-right string-= e0 )
+find me all the blocks that has at most 2 blocks to the right of it	SW.countComparative entity-en.block string-left string-<= number2 entity-en.block
+find me all special e0 blocks	SW.filter ( SW.filter entity-en.block string-is_special ) string-shape string-= e0
+see block below e0 and choose the one left of it	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+find me all blocks below which e0 is right of	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) SW.reverse string-right string-= e0
+choose a block above a 3 inch block	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+choose a block that is not more than 2 shapes	SW.countComparative entity-en.block string-shape string-<= number2
+what is the height of the block	string-sum SW.getProperty entity-en.block string-height
+select the block on the left	SW.filter ( SW.filter entity-en.block string-above string-= en.block.block1 ) string-left string-= en.block.block1
+find the block below e0 that is 3 inches high	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-height string-= number3 en.inch
+block at the right of 3 inches wide block	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+block right of a block which is above e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-above string-= e0 )
+select the blocks on the right and left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-right string-= e0
+block right of more than two blocks	SW.countComparative entity-en.block SW.reverse string-right string-> number2 entity-en.block
+locate the e0 block	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-shape string-= e0
+find a special block	SW.filter ( SW.filter entity-en.block string-is_special ) string-is_special
+which block has the largest number of blocks to its left	SW.countSuperlative entity-en.block string-max SW.reverse string-left entity-en.block
+find the block that is on top of e0	SW.filter ( SW.filter entity-en.block string-above string-= e0 ) string-above string-= e0
+find me the special blocks below e0	SW.filter ( SW.filter entity-en.block string-below string-= e0 ) string-is_special
+block to the right of the 3 inch high block	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+locate a block that is no wider than the height of e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+is there a block no wider than 3 or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.concat )
+find a block at most as tall as block 1s width	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-<= ( SW.ensureNumericEntity SW.getProperty en.block.block1 string-width  )
+which brick has a length smaller than 3 or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.concat )
+what block is at least as long as block 1s height	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty en.block.block1 string-height  )
+block that is left of block whose length is 3 inches	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+what block is e0 to the right of	SW.filter entity-en.block SW.reverse string-right string-= e0
+block at the left of e0 shaped block	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-shape string-= e0 )
+which brick is longer than e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+choose block underneath block under e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-below string-= e0 )
+find a block with equal height and width measurements specifically 3 inches	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-length string-= number3 en.inch
+find me all the bricks below at most 2 blocks	SW.countComparative entity-en.block string-below string-<= number2 entity-en.block
+find me all the blocks that is 3 inches wide and long	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-width string-= number3 en.inch
+find me all the 3 inch wide blocks	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-width string-= number3 en.inch
+find a block that is 3 inches tall	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) string-height string-= number3 en.inch
+a three inches block at the left of e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-left string-= e0
+block that is above more than two blocks	SW.countComparative entity-en.block SW.reverse string-above string-> number2 entity-en.block
+find me a block as wide as e0 or wider	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+block below and two left of e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+block two above e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+which block is to the left of the 3inch high block	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find a block with two or less blocks to the left	SW.countComparative entity-en.block SW.reverse string-left string-<= number2 entity-en.block
+select all blocks of length 1	SW.getProperty en.block.block1 string-length
+find me all blocks that e0 is right of and which is left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) string-left string-= e0
+which brick has no more than two bricks above it	SW.countComparative entity-en.block SW.reverse string-above string-<= number2 entity-en.block
+which brick is to the left of the special brick	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-is_special )
+what blocks length is smaller than block 1s width	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty en.block.block1 string-width  )
+find me all blocks wider than the height of e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+find the block that has a width of 3 inches and is to the right of e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-right string-= e0
+find the block located on top of the block that is 3 inches high	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+left of special block	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block string-is_special )
+which special brick is above e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-above string-= e0
+block that the least number of block is left of	SW.countSuperlative entity-en.block string-min SW.reverse string-left entity-en.block
+find me the block that has a length of 3 inches	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-length string-= number3 en.inch )
+find me all the blocks that is not 3 inches long	SW.filter entity-en.block string-length string-!= number3 en.inch
+find the block to the right of the block that is to the left of e0	SW.filter entity-en.block string-right string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+select the block with a width smaller than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity number3 en.inch )
+block up and left from e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+find me all special blocks that e0 is above	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-is_special
+block not below e0	SW.filter entity-en.block SW.reverse string-above string-!= e0
+what is the height of an average block	string-avg SW.getProperty entity-en.block string-height
+what block is above the block that is above e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-above string-= e0 )
+find the special block to the right of e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-right string-= e0
+block above the block at right of e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block SW.reverse string-left string-= e0 )
+find the block with more than two blocks above it	SW.countComparative entity-en.block SW.reverse string-above string-> number2 entity-en.block
+find me the block with the smallest width	SW.superlative entity-en.block string-min SW.ensureNumericProperty string-width
+which brick is wider than e0 is wide	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+block whose height is smaller than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity number3 en.inch )
+which brick has a length shorter than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity number3 en.inch )
+find me all the blocks that is not a e0	SW.filter entity-en.block string-shape string-!= e0
+which brick is above a brick that is 3 inches wide	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+find me the block that is below the block which e0 is above	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+block that the least number of block is right of	SW.countSuperlative entity-en.block string-min SW.reverse string-right entity-en.block
+block whose shape is a e0 and that is special	SW.filter ( SW.filter entity-en.block string-shape string-= e0 ) string-is_special
+is it a e0 or a e1	SW.concat
+find me all blocks at most 3 inches long	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity number3 en.inch )
+block that left of block one and special	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= en.block.block1 ) string-is_special
+what block is two blocks to the left of e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-left string-= e0 )
+any block with width of either 3 inches or 6 inches	SW.filter entity-en.block string-width string-= SW.concat
+find a block that is on top of two other blocks	SW.countComparative entity-en.block SW.reverse string-below string-= number2 entity-en.block
+find me all blocks with the shape of e0	SW.getProperty e0 string-shape
+find me all blocks shorter than the width of e0	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+below and right from e0	SW.filter entity-en.block SW.reverse string-right string-= ( SW.filter entity-en.block SW.reverse string-below string-= e0 )
+select block of length 3 or 6 inches	SW.filter entity-en.block string-length string-= SW.concat
+find me all 3 inch long blocks below e0	SW.filter ( SW.filter entity-en.block SW.reverse string-above string-= e0 ) string-length string-= number3 en.inch
+what is the average width of the bricks	string-avg SW.getProperty entity-en.block string-width
+find blocks that are at least 3 inches wide or 6 inches wide	SW.filter entity-en.block SW.ensureNumericProperty string-width  string->= ( SW.ensureNumericEntity SW.concat )
+right of 3 inch block	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+what block is above e0 or e1	SW.filter entity-en.block SW.reverse string-above string-= SW.concat
+find a block that e0 is longer than	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+block above more than 2 blocks	SW.countComparative entity-en.block string-above string-> number2 entity-en.block
+choose the block that has the same width as e0 has height	SW.filter entity-en.block string-width string-= SW.getProperty e0 string-height
+block two above e0	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me all the blocks that has at least 2 blocks to the left	SW.countComparative entity-en.block SW.reverse string-right string->= number2 entity-en.block
+find the block whose length and height is 3 inches	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-height string-= number3 en.inch
+find the special block that is 3 inches	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-is_special
+find me all blocks which is left and above e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block SW.reverse string-above string-= e0 )
+what block is special and has e0 on its right	SW.filter ( SW.filter entity-en.block string-is_special ) SW.reverse string-right string-= e0
+what 3 inch brick is to the right of e0	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) string-length string-= number3 en.inch
+which brick is no wider than 3 or 6 inches	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.concat )
+block above 3 inch block	SW.filter entity-en.block SW.reverse string-below string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+find the block that is shorer than e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+block whose height is height of e0	SW.filter entity-en.block string-height string-= SW.getProperty e0 string-height
+which brick is no longer than e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+3 inch block above e0	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) string-above string-= e0
+find me all blocks 2 blocks below e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-below string-= e0 )
+find a block shorter than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-height  string-< ( SW.ensureNumericEntity number3 en.inch )
+find me all blocks at least 3 inch wide	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.concat )
+block that has e0 above and left	SW.filter ( SW.filter entity-en.block string-right string-= e0 ) SW.reverse string-above string-= e0
+find me all blocks 3 inch long right of e0	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-right string-= e0
+find the 3 inch long block to the left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) string-length string-= number3 en.inch
+block whose length is minimum the height of e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-height  )
+block above and to the left of e0	SW.filter ( SW.filter entity-en.block string-left string-= e0 ) SW.reverse string-below string-= e0
+choose a block to the right of the most blocks	SW.countSuperlative entity-en.block string-min string-right entity-en.block
+block below three inch block	SW.filter entity-en.block SW.reverse string-above string-= ( SW.filter entity-en.block string-height string-= number3 en.inch )
+right of special block	SW.filter entity-en.block SW.reverse string-left string-= ( SW.filter entity-en.block string-is_special )
+find a block with a length of 3 inches that e0 is above	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) SW.reverse string-above string-= e0
+what block is above e0	SW.filter entity-en.block string-left string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me a special 3 inch long block	SW.filter ( SW.filter entity-en.block string-length string-= number3 en.inch ) string-is_special
+describe the shape of e0	SW.getProperty e0 string-shape
+find me all 3 inch wide blocks that e0 is below	SW.filter ( SW.filter entity-en.block string-width string-= number3 en.inch ) SW.reverse string-below string-= e0
+block which has e0 at left and above	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) SW.reverse string-above string-= e0
+dual colored block	SW.countComparative entity-en.block string-color string-> number2
+find me all blocks that e0 is left and right of	SW.filter ( SW.filter entity-en.block SW.reverse string-left string-= e0 ) string-right string-= e0
+select a block longer than 3 inches	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.concat )
+which block is below a block that e0 is to the right of	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block SW.reverse string-right string-= e0 )
+choose a block that is not as thick as e0	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+what block is below the most blocks	SW.countSuperlative entity-en.block string-max SW.reverse string-above entity-en.block
+find a block to the right and above e0	SW.filter entity-en.block string-above string-= ( SW.filter entity-en.block string-right string-= e0 )
+left of block 3	SW.filter entity-en.block SW.reverse string-right string-= SW.concat
+block aboe and left of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-below string-= e0
+find me all 3 inch tall blocks which e0 is left of	SW.filter ( SW.filter entity-en.block string-height string-= number3 en.inch ) SW.reverse string-left string-= e0
+find the average height of a block	string-avg SW.getProperty entity-en.block string-height
+select all blocks with length greater than 3	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity number3 en.inch )
+choose a block that is less thick than e0	SW.filter entity-en.block SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-width  )
+find me all special blocks that are below e0	SW.filter ( SW.filter entity-en.block string-is_special ) SW.reverse string-below string-= e0
+what is the special block in the left of e0	SW.filter ( SW.filter entity-en.block string-is_special ) SW.reverse string-right string-= e0
+what block has width less than or equal to block 1s length	SW.filter entity-en.block SW.ensureNumericProperty string-width  string-<= ( SW.ensureNumericEntity SW.getProperty en.block.block1 string-length  )
+which 3 inches long block is above e0	SW.filter ( SW.filter entity-en.block SW.reverse string-below string-= e0 ) string-length string-= number3 en.inch
+what block has two blocks or less below it	SW.countComparative entity-en.block SW.reverse string-below string-<= number2 entity-en.block
+find all special blocks below e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-below string-= e0
+select the block on the left side of e0	SW.filter ( SW.filter entity-en.block SW.reverse string-right string-= e0 ) SW.reverse string-right string-= e0
+choose a block that is below a 3 inch block	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-width string-= number3 en.inch )
+which brick is below the brick that is above e0	SW.filter entity-en.block string-below string-= ( SW.filter entity-en.block string-above string-= e0 )
+find me all special blocks above e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-above string-= e0
+find me a special block to the left of e0	SW.filter ( SW.filter entity-en.block string-is_special ) string-left string-= e0

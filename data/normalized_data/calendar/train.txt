@@ -1,0 +1,536 @@
+what is the location of e0 startup	SW.filter ( SW.filter entity-en.location SW.reverse string-location string-= e0 ) SW.reverse string-location string-= e0
+location is same as the location of three hours long meeting	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-length string-= number3 en.hour )
+important meetings at e0	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-location string-= e0
+show me all meetings that e0 is not attending	SW.filter entity-en.meeting string-attendee string-!= e0
+e0 end time	SW.getProperty e0 string-end_time
+what meeting has a start time at the end time of e0	SW.filter entity-en.meeting string-start_time string-= SW.getProperty e0 string-end_time
+what meeting is being held at the e0	SW.filter entity-en.meeting string-location string-= e0
+which meetings are significant	SW.filter entity-en.meeting string-is_important
+show me all meetings e0 attended on d1	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-date string-= d1
+what important meeting started at d0	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-start_time string-= d0
+what meeting has an end time of at least d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity d0 )
+show me locations with the fewest meetings	SW.countSuperlative entity-en.location string-min SW.reverse string-location entity-en.meeting
+meeting no longer than duration of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+meetings that start after d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity d0 )
+what meeting has two locations	SW.countComparative entity-en.meeting string-location string-<= number2
+what is the location of the meeting that e0 is attending	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-attendee string-= e0 )
+which meetings are scheduled to end at d0	SW.filter entity-en.meeting string-end_time string-= d0
+show me all meetings scheduled to run for 3 hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity number3 en.hour )
+places that house at least one meeting	SW.countSuperlative entity-en.location string-min SW.reverse string-location entity-en.meeting
+what meeting has the shortest time	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-end_time
+meetings that end later than the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+meeting which is on d0 or d1	SW.filter entity-en.meeting string-date string-= SW.concat
+is this meeting three hours long or an hour long	SW.concat
+meetings that are shorter than three hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity number3 en.hour )
+show me all people who have attended more than two meetings	SW.countComparative entity-en.person SW.reverse string-attendee string-> number2 entity-en.meeting
+important meetings	SW.filter entity-en.meeting string-is_important
+what meeting is no greater than one to three hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.concat )
+how many meetings are there	.size entity-en.meeting
+meeting which has minimum two attendees	SW.countComparative entity-en.meeting string-attendee string->= number2
+what person is attending the meeting that starts at d0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-start_time string-= d0 )
+who is attending the e0 for the meeting	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-location string-= e0 )
+meetings that do not start at d0	SW.filter entity-en.meeting string-start_time string-!= d0
+where is the threehour long meeting	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-length string-= number3 en.hour )
+what meeting ends at the start or after the start of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+people that do not attend the e0 meeting	SW.filter entity-en.person SW.reverse string-attendee string-!= e0
+show me meetings ending at d0 in e0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-location string-= e0
+meetings starting later than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity d0 )
+what meeting has a length greater than e0 startup	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+she me all meetings with a duration between 1 and 3 hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.concat )
+what meeting has an end time the same as e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+meeting at a single location	SW.countComparative entity-en.meeting string-location string-< number2
+how many attendees are there for this meeting	.size entity-en.person
+meeting that ends at end time of e0	SW.filter entity-en.meeting string-end_time string-= SW.getProperty e0 string-end_time
+what is the length of e0 startup	SW.getProperty e0 string-length
+meetings that end at d0 and start at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-start_time string-= d0
+meeting that starts no later than end time of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+meetings on d0	SW.filter entity-en.meeting string-date string-= d0
+which meetings end at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-end_time string-= d0
+show me meetings on d0 with e0	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-date string-= d0
+what meeting starts before d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity SW.concat )
+meetings on d0 that end at d1	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-end_time string-= d1
+show me meetings that have two attendees	SW.countComparative entity-en.meeting string-attendee string-= number2
+meetings ending at d0 that are three hours long	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-end_time string-= d0
+show me all meetings ending after d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.concat )
+find all meetings which begin on d0 or d1	SW.concat
+meeting which starts at d0 at e0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-location string-= e0
+what meeting has an end time of d0 on jan2	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-date string-= date:2015:1:2
+meeting held before the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+show me meetings that share location with the e0 meeting	SW.filter entity-en.meeting string-location string-= ( SW.filter entity-en.location SW.reverse string-location string-= e0 )
+meeting which starts at d0	SW.filter entity-en.meeting string-start_time string-= d0
+three hours long important meeting	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-is_important
+show me all meetings with lengths that either less or more than three hours	SW.filter entity-en.meeting string-length string-!= number3 en.hour
+meetings that are three hours long that start at d0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-length string-= number3 en.hour
+important meetings attended by e0	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-attendee string-= e0
+show me all meetings not happening at e0	SW.filter entity-en.meeting string-location string-!= e0
+which meetings end when e0 is scheduled to start	SW.filter entity-en.meeting string-end_time string-= SW.getProperty e0 string-start_time
+d0 meeting	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-date string-= d0
+what meeting has a date of d0 at e0	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-location string-= e0
+what meetings have a start time of d0 or d1	SW.filter entity-en.meeting string-start_time string-= SW.concat
+meeting before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-< ( SW.ensureNumericEntity d0 )
+meeting ends after d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity d0 )
+show me all meetings e0 is attending which are three hours long	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-attendee string-= e0
+meetings that do not end at d0	SW.filter entity-en.meeting string-end_time string-!= d0
+what time does the e0 stand up end	SW.getProperty e0 string-end_time
+show me the dates of all e0 meetings	SW.getProperty e0 string-date
+meeting which has longest end time	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-end_time
+show me all meetings in greenber cafe that will run three hours	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-location string-= en.location.greenberg_cafe
+meeting with largest number of attendees	SW.countSuperlative entity-en.meeting string-max string-attendee
+show me all meetings ending at d0 which are scheduled to be three hours long	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-length string-= number3 en.hour
+what meeting has an end time smaller than e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+what is the meeting that take place immediately before the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me all meetings scheduled to be less than three hours or less than one hour	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.concat )
+show me all locations which do not host the e0	SW.filter entity-en.location SW.reverse string-location string-!= e0
+what is the shortest meeting	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-length
+who is attending e0	SW.getProperty e0 string-attendee
+what meeting starts earlier than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity d0 )
+locations that house meetings on d0	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-date string-= d0 )
+where will e0 and e1 take place	SW.filter entity-en.location SW.reverse string-location string-= SW.concat
+show me all meetings ending at d0 or d1	SW.filter entity-en.meeting string-end_time string-= SW.concat
+show me all meetings three hours long	SW.filter entity-en.meeting string-length string-= number3 en.hour
+three hour meeting with e0 as attendee	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-length string-= number3 en.hour
+meetings that start earlier than the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+important meeting on d0	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-date string-= d0
+what meeting has the length of most e0 startup meetings	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+show me all meetings which e0 has attended that end at d1	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d1 ) string-attendee string-= e0
+what meeting is e0 attending at d1	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-start_time string-= d1
+who is attending the meeting on d0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-date string-= d0 )
+show me all meetings marked important	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-is_important
+what location is not the same as e0	SW.filter entity-en.location SW.reverse string-location string-!= e0
+who has attended the least number of meetings	SW.countSuperlative entity-en.person string-min SW.reverse string-attendee entity-en.meeting
+show me all meetings starting at the same time as the e0	SW.filter entity-en.meeting string-start_time string-= SW.getProperty e0 string-start_time
+where is my d0 meeting	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-date string-= d0 )
+what meeting ends at d0 and e0 is attending	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-end_time string-= d0
+show me all meetings which happened at the same location as the least number of meetings	SW.countSuperlative entity-en.location string-min SW.reverse string-location entity-en.meeting
+show me meetings that take 3 hours and are with e0	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-attendee string-= e0
+show me all meetings three hours long happening at the e0	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-length string-= number3 en.hour
+show me all meetings that end after the e0 stand up meeting starts	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+what meeting has e0 attending and starts at d1	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-start_time string-= d1
+what meeting is longer than e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+show me all meetings no longer than the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+show me the locations of all meetings three hours in length	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-length string-= number3 en.hour )
+what is the location of the meting with least number of attendees	SW.countSuperlative entity-en.location string-min SW.reverse string-location entity-en.meeting
+who is at the e0 or e1	SW.filter entity-en.person SW.reverse string-attendee string-= SW.concat
+what meeting had someone who went to e0	SW.filter entity-en.meeting string-attendee string-= SW.getProperty e0 string-attendee
+show me all meetings on d0 ending at d1	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-end_time string-= d1
+meeting occurs on later date than e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+show me all meetings happening on d0 or d1	SW.filter entity-en.meeting string-date string-= SW.concat
+show me all meetings beginning earlier than the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me meetings at e0 on d1	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-date string-= d1
+person is attendee of e0 or e1	SW.filter entity-en.person SW.reverse string-attendee string-= SW.concat
+show me the meetings scheduled earliest in the month	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-date
+locations of the e0 meeting or e1 meeting	SW.filter entity-en.location SW.reverse string-location string-= SW.concat
+meetings that end the earliest	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-end_time
+show me the locations of all meetings on d0	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-date string-= d0 )
+meeting ends no later than start time of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me all meetings the same length of the e0	SW.filter entity-en.meeting string-length string-= SW.getProperty e0 string-length
+meetings that are not on d0	SW.filter entity-en.meeting string-date string-!= d0
+what meeting has the earliest start time	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-start_time
+person attending the most meetings	SW.countSuperlative entity-en.person string-max SW.reverse string-attendee entity-en.meeting
+what is the number of the meeting	.size entity-en.meeting
+how many meetings are scheduled	.size entity-en.meeting
+show me any meetings which e0 has attended and take place at e1	SW.filter ( SW.filter entity-en.meeting string-location string-= e1 ) string-attendee string-= e0
+what meeting has a date no later than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string->= ( SW.ensureNumericEntity d0 )
+meetings on d0 that e0 attends	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-attendee string-= e0
+what meeting has the latest start time	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-start_time
+what meeting is as long or longer than e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+three hour long meeting at e0	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-length string-= number3 en.hour
+meeting that starts at d0 or earlier	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string->= ( SW.ensureNumericEntity d0 )
+where are the meetings ending at d0 going to be held	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-end_time string-= d0 )
+show me all meetings which begin at the same time the e0 ends	SW.filter entity-en.meeting string-start_time string-= SW.getProperty e0 string-end_time
+what meeting ends at d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity SW.concat )
+meetings that are three hours long and end at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-length string-= number3 en.hour
+show me all of the people who did not attend the e0 meeting	SW.filter entity-en.person SW.reverse string-attendee string-!= e0
+three hour meeting at e0	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-location string-= e0
+show me all meetings that start no earlier than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string->= ( SW.ensureNumericEntity d0 )
+show me all meetings that begin at the time the e0 meeting ends	SW.filter entity-en.meeting string-start_time string-= SW.getProperty e0 string-end_time
+meetings held later than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-> ( SW.ensureNumericEntity d0 )
+what location is the meeting that ends at d0	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-end_time string-= d0 )
+person attending same meeting as e0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-attendee string-= e0 )
+when is e0 or e1	SW.concat
+what meeting has an end time earlier than e0 startup	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me meetings that have the same location as e0 startup	SW.filter entity-en.meeting string-location string-= SW.getProperty e0 string-location
+show me important meetings	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-is_important
+meeting starts no later than start time of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+what meetings run for the shortest length of time	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-length
+what important meeting has a length of three hours	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-length string-= number3 en.hour
+meetings that end at or after d0 or at or after d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity SW.concat )
+show me all meetings not beginning at d0	SW.filter entity-en.meeting string-start_time string-!= d0
+what meeting was shorter or longer than three hours	SW.filter entity-en.meeting string-length string-!= number3 en.hour
+e0 start time	SW.getProperty e0 string-start_time
+show me all meetings on d0 which are also 3 hours long	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-date string-= d0
+show me meetings that will end before e0 begins	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me meetings not on d0	SW.filter entity-en.meeting string-date string-!= d0
+which location hosts the most meetings	SW.countSuperlative entity-en.location string-max SW.reverse string-location entity-en.meeting
+d0 meeting with e0 as attendee	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-attendee string-= e0
+e0 startup attendee	SW.getProperty e0 string-attendee
+show me all meetings happening after the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+what location is most meetings	SW.countSuperlative entity-en.location string-max SW.reverse string-location entity-en.meeting
+show me the meeting which has happened at the most locations	SW.countSuperlative entity-en.meeting string-max string-location
+show me all meetings that start later than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity d0 )
+meetings attended by e0 that are three hours long	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-length string-= number3 en.hour
+show me all meetings labeled as important that start at d0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-is_important
+show me the meetings with the latest end times	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-end_time
+show me meetings which do not conclude at d0	SW.filter entity-en.meeting string-end_time string-!= d0
+show me all meetings at least one hour or three hours long	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.concat )
+meetings that end after the e0 startup meeting starts	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me all meetings e0 has attended which begin at d1	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d1 ) string-attendee string-= e0
+show me all meetings beginning later than the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me all meetings which begin at the same time or earlier than the e0 ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+meetings held on or after d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string->= ( SW.ensureNumericEntity d0 )
+show me all meetings on d0 happening at the e0	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-date string-= d0
+meeting at location of e0	SW.filter entity-en.meeting string-location string-= SW.getProperty e0 string-location
+important meetings that are three hours long	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-is_important
+meeting which starts before the start time of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+e0 date	SW.getProperty e0 string-date
+show me meetings before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-< ( SW.ensureNumericEntity d0 )
+show me all meetings that end by d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity d0 )
+show me all meetings happening at the same location as the e0	SW.filter entity-en.meeting string-location string-= ( SW.filter entity-en.location SW.reverse string-location string-= e0 )
+show me meetings starting later than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity SW.concat ) )
+show me all meetings that end at d0 on d1	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-date string-= d1
+meetings that end before d0 or before d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-< ( SW.ensureNumericEntity SW.concat )
+show me all meetings on d0 beginning at d1	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-start_time string-= d1
+what meeting start time is at the end of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+meeting starts at d0 or d1 at the earliest	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.concat )
+show me all meetings marked important which end at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-is_important
+meetings that are attended by e0 and are three hours long	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-attendee string-= e0
+show meetings that start at d0 in e0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-location string-= e0
+show me all meetings at the same location as the e0	SW.filter entity-en.meeting string-location string-= SW.getProperty e0 string-location
+meetings that are three hours or longer	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity number3 en.hour )
+where is the important meeting being held	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-is_important )
+show me all meetings which end at the same time as the e0 ends	SW.filter entity-en.meeting string-end_time string-= SW.getProperty e0 string-end_time
+show me all meetings located at e0	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-location string-= e0
+show me all meetings that last longer than three hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.concat )
+which meeting is attended by the most people	SW.countSuperlative entity-en.meeting string-max string-attendee
+meeting which starts at d0 on d1	SW.filter ( SW.filter entity-en.meeting string-date string-= d1 ) string-start_time string-= d0
+show me all meetings with two attendees	SW.countComparative entity-en.meeting string-attendee string-= number2
+meeting that starts later than start of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me any meetings located at e0 or e1	SW.filter entity-en.meeting string-location string-= SW.concat
+show me meetings starting before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.concat d0 ) )
+show me all meetings happening on days other than d0	SW.filter entity-en.meeting string-date string-!= d0
+what meeting starts before e0 ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+what meeting starts at d0 on d1	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-date string-= d1
+what meeting has fan end time after d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.concat )
+what meetings have the same duration as the e0 stand up meeting	SW.filter entity-en.meeting string-length string-= SW.getProperty e0 string-length
+which meetings are held at e0	SW.filter entity-en.meeting string-location string-= e0
+what meetings on d0 end at d1	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d1 ) string-date string-= d0
+show me meetings on d0 in e0	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-location string-= e0
+meetings that are three hours long or one hour long	SW.filter entity-en.meeting string-length string-= SW.concat
+show me all meetings happening on the same day or before the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+show me meeting locations with e0	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-attendee string-= e0 )
+what meeting has a start time earlier than the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+what meetings end at d0 or d1	SW.filter entity-en.meeting string-end_time string-= SW.concat
+show me all meetings three hours long which are marked as important	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-is_important
+important meeting with e0 as attendee	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-attendee string-= e0
+what meeting starts at least at d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string->= ( SW.ensureNumericEntity SW.concat )
+what is the location of the d0 meeting	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-date string-= d0 )
+show me all people attending either the e0 meeting or e1	SW.filter entity-en.person SW.reverse string-attendee string-= SW.concat
+meeting ends at least at start time of e0 roundup	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+what important meeting is located at e0	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-is_important
+meetings at e0 that start at d1	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-start_time string-= d1
+show me all meetings starting earlier than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity d0 )
+what meeting ending at d0 is e0 attending	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-end_time string-= d0
+what important meetings are scheduled for d0	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-date string-= d0
+meeting which has shortest start time	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-start_time
+meetings that start after the e0 meeting starts	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+meetings held in the most locations	SW.countSuperlative entity-en.meeting string-max string-location
+show me all meetings scheduled to be three hours or one hour long	SW.concat
+meetings that start at or before the time of the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+meetings that end earlier than the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+show me all meetings happening after d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-> ( SW.ensureNumericEntity SW.concat )
+which meetings will take as much time as e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+who are the attendees for fo the meetings in e0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-location string-= e0 )
+meetings held before d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-< ( SW.ensureNumericEntity SW.concat )
+show me all meetings happening before d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-< ( SW.ensureNumericEntity SW.concat )
+meetings that end at or after d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity d0 )
+meeting longer than one or three hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-> ( SW.ensureNumericEntity SW.concat )
+show me all important meetings that e0 is attending	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-is_important
+show me all important meetings that end at d0	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-end_time string-= d0
+show me all meetings beginning at d0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-start_time string-= d0
+location features the largest number of meetings	SW.countSuperlative entity-en.location string-max SW.reverse string-location entity-en.meeting
+show me meetings before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-< ( SW.ensureNumericEntity SW.concat )
+what meeting has the same date as e0 startup	SW.filter entity-en.meeting string-date string-= SW.getProperty e0 string-date
+show me all meetings that have at most two locations	SW.countComparative entity-en.meeting string-location string-<= number2
+show me all 3 hour long meetings that end at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-length string-= number3 en.hour
+meetings attended by two people	SW.countComparative entity-en.meeting string-attendee string-= number2
+meetings that end at or after the e0 meeting ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+show me meeting which end before e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me all meetings which end later than the e0 begins	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+person who attends important meeting	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-is_important )
+what meeting has a date of d0 and has e0 attending	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-attendee string-= e0
+what meeting ends no later than d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity SW.concat )
+meetings attended by e0 that start at d1	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-start_time string-= d1
+person attending at least two meetings	SW.countComparative entity-en.person SW.reverse string-attendee string->= number2 entity-en.meeting
+people that attend at least two meetings	SW.countComparative entity-en.person SW.reverse string-attendee string->= number2 entity-en.meeting
+show me meetings starting at d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string->= ( SW.ensureNumericEntity SW.concat )
+show me any meetings which end at d0	SW.filter entity-en.meeting string-end_time string-= d0
+what meeting has two attendees or less	SW.countComparative entity-en.meeting string-attendee string-<= number2
+show me all meetings which are exactly one hour or exactly three hours long	SW.filter entity-en.meeting string-length string-= SW.concat
+where is the e0 meeting located	SW.getProperty e0 string-location
+meeting in which e0 is attending which starts at d1	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-start_time string-= d1
+meetings that are three hours or longer or an hour or longer	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.concat )
+who is attending the same meeting as e0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-attendee string-= e0 )
+important meetings that end at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-is_important
+what meeting will take place no later than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-<= ( SW.ensureNumericEntity d0 )
+what meeting ends at most at d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity d0 )
+what meeting does not start at d0	SW.filter entity-en.meeting string-start_time string-!= d0
+what meeting is on d0 or earlier	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-<= ( SW.ensureNumericEntity d0 )
+show me all d0 meetings that e0 is attending	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-attendee string-= e0
+who is attending e0	SW.getProperty e0 string-attendee
+what are the areas where two or more meetings take place	SW.countComparative entity-en.location SW.reverse string-location string->= number2 entity-en.meeting
+what is the location of the important meeting	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-is_important )
+show me all meetings attended by e0 which are three hours long	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-length string-= number3 en.hour
+what meetings take place on d0 in e0	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-date string-= d0
+what time does the e0 meeting end	SW.getProperty e0 string-end_time
+how long is the meeting	string-sum SW.getProperty entity-en.meeting string-length
+what three hour meeting starts at d0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-length string-= number3 en.hour
+show me the meetings which end no later than the e0 ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+show me meetings not at e0	SW.filter entity-en.meeting string-location string-!= e0
+meeting which is on the date of first e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+show me meetings that end before the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+show all meetings that end at d0 on d1	SW.filter ( SW.filter entity-en.meeting string-date string-= d1 ) string-end_time string-= d0
+show me all meetings ending later than the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+show me all meetings on d0 at the e0	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-location string-= e0
+show me all three hour meetings that end at d0	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-end_time string-= d0
+show me meetings at d0 with e0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-attendee string-= e0
+meetings that start later than the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+what meetings are the same day as the e0 meeting	SW.filter entity-en.meeting string-date string-= SW.getProperty e0 string-date
+people attending meetings that end at d0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-end_time string-= d0 )
+show me any meetings that e0 has not attended	SW.filter entity-en.meeting string-attendee string-!= e0
+what meeting is on d0 at d1	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-start_time string-= d1
+show me all meetings that end at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-end_time string-= d0
+what meeting has an earlier date than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-< ( SW.ensureNumericEntity d0 )
+meetings that end later than d0 or later than d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.concat )
+meeting held in the fewest number of locations	SW.countSuperlative entity-en.meeting string-min string-location
+location of at least two meetings is the location	SW.countComparative entity-en.location SW.reverse string-location string->= number2 entity-en.meeting
+what meeting starts earlier than the end time of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+show me all meetings that start at d0 and last three hours	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-length string-= number3 en.hour
+what meeting is before e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+show me any meetings on d0 beginning at d1	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d1 ) string-date string-= d0
+how long is this meeting	string-sum SW.getProperty entity-en.meeting string-length
+meetings that are the same length as the e0 meeting	SW.filter entity-en.meeting string-length string-= SW.getProperty e0 string-length
+show me all meetings happening later than d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity SW.concat )
+person that attends the fewest meetings	SW.countSuperlative entity-en.person string-min SW.reverse string-attendee entity-en.meeting
+show me any meetings that e0 or e1 have attended	SW.concat
+show me meetings that last three hours	SW.filter entity-en.meeting string-length string-= number3 en.hour
+what is the start time for the e0 stand up meeting	SW.getProperty e0 string-start_time
+what is the location of the important meeting	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-is_important )
+show me all meetings ending at d0 that e0 is attending	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-end_time string-= d0
+what person is attending e0	SW.filter ( SW.filter entity-en.person SW.reverse string-attendee string-= e0 ) SW.reverse string-attendee string-= e0
+show me any meetings that are either the e0 or e1	SW.concat
+what meeting did e0 not attend	SW.filter entity-en.meeting string-attendee string-!= e0
+which meeting is the shortest	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-length
+person who attends e0	SW.filter entity-en.person SW.reverse string-attendee string-= e0
+who is the person attending the e0 stand up meeting	SW.filter ( SW.filter entity-en.person SW.reverse string-attendee string-= e0 ) SW.reverse string-attendee string-= e0
+location different from location of e0	SW.filter entity-en.location SW.reverse string-location string-!= e0
+how long does the average meeting last	string-avg SW.getProperty entity-en.meeting string-length
+show me all attendees of meetings ending at d0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-end_time string-= d0 )
+show me all attendees of meetings on d0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-date string-= d0 )
+what meeting starts when e0 ends	SW.filter entity-en.meeting string-start_time string-= SW.getProperty e0 string-end_time
+what meeting is one hour or longer	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.concat )
+meetings on or before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-<= ( SW.ensureNumericEntity d0 )
+meetings that start before the e0 meeting ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+meeting featuring e0 as attendee starting at d1	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d1 ) string-attendee string-= e0
+what meeting ended after d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity d0 )
+what person is attending the meeting at e0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-location string-= e0 )
+show me all meetings happening on or before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-<= ( SW.ensureNumericEntity d0 )
+what meeting ends at d0 on d1	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-date string-= d1
+meetings that are attended by people that also attend the e0 meeting	SW.filter entity-en.meeting string-attendee string-= ( SW.filter entity-en.person SW.reverse string-attendee string-= e0 )
+show me meetings that start before the e0 meeting ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+what meeting was shorter than three hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity SW.concat )
+show me all meetings happening on or after the date of the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+show me meetings before the e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+what meetings have the same date as the e0 meeting	SW.filter entity-en.meeting string-date string-= SW.getProperty e0 string-date
+show me where the e0 and e1 is happening	SW.filter entity-en.location SW.reverse string-location string-= SW.concat
+show me all meetings on d0	SW.filter ( SW.filter entity-en.meeting string-date string-= d0 ) string-date string-= d0
+show me the meeting that starts at d0 on d1	SW.filter ( SW.filter entity-en.meeting string-date string-= d1 ) string-start_time string-= d0
+show me all meetings starting at or before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity d0 )
+show me all meetings marked as important happening at e0	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-location string-= e0
+meeting which ends at or after the end time of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+e0 duration	SW.getProperty e0 string-length
+meetings that start at or before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity d0 )
+what meeting has the smallest length	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-length
+show me all meetings with either e0 or e1 attending	SW.filter entity-en.meeting string-attendee string-= SW.concat
+person attending d0 meeting	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-date string-= d0 )
+show me the dates of the e0 meetings	SW.getProperty e0 string-date
+who is attending the d0 meeting	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-start_time string-= d0 )
+show me meetings with e0 or e1	SW.filter entity-en.meeting string-attendee string-= SW.concat
+which meetings in e0 will last three hours	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-length string-= number3 en.hour
+show me all meetings marked as important	SW.filter entity-en.meeting string-is_important
+two attendees are at the meeting	SW.countComparative entity-en.meeting string-attendee string-= number2
+show me all meetings e0 has attended which have ended at d1	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-end_time string-= d1
+meetings that are the same length or shorter than the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+show me all meetings scheduled for three hourse	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-length string-= number3 en.hour
+find me a meeting shorter than three hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-< ( SW.ensureNumericEntity number3 en.hour )
+meetings that start after d0 or after d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity SW.concat )
+meetings on d0 that are three hours long	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-date string-= d0
+what is the meeting that starts at d0 in e0	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-start_time string-= d0
+meetings that end at d0 or d1	SW.filter entity-en.meeting string-end_time string-= SW.concat
+meetings attended by the smallest number of people	SW.countSuperlative entity-en.meeting string-min string-attendee
+what meeting has the same location as e0	SW.filter entity-en.meeting string-location string-= ( SW.filter entity-en.location SW.reverse string-location string-= e0 )
+which meeting has the fewest scheduled locations	SW.countSuperlative entity-en.meeting string-min string-location
+show me locations of all meetings which are marked as important	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-is_important )
+show me all meetings with two or more people attending	SW.countComparative entity-en.meeting string-attendee string->= number2
+who attends the most meetings	SW.countSuperlative entity-en.person string-max SW.reverse string-attendee entity-en.meeting
+locations of important meetings	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-is_important )
+show me all meetings ending no later than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity d0 )
+what meeting ends ealiest in the day	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-end_time
+meetings that start before d0 or before d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity SW.concat )
+show me the attendees for all meetings on d0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-date string-= d0 )
+show me all meetings at the e0 ending at d1	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d1 ) string-location string-= e0
+show me all meetings happening on or after d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string->= ( SW.ensureNumericEntity d0 )
+what meeting did e0 attend at the e1	SW.filter ( SW.filter entity-en.meeting string-location string-= e1 ) string-attendee string-= e0
+show me all meetings that start no earlier than when the e0 meeting ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+show me the people attending the most meetings	SW.countSuperlative entity-en.person string-min SW.reverse string-attendee entity-en.meeting
+show me all meetings ending before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-< ( SW.ensureNumericEntity d0 )
+show me all three hour meetings on d0	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-date string-= d0
+person who attends the meeting that ends at d0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-end_time string-= d0 )
+locations that do not house the e0 meeting	SW.filter entity-en.location SW.reverse string-location string-!= e0
+location where more than two meetings are held	SW.countComparative entity-en.location SW.reverse string-location string-> number2 entity-en.meeting
+shortest meeting	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-length
+what meeting ends before the start of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+what meeting has the longest time	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-end_time
+show me all meetings which begin earlier than d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-< ( SW.ensureNumericEntity SW.concat )
+meetings attended by two or more people	SW.countComparative entity-en.meeting string-attendee string->= number2
+meeting whose location is same as the  location of e0	SW.filter entity-en.meeting string-location string-= ( SW.filter entity-en.location SW.reverse string-location string-= e0 )
+is the meeting at d0 or d1	SW.concat
+what is the location that more than two meetings will be held at	SW.countComparative entity-en.location SW.reverse string-location string-> number2 entity-en.meeting
+show me all meeting that take place by d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-<= ( SW.ensureNumericEntity SW.concat )
+meetings that are not held at e0	SW.filter entity-en.meeting string-location string-!= e0
+people attending meetings that e0 attends	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-attendee string-= e0 )
+what important meetings start at d0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-is_important
+important meetings that start at d0	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-start_time string-= d0
+when is the e0	SW.getProperty e0 string-start_time
+meeting on d0 with e0 as attendee	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-date string-= d0
+what location is the meeting that starts at d0	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-start_time string-= d0 )
+what important meeting has e0 attending	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-attendee string-= e0
+what meeting is on or before d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-<= ( SW.ensureNumericEntity SW.concat )
+show me all people who have attended at least two meetings	SW.countComparative entity-en.person SW.reverse string-attendee string->= number2 entity-en.meeting
+meeting at e0 which ends at d1	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d1 ) string-location string-= e0
+show me all meetings beginning at d0 and all meetings ending at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-end_time string-= d0
+what location are the fewest meetings held	SW.countSuperlative entity-en.location string-min SW.reverse string-location entity-en.meeting
+what meeting ends at d0 in which e0 is attending	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-attendee string-= e0
+meeting ends no later than d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-<= ( SW.ensureNumericEntity SW.concat )
+show me all meetings attended by people who have also attended the e0	SW.filter entity-en.meeting string-attendee string-= ( SW.filter entity-en.person SW.reverse string-attendee string-= e0 )
+what meeting is the same length as that of e0 startup	SW.filter entity-en.meeting string-length string-= SW.getProperty e0 string-length
+meeting that ends sooner than e0 ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+show me meetings at e0	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-location string-= e0
+what important meeting has a location at e0	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-location string-= e0
+show me all locations that are used for more than two meetings	SW.countComparative entity-en.location SW.reverse string-location string-> number2 entity-en.meeting
+what is the average length of all the meetings	string-avg SW.getProperty entity-en.meeting string-length
+show me all meetings in e0 or e1	SW.filter entity-en.meeting string-location string-= SW.concat
+meeting of smallest duration	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-end_time
+person attending three hour meeting	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-length string-= number3 en.hour )
+what meeting is on d0 or d1	SW.filter entity-en.meeting string-date string-= SW.concat
+meetings that are three hours or less or one hour or less	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity SW.concat )
+what is the number of the location	.size entity-en.location
+meeting that ends at start time of e0	SW.filter entity-en.meeting string-end_time string-= SW.getProperty e0 string-start_time
+duration of meeting	string-sum SW.getProperty entity-en.meeting string-length
+show me the meetings with the least number of different locations	SW.countSuperlative entity-en.meeting string-min string-location
+what meeting is at least three hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity number3 en.hour )
+show me all meetings that e0 is attending	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e0 ) string-attendee string-= e0
+locations of meetings that are three hours long	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-length string-= number3 en.hour )
+show me all meetings three hours long which end at d0	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-end_time string-= d0
+show me the meeting starting latest in the day	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-start_time
+what meeting has the most amount of locations	SW.countSuperlative entity-en.meeting string-max string-location
+what meeting starts at d0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-start_time string-= d0
+meeting that starts at d0 and ends at 1pm	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-start_time string-= d0
+how long is the e0 meeting	SW.getProperty e0 string-length
+what meeting has the later date	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-date
+what meeting has a start time at d0 at e0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-location string-= e0
+people attending meetings that start at d0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-start_time string-= d0 )
+what person attends most meetings	SW.countSuperlative entity-en.person string-max SW.reverse string-attendee entity-en.meeting
+show me all meetings three hours long at the e0	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-location string-= e0
+meeting whose start time is after end time of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+which meetings are important	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-is_important
+show me meetings starting before d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity d0 )
+show me all locations which have had at least two meetings	SW.countComparative entity-en.location SW.reverse string-location string->= number2 entity-en.meeting
+show me meetings at fewer than two locations	SW.countComparative entity-en.meeting string-location string-< number2
+show me all meetings between d0 and d1	SW.concat
+show me meetings happening after d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-> ( SW.ensureNumericEntity d0 )
+what meeting had the fewest people show up	SW.countSuperlative entity-en.meeting string-min string-attendee
+show the meeting on d0	SW.filter entity-en.meeting string-date string-= d0
+show me all meetings which begin after the e0 ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+three hour meeting that ends at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-length string-= number3 en.hour
+show me the meeting e0 will attend which ends at d1	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d1 ) string-attendee string-= e0
+show me all meetings with at least two people attending	SW.countComparative entity-en.meeting string-attendee string->= number2
+show me all meetings that begin no later than the time the e0 meeting starts	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+show me any meetings e0 has attended on d1	SW.filter ( SW.filter entity-en.meeting string-date string-= d1 ) string-attendee string-= e0
+meetings that start at d0 or d1	SW.filter entity-en.meeting string-start_time string-= SW.concat
+what is the average length of a meeting	string-avg SW.getProperty entity-en.meeting string-length
+show me meetings with the most locations	SW.countSuperlative entity-en.meeting string-max string-location
+show me all meetings which end earlier than the e0 begins	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+meetings with the earliest start time	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-start_time
+what meetings are imporant and start at d0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-is_important
+meetings that are the same length as or longer than the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-length  )
+start time of the meeting is after the start time of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+people that attend more than two meetings	SW.countComparative entity-en.person SW.reverse string-attendee string-> number2 entity-en.meeting
+which meeting is scheduled on the earliest date	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-date
+what meeting has a start time no later than d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.concat )
+what location has more than two meetings	SW.countComparative entity-en.location SW.reverse string-location string-> number2 entity-en.meeting
+show me meetings that start before the e0 ends	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+meeting starts later than d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-> ( SW.ensureNumericEntity d0 )
+what meetings are scheduled to run for 3 hours	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity number3 en.hour )
+show me the meetings which have lasted the longest	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-length
+show me all meetings less than three hours long	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity number3 en.hour )
+meeting with least attendees	SW.countSuperlative entity-en.meeting string-min string-attendee
+important meeting	SW.filter entity-en.meeting string-is_important
+what is the location that the most number of meetings will be held	SW.countSuperlative entity-en.location string-max SW.reverse string-location entity-en.meeting
+what meetings end at the same time as the e0 roundup meeting	SW.filter entity-en.meeting string-end_time string-= SW.getProperty e0 string-end_time
+show me all meetings that fall before or after d0	SW.filter entity-en.meeting string-date string-!= d0
+how many people attended meetings	.size entity-en.person
+what person is attending e0 startup	SW.filter entity-en.person SW.reverse string-attendee string-= e0
+meetings that end at d0	SW.filter entity-en.meeting string-end_time string-= d0
+which meetings dont start at d0	SW.filter entity-en.meeting string-start_time string-!= d0
+show me all meetings at least three hours long	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string->= ( SW.ensureNumericEntity number3 en.hour )
+show me meetings that take 3 hours	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-length string-= number3 en.hour
+what is the most recent meeting	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-date
+show me all meetings that share an attendee with the e0 meeting	SW.filter entity-en.meeting string-attendee string-= ( SW.filter entity-en.person SW.reverse string-attendee string-= e0 )
+meetings that are three hours long or less	SW.filter entity-en.meeting SW.ensureNumericProperty string-length  string-<= ( SW.ensureNumericEntity number3 en.hour )
+what meeting is at the same location as e0	SW.filter entity-en.meeting string-location string-= SW.getProperty e0 string-location
+meeting ends after end time of e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-end_time  )
+meetings attended by people that attend the e0 meeting	SW.filter entity-en.meeting string-attendee string-= SW.getProperty e0 string-attendee
+meetings held at e0 or e1	SW.filter entity-en.meeting string-location string-= SW.concat
+show me all meetings that end at d0 and start at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-start_time string-= d0
+what is an important meeting	SW.filter ( SW.filter entity-en.meeting string-is_important ) string-is_important
+what meeting has a after d0 or d1	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-> ( SW.ensureNumericEntity SW.concat )
+three or one hours	SW.concat
+what meeting has a later date than e0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+what meeting starts the earliest	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-start_time
+show me all meetings that start no earlier than the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-date  )
+what important meeting has a length of three hours	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-is_important
+show me who is attending three hour meetings	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-length string-= number3 en.hour )
+people that attend meetings at e0	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-location string-= e0 )
+meetings with the latest start time	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-start_time
+meetings that end at the same as the e0 meeting	SW.filter entity-en.meeting string-end_time string-= SW.getProperty e0 string-end_time
+what location does not hold the e0 meeting	SW.filter entity-en.location SW.reverse string-location string-!= e0
+meeting share attendee with e0	SW.filter entity-en.meeting string-attendee string-= SW.getProperty e0 string-attendee
+show me the location of all meetings attended by e0	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-attendee string-= e0 )
+who has attended the least meetings	SW.countSuperlative entity-en.person string-min SW.reverse string-attendee entity-en.meeting
+what person is an attendee of at least two meetings	SW.countComparative entity-en.person SW.reverse string-attendee string->= number2 entity-en.meeting
+which person is attending an important meeting	SW.filter entity-en.person SW.reverse string-attendee string-= ( SW.filter entity-en.meeting string-is_important )
+who attends e0	SW.filter entity-en.person SW.reverse string-attendee string-= e0
+what date is the e0 meeting	SW.getProperty e0 string-date
+show me meetings that start and end at d0	SW.filter ( SW.filter entity-en.meeting string-end_time string-= d0 ) string-start_time string-= d0
+show me all meetings lasting three hours beginning at d0	SW.filter ( SW.filter entity-en.meeting string-length string-= number3 en.hour ) string-start_time string-= d0
+what is the number of the person	.size entity-en.person
+what meeting starts at the e0 average start time	SW.filter entity-en.meeting SW.ensureNumericProperty string-start_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+meetings with the latest end time	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-end_time
+show me meetings after d0	SW.filter entity-en.meeting SW.ensureNumericProperty string-date  string-> ( SW.ensureNumericEntity SW.concat )
+meetings that end at the same time as or later than the start of the e0 meeting	SW.filter entity-en.meeting SW.ensureNumericProperty string-end_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-start_time  )
+what meetings have the same start time as the week startup meeting	SW.filter entity-en.meeting string-start_time string-= SW.getProperty en.meeting.weekly_standup string-start_time
+which people will attend two or more meetings	SW.countComparative entity-en.person SW.reverse string-attendee string-> number2 entity-en.meeting
+which meeting has the earliest end time	SW.superlative entity-en.meeting string-min SW.ensureNumericProperty string-end_time
+meeting that has maximum 2 attendees	SW.countComparative entity-en.meeting string-attendee string-<= number2
+show me all meetings which end at the same time the e0 begins	SW.filter entity-en.meeting string-end_time string-= SW.getProperty e0 string-start_time
+meeting that starts and ends at d0	SW.filter ( SW.filter entity-en.meeting string-start_time string-= d0 ) string-end_time string-= d0
+which meeting is scheduled on the latest date	SW.superlative entity-en.meeting string-max SW.ensureNumericProperty string-date
+meeting which starts at d0 at e0	SW.filter ( SW.filter entity-en.meeting string-location string-= e0 ) string-start_time string-= d0
+what time does the e0 meeting end	SW.getProperty e0 string-end_time
+what person is an attendee of more than two meetings	SW.countComparative entity-en.person SW.reverse string-attendee string-> number2 entity-en.meeting
+meetings at e0 attended by e1	SW.filter ( SW.filter entity-en.meeting string-attendee string-= e1 ) string-location string-= e0
+show me all meetings not ending at d0	SW.filter entity-en.meeting string-end_time string-!= d0
+meeting shares attendee with e0	SW.filter entity-en.meeting string-attendee string-= ( SW.filter entity-en.person SW.reverse string-attendee string-= e0 )
+what is the location of the meeting that will have two or more attendees	SW.countComparative entity-en.location SW.reverse string-location string->= number2 entity-en.meeting
+show me meeting locations that start at d0	SW.filter entity-en.location SW.reverse string-location string-= ( SW.filter entity-en.meeting string-start_time string-= d0 )
+who is not an attendee of e0	SW.filter entity-en.person SW.reverse string-attendee string-!= e0

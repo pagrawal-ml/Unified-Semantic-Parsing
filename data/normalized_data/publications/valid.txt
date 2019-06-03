@@ -1,0 +1,128 @@
+name an article from the annals of e0	SW.filter entity-en.article SW.reverse string-cites string-= ( SW.filter entity-en.article string-venue string-= e0 )
+article that cites more than two article	SW.countComparative entity-en.article string-cites string-> number2 entity-en.article
+find any article that e0 didnt write	SW.filter entity-en.article string-author string-!= e0
+articles written by fewer than two people	SW.countComparative entity-en.article string-author string-< number2
+who is and author of e0	SW.filter ( SW.filter entity-en.person SW.reverse string-author string-= e0 ) SW.reverse string-author string-= e0
+what article was published in d0 or earlier	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string-<= ( SW.ensureNumericEntity SW.concat )
+articles cited by e0 and published in annals of e1	SW.filter ( SW.filter entity-en.article SW.reverse string-cites string-= e0 ) string-venue string-= e1
+who is someone that has not authored an article about e0	SW.filter entity-en.person SW.reverse string-author string-!= e0
+articles published in d0 that have won an award	SW.filter ( SW.filter entity-en.article string-won_award ) string-publication_date string-= d0
+writers of more than two articles	SW.countComparative entity-en.person SW.reverse string-author string-> number2 entity-en.article
+which article was published after d0	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string-> ( SW.ensureNumericEntity d0 )
+article that cite articles published in d0	SW.filter entity-en.article string-cites string-= ( SW.filter entity-en.article string-publication_date string-= d0 )
+which publication contains two articles	SW.countComparative entity-en.venue SW.reverse string-venue string-= number2 entity-en.article
+where can you see e0	SW.getProperty e0 string-venue
+which article is cited by the most number of articles	SW.countSuperlative entity-en.article string-max SW.reverse string-cites entity-en.article
+article that cites three or more articles	SW.countComparative entity-en.article SW.reverse string-cites string-> number2 entity-en.article
+author of one or two articles	SW.countComparative entity-en.person SW.reverse string-author string-<= number2 entity-en.article
+articles cited by e0	SW.filter entity-en.article SW.reverse string-cites string-= ( SW.filter entity-en.article string-author string-= e0 )
+article that is published in d0	SW.filter ( SW.filter entity-en.article string-publication_date string-= d0 ) string-publication_date string-= d0
+articles with more than two authors	SW.countComparative entity-en.article string-author string-> number2
+name a person who is the author of an article about e0	SW.filter ( SW.filter entity-en.person SW.reverse string-author string-= e0 ) SW.reverse string-author string-= e0
+writers of articles citing e0	SW.filter entity-en.person SW.reverse string-author string-= ( SW.filter entity-en.article SW.reverse string-cites string-= e0 )
+in what publication was e0 published	SW.filter entity-en.venue SW.reverse string-venue string-= e0
+articles published in two or more venues	SW.countComparative entity-en.article string-venue string->= number2
+article published before e0	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-publication_date  )
+what article about annals and e0 has a publication ate of d1	SW.filter ( SW.filter entity-en.article string-publication_date string-= d1 ) string-venue string-= e0
+an article that cites e0	SW.filter entity-en.article SW.reverse string-cites string-= ( SW.filter entity-en.article SW.reverse string-cites string-= e0 )
+what article is about e0	SW.filter entity-en.article string-venue string-= ( SW.filter entity-en.venue SW.reverse string-venue string-= e0 )
+what article has two authors or less	SW.countComparative entity-en.article string-author string-<= number2
+venues of two articles or fewer	SW.countComparative entity-en.venue SW.reverse string-venue string-<= number2 entity-en.article
+venues of fewer than two articles	SW.countComparative entity-en.venue SW.reverse string-venue string-< number2 entity-en.article
+articles not written by e0	SW.filter entity-en.article string-author string-!= e0
+what article has two other articles cited within it	SW.countComparative entity-en.article SW.reverse string-cites string-= number2 entity-en.article
+article by the same author of e0	SW.filter entity-en.article string-author string-= ( SW.filter entity-en.person SW.reverse string-author string-= e0 )
+what article was cited twice	SW.countComparative entity-en.article SW.reverse string-cites string-= number2 entity-en.article
+article whose publication date is at least d0	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string->= ( SW.ensureNumericEntity d0 )
+name an article about e0 from the annals of e1	SW.filter ( SW.filter entity-en.article string-cites string-= e0 ) string-venue string-= e1
+articles written by e0 or e1	SW.filter entity-en.article string-author string-= SW.concat
+what article has a publication date of at least d0	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string->= ( SW.ensureNumericEntity d0 )
+what article published in d0 was cited by e0	SW.filter ( SW.filter entity-en.article SW.reverse string-cites string-= e0 ) string-publication_date string-= d0
+what article has the least authors	SW.countSuperlative entity-en.article string-min string-author
+articles with two venues	SW.countComparative entity-en.article string-venue string-= number2
+articles published in d0 cited by e0	SW.filter ( SW.filter entity-en.article string-publication_date string-= d0 ) SW.reverse string-cites string-= e0
+who is the author of less than two articles	SW.countComparative entity-en.person SW.reverse string-author string-< number2 entity-en.article
+venue of only one article	SW.countComparative entity-en.venue SW.reverse string-venue string-< number2 entity-en.article
+articles not cited by e0	SW.filter entity-en.article SW.reverse string-cites string-!= e0
+articles that were not published in d0	SW.filter entity-en.article string-publication_date string-!= d0
+awardwinning articles cited in articles using e0	SW.filter ( SW.filter entity-en.article string-won_award ) SW.reverse string-cites string-= e0
+what is an article written by only one author	SW.countComparative entity-en.article string-author string-< number2
+what article cites at least two other articles	SW.countComparative entity-en.article string-cites string->= number2 entity-en.article
+what article cites an article cited by e0	SW.filter entity-en.article string-cites string-= ( SW.filter entity-en.article SW.reverse string-cites string-= e0 )
+article with author of e0	SW.filter entity-en.article string-author string-= SW.getProperty e0 string-author
+what venue is e0 in	SW.filter entity-en.venue SW.reverse string-venue string-= e0
+who wrote e0 more than once	SW.filter ( SW.filter entity-en.person SW.reverse string-author string-= e0 ) SW.reverse string-author string-= e0
+award winning article publication venue	SW.filter entity-en.venue SW.reverse string-venue string-= ( SW.filter entity-en.article string-won_award )
+articles published in d0 citing e0	SW.filter ( SW.filter entity-en.article string-publication_date string-= d0 ) string-cites string-= e0
+article with publication date as d0 and has the venue as annals of e0	SW.filter ( SW.filter entity-en.article string-publication_date string-= d0 ) string-venue string-= e0
+what d0 article was cited by e0	SW.filter ( SW.filter entity-en.article string-publication_date string-= d0 ) SW.reverse string-cites string-= e0
+what article was published on or after e0 was	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-publication_date  )
+venues other than the e0 venue	SW.filter entity-en.venue SW.reverse string-venue string-!= e0
+article that e0 cites	SW.filter ( SW.filter entity-en.article SW.reverse string-cites string-= e0 ) SW.reverse string-cites string-= e0
+articles written by one or two authors	SW.countComparative entity-en.article string-author string-<= number2
+articles published in annals of e0 in d1	SW.filter ( SW.filter entity-en.article string-venue string-= e0 ) string-publication_date string-= d1
+what article was written by e0 and has a publication date of d1	SW.filter ( SW.filter entity-en.article string-author string-= e0 ) string-publication_date string-= d1
+articles written by e0 citing e1	SW.filter ( SW.filter entity-en.article string-cites string-= e1 ) string-author string-= e0
+article with more than two venue	SW.countComparative entity-en.article string-venue string-> number2
+articles written by e0 published in d1	SW.filter ( SW.filter entity-en.article string-publication_date string-= d1 ) string-author string-= e0
+find an article with no more than two venues	SW.countComparative entity-en.article string-venue string-<= number2
+articles published in the fewest places	SW.countSuperlative entity-en.article string-min string-venue
+which article has a publication date the same as e0	SW.filter entity-en.article string-publication_date string-= SW.getProperty e0 string-publication_date
+article that does not cite e0	SW.filter entity-en.article SW.reverse string-cites string-!= e0
+articles with a venue	SW.countComparative entity-en.article string-venue string-< number2
+name articles in annals of e0	SW.filter entity-en.venue SW.reverse string-venue string-= ( SW.filter entity-en.article string-venue string-= e0 )
+article that cites e0 in the annals of e1	SW.filter ( SW.filter entity-en.article SW.reverse string-cites string-= e0 ) string-venue string-= e1
+what award winning article is cited by e0	SW.filter ( SW.filter entity-en.article string-won_award ) SW.reverse string-cites string-= e0
+find an article published after d0	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string-> ( SW.ensureNumericEntity SW.concat )
+articles cited by e0 and written by e1	SW.filter ( SW.filter entity-en.article SW.reverse string-cites string-= e0 ) string-author string-= e1
+articles authored by e0	SW.filter ( SW.filter entity-en.article string-author string-= e0 ) string-author string-= e0
+what article has the least number of authors	SW.countSuperlative entity-en.article string-min string-author
+find an article that cites more than two articles	SW.countComparative entity-en.article string-cites string-> number2 entity-en.article
+an article with the latest publication date	SW.superlative entity-en.article string-max SW.ensureNumericProperty string-publication_date
+venue that is mentioned in at least  two articles	SW.countComparative entity-en.venue SW.reverse string-venue string->= number2 entity-en.article
+article written by e0 that is cited by e1	SW.filter ( SW.filter entity-en.article SW.reverse string-cites string-= e1 ) string-author string-= e0
+what is the persons number	.size entity-en.person
+articles published after d0	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string-> ( SW.ensureNumericEntity SW.concat )
+name an article by e0	SW.filter entity-en.article SW.reverse string-cites string-= ( SW.filter entity-en.article string-author string-= e0 )
+what venue has the fewest articles	SW.countSuperlative entity-en.venue string-min SW.reverse string-venue entity-en.article
+publications that include articles published in d0	SW.filter entity-en.venue SW.reverse string-venue string-= ( SW.filter entity-en.article string-publication_date string-= d0 )
+what is a venue with fewer than two articles	SW.countComparative entity-en.venue SW.reverse string-venue string-< number2 entity-en.article
+articles written by e0 or e1	SW.filter entity-en.article string-author string-= SW.concat
+articles published from d0 to d1	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string->= ( SW.ensureNumericEntity SW.concat )
+name an article found in two publications	SW.countComparative entity-en.article string-venue string-= number2
+name a person who has written no more than two articles	SW.countComparative entity-en.person SW.reverse string-author string-<= number2 entity-en.article
+what author wrote two or more articles	SW.countComparative entity-en.person SW.reverse string-author string->= number2 entity-en.article
+what article is written by e0	SW.filter entity-en.article string-author string-= e0
+article with two authors	SW.countComparative entity-en.article string-author string-= number2
+most recently published article	SW.superlative entity-en.article string-max SW.ensureNumericProperty string-publication_date
+find an article published in d0	SW.filter entity-en.article string-publication_date string-= d0
+article whose publication date is at most publication date of e0	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-publication_date  )
+who is the author of whose venue is annals of e0	SW.filter entity-en.person SW.reverse string-author string-= ( SW.filter entity-en.article string-venue string-= e0 )
+article whose publication date is d0 and cited by e0	SW.filter ( SW.filter entity-en.article string-publication_date string-= d0 ) SW.reverse string-cites string-= e0
+name someone who is not the author of an article about e0	SW.filter entity-en.person SW.reverse string-author string-!= e0
+any article that mentions award winning article	SW.filter entity-en.article string-cites string-= ( SW.filter entity-en.article string-won_award )
+what is the date of publication  for e0	SW.getProperty e0 string-publication_date
+authors who published their works in d0	SW.filter entity-en.person SW.reverse string-author string-= ( SW.filter entity-en.article string-publication_date string-= d0 )
+article published in d0 and that cites e0	SW.filter ( SW.filter entity-en.article string-publication_date string-= d0 ) string-cites string-= e0
+what venues cite e0	SW.filter entity-en.venue SW.reverse string-venue string-= ( SW.filter entity-en.article string-cites string-= e0 )
+article that mentions at least two other articles	SW.countComparative entity-en.article string-cites string-<= number2 entity-en.article
+article not citing e0	SW.filter entity-en.article SW.reverse string-cites string-!= e0
+name an article published in d0	SW.filter entity-en.article SW.reverse string-cites string-= ( SW.filter entity-en.article string-publication_date string-= d0 )
+who wrote the most articles	SW.countSuperlative entity-en.person string-max SW.reverse string-author entity-en.article
+venue of the e0 article	SW.filter entity-en.venue SW.reverse string-venue string-= ( SW.filter entity-en.article string-author string-= e0 )
+article whose publication date is d0 and whose author is e0	SW.filter ( SW.filter entity-en.article string-publication_date string-= d0 ) string-author string-= e0
+article published after d0	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string-> ( SW.ensureNumericEntity SW.concat )
+article cited bymultivariate data analysis whose venue is annals of e0	SW.filter ( SW.filter entity-en.article SW.reverse string-cites string-= en.article.multivariate_data_analysis ) string-venue string-= e0
+articles published in the same publication as e0	SW.filter entity-en.article string-venue string-= SW.getProperty e0 string-venue
+article whose author is author of e0	SW.filter entity-en.article string-author string-= SW.getProperty e0 string-author
+articles published contemporaneous to or after the e0	SW.filter entity-en.article SW.ensureNumericProperty string-publication_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-publication_date  )
+article that at least two article cites	SW.countComparative entity-en.article SW.reverse string-cites string->= number2 entity-en.article
+what article cites other articles about annals of e0	SW.filter entity-en.article string-cites string-= ( SW.filter entity-en.article string-venue string-= e0 )
+what article about e0 was published in d1	SW.filter ( SW.filter entity-en.article SW.reverse string-cites string-= e0 ) string-publication_date string-= d1
+articles cited by fewer than two articles	SW.countComparative entity-en.article SW.reverse string-cites string-< number2 entity-en.article
+articles written by at least two authors	SW.countComparative entity-en.article string-author string->= number2
+authors of awardwinning articles	SW.filter entity-en.person SW.reverse string-author string-= ( SW.filter entity-en.article string-won_award )
+article published on date of e0	SW.filter entity-en.article string-publication_date string-= SW.getProperty e0 string-publication_date
+what article cites an article cited in e0	SW.filter entity-en.article SW.reverse string-cites string-= ( SW.filter entity-en.article SW.reverse string-cites string-= e0 )
+name an author of at least two articles	SW.countComparative entity-en.person SW.reverse string-author string->= number2 entity-en.article
+name an article from the annals of e0 about e1	SW.filter ( SW.filter entity-en.article string-cites string-= e1 ) string-venue string-= e0

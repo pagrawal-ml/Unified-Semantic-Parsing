@@ -1,0 +1,692 @@
+show me recipes with a preparation time equal to or greater than the cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what ingredients are not in the e0 recipe	SW.filter entity-en.ingredient SW.reverse string-requires string-!= e0
+what is the posting date for e0	SW.getProperty e0 string-posting_date
+what recipes posting date is at least the same as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what meal is for only one recipe	SW.countComparative entity-en.meal SW.reverse string-meal string-< number2 entity-en.recipe
+what recipe has the most types of cuisine	SW.countSuperlative entity-en.recipe string-max string-cuisine
+what recipe has two or less types of cuisine	SW.countComparative entity-en.recipe string-cuisine string-<= number2
+show me recipes posted on the same day as e0	SW.filter entity-en.recipe string-posting_date string-= SW.getProperty e0 string-posting_date
+what recipes posting date is d0 and requires e0	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d0 ) string-requires string-= e0
+ingredient of two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-= number2 entity-en.recipe
+show me recipes with the cuisine least represented	SW.countSuperlative entity-en.recipe string-min string-cuisine
+what is a recipe posted later than d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity d0 )
+what kind of cuisine is e0	SW.getProperty e0 string-cuisine
+show me the recipe that has the shortest cooking time	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-cooking_time
+what recipes require at leas two ingredients	SW.countComparative entity-en.recipe string-requires string->= number2 entity-en.ingredient
+what ingredients are used in e0 or e1	SW.filter entity-en.ingredient SW.reverse string-requires string-= SW.concat
+what recipe needs least ingredients	SW.countSuperlative entity-en.recipe string-min string-requires entity-en.ingredient
+what is the total prep time for the recipes	string-sum SW.getProperty entity-en.recipe string-preparation_time
+show me recipes that require the cooking time of e0	SW.filter entity-en.recipe string-cooking_time string-= SW.getProperty e0 string-cooking_time
+which recipes posted in d0 require e0	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-posting_date string-= d0
+show me recipes that whose preparation time is shorter than e0 cooking time	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what meal is e0 or e1 made for	SW.filter entity-en.meal SW.reverse string-meal string-= SW.concat
+which recipe has the cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what meal has at least two recipes for it	SW.countComparative entity-en.meal SW.reverse string-meal string->= number2 entity-en.recipe
+what recipe was posted before d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity d0 )
+show me recipes requiring one ingredient	SW.countComparative entity-en.recipe string-requires string-< number2 entity-en.ingredient
+what e0 recipe was posted in d1	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d1 ) string-meal string-= e0
+show me recipes posted in or before d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity d0 )
+find some e0 recipes	SW.filter entity-en.recipe string-meal string-= e0
+what recipe was posted the same day as e0	SW.filter entity-en.recipe string-posting_date string-= SW.getProperty e0 string-posting_date
+what recipe is designed for more than two meals	SW.countComparative entity-en.recipe string-meal string-> number2 entity-en.meal
+show me recipes that follows two or more cuisines	SW.countComparative entity-en.recipe string-cuisine string->= number2
+which recipes have a preparation time as long as the cooking time of e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-cooking_time
+a recipe which posted no sooner than d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.concat )
+show me recipes whose preparation time is a most the cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+which recipes take longer to cook than to prepare e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+which recipe was posted in d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.concat )
+show me recipes posted in or after d0 or in or after d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.concat )
+what ingredients does e0 not need	SW.filter entity-en.ingredient SW.reverse string-requires string-!= e0
+which recipe belongs to the cuisine of e0	SW.filter entity-en.recipe string-cuisine string-= SW.getProperty e0 string-cuisine
+what is the most ingredient that this recipe requires	SW.countSuperlative entity-en.ingredient string-max SW.reverse string-requires entity-en.recipe
+what recipes preparation time is greater than that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+name the recipe used for e0 prepared with e1	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-requires string-= e1
+name the recipe that is prepared for e0	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-meal string-= e0
+show recipes whose posted date is on or before d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity d0 )
+find recipe for two meals	SW.countComparative entity-en.recipe string-meal string-<= number2 entity-en.meal
+when was e0 recipe posted	SW.getProperty e0 string-posting_date
+which recipe can be prepared at the earliest	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-preparation_time
+what recipe is cooked in less time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+show me recipes posted in d0 or later	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity d0 )
+recipes posted before e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+for what meal is e0	SW.filter ( SW.filter entity-en.meal SW.reverse string-meal string-= e0 ) SW.reverse string-meal string-= e0
+what recipes takes more time to prepare than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what is a recipe that takes at least as long to make as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show me recipes posted before e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+show me recipes that have a preparation time less than the cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipes dont call for e0	SW.filter entity-en.recipe string-requires string-!= e0
+what recipes are for less than two meals	SW.countComparative entity-en.recipe string-meal string-< number2 entity-en.meal
+list  the ingredients of e0	SW.filter entity-en.ingredient SW.reverse string-requires string-= e0
+what recipe calls for over two ingredients	SW.countComparative entity-en.recipe string-requires string-> number2 entity-en.ingredient
+what ingredient is called for by the most recipes	SW.countSuperlative entity-en.ingredient string-max SW.reverse string-requires entity-en.recipe
+show recipes with the maximum number of cuisines	SW.countSuperlative entity-en.recipe string-max string-cuisine
+what ingredient is in two or less recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-<= number2 entity-en.recipe
+what recipe takes more time to prepare than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+meal than e0 is not taken	SW.filter entity-en.meal SW.reverse string-meal string-!= e0
+how many ingredients	.size entity-en.ingredient
+what recipe does not need e0	SW.filter entity-en.recipe string-requires string-!= e0
+name ingredients that is required in  three or more recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-> number2 entity-en.recipe
+show me ingredients required by recipes that require e0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+show me ingredients required by e0 recipes	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-meal string-= e0 )
+recipe of less than two meal	SW.countComparative entity-en.recipe string-meal string-< number2 entity-en.meal
+show me ingredients required by more than two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-> number2 entity-en.recipe
+what recipe takes the longest time to prep	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-preparation_time
+which recipe was posted in d0	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d0 ) string-posting_date string-= d0
+which recipes were posted after d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.concat )
+show me recipes posted at the same date as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+recipe of at least two cuisine	SW.countComparative entity-en.recipe string-cuisine string->= number2
+recipes that require less or same time than the time taken to prepare e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+which recipe was posted on the same date as that of e0	SW.filter entity-en.recipe string-posting_date string-= SW.getProperty e0 string-posting_date
+what is a recipe from the fewest cuisines	SW.countSuperlative entity-en.recipe string-min string-cuisine
+what ingredient is needed for fewer than two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-< number2 entity-en.recipe
+what meals have two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-= number2 entity-en.recipe
+find a recipe for e0	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-meal string-= e0
+show me recipes for two meals at most	SW.countComparative entity-en.recipe string-meal string-<= number2 entity-en.meal
+which recipes were posted before d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.concat )
+what are ingredients in e0	SW.filter ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 ) SW.reverse string-requires string-= e0
+show me recipes not posted in d0	SW.filter entity-en.recipe string-posting_date string-!= d0
+what is the most commonly used ingredient	SW.countSuperlative entity-en.ingredient string-max SW.reverse string-requires entity-en.recipe
+what recipes ingredient does this e0 require	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-meal string-= e0 )
+what recipe takes the longest to cook	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-cooking_time
+show me the average cooking time for all recipes	string-avg SW.getProperty entity-en.recipe string-cooking_time
+what recipe can make fewer than two meals	SW.countComparative entity-en.recipe string-meal string-< number2 entity-en.meal
+what recipe takes less time to prep than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what is an ingredient found in e0	SW.filter entity-en.ingredient SW.reverse string-requires string-= e0
+what meal has less than two recipes for it	SW.countComparative entity-en.meal SW.reverse string-meal string-< number2 entity-en.recipe
+show me meals with the least recipes	SW.countSuperlative entity-en.meal string-min SW.reverse string-meal entity-en.recipe
+what meal can you find at least two recipes for	SW.countComparative entity-en.meal SW.reverse string-meal string->= number2 entity-en.recipe
+which meal has two recipes designated for it	SW.countComparative entity-en.meal SW.reverse string-meal string-= number2 entity-en.recipe
+what recipe has two or more types of cuisine	SW.countComparative entity-en.recipe string-cuisine string->= number2
+what is a recipe from fewer than two cuisines	SW.countComparative entity-en.recipe string-cuisine string-< number2
+show ingredients for e0 recipes	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-meal string-= e0 )
+what is the average cooking time of recipe	string-avg SW.getProperty entity-en.recipe string-cooking_time
+what recipes share at least two ingredients	SW.countComparative entity-en.ingredient SW.reverse string-requires string->= number2 entity-en.recipe
+list the recipes for e0 or e1	SW.filter entity-en.recipe string-meal string-= SW.concat
+what meal most recipes made for	SW.countSuperlative entity-en.meal string-max SW.reverse string-meal entity-en.recipe
+what recipes preparation time is no more than the cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipe cooks for equal or less time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+show the first recipe posted	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-posting_date
+which recipe requires the most ingredients	SW.countSuperlative entity-en.recipe string-max string-requires entity-en.ingredient
+which recipe can be used for two or more meals	SW.countComparative entity-en.recipe string-meal string->= number2 entity-en.meal
+what is a e0 recipe	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-meal string-= e0
+a recipe that posted after d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.concat )
+name the ingredient in most recipes	SW.countSuperlative entity-en.ingredient string-max SW.reverse string-requires entity-en.recipe
+recipes for e0 or quice	SW.concat
+what recipe calls for two or less ingredients	SW.countComparative entity-en.recipe string-requires string-<= number2 entity-en.ingredient
+which recipe has the most number of cuisine	SW.countSuperlative entity-en.recipe string-max string-cuisine
+what is an ingredient not found in e0	SW.filter entity-en.ingredient SW.reverse string-requires string-!= e0
+find recipes posted in 2005	SW.filter entity-en.recipe string-posting_date string-= date:2004:-1:-1
+what recipe can be used for at least two meals	SW.countComparative entity-en.recipe string-meal string->= number2 entity-en.meal
+how many recipes	.size entity-en.recipe
+what recipe has the shortest cooking time	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-cooking_time
+what recipe has over two types of cuisine	SW.countComparative entity-en.recipe string-cuisine string-> number2
+what ingredients does e0 or e1 require	SW.filter entity-en.ingredient SW.reverse string-requires string-= SW.concat
+show me recipes posted after d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.concat )
+what is the number of ingredients for that recipe	.size entity-en.ingredient
+which food item is needed in  two recipes or more	SW.countComparative entity-en.ingredient SW.reverse string-requires string-> number2 entity-en.recipe
+what is the average preparation time for a recipe	string-avg SW.getProperty entity-en.recipe string-preparation_time
+show me recipes that involve two or more ingredients	SW.countComparative entity-en.recipe string-requires string->= number2 entity-en.ingredient
+what recipe was posted the same date as the e0 recipe	SW.filter entity-en.recipe string-posting_date string-= SW.getProperty e0 string-posting_date
+what is the cooking time of e0	SW.getProperty e0 string-cooking_time
+show me meals requiring e0	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+name an ingredient required in more than two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-> number2 entity-en.recipe
+which recipes require e0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+what are the recipes that are made with e0	SW.filter entity-en.recipe string-requires string-= e0
+a recipe with e0 as an ingredient	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+recipe with posting date d0	SW.filter entity-en.recipe string-posting_date string-= d0
+recipes for less than three meals	SW.countComparative entity-en.recipe string-meal string-<= number2 entity-en.meal
+which food item is not needed in e0	SW.filter entity-en.ingredient SW.reverse string-requires string-!= e0
+what is the cook time for e0	SW.getProperty e0 string-cooking_time
+what recipe has one cuisine	SW.countComparative entity-en.recipe string-cuisine string-< number2
+what recipe was posted before or on the same day as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what is the usual time required to finish the recipe	string-avg SW.getProperty entity-en.recipe string-preparation_time
+which ingredient is needed in less than two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-< number2 entity-en.recipe
+what recipe was posted no later than d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.concat )
+what is the average prep time for the recipe	string-avg SW.getProperty entity-en.recipe string-preparation_time
+what recipe do you cook for less time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+which recipe was posted the latest	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-posting_date
+what is a recipe that is good for e0 or e1	SW.filter entity-en.recipe string-meal string-= SW.concat
+what recipe was posted during d0	SW.filter entity-en.recipe string-posting_date string-= d0
+what day was e0 posted	SW.getProperty e0 string-posting_date
+this receipe requires more than two ingredient	SW.countComparative entity-en.recipe string-requires string-> number2 entity-en.ingredient
+name the ingredient required by at least two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string->= number2 entity-en.recipe
+show me recipes that cannot be taken for e0	SW.filter entity-en.recipe string-meal string-!= e0
+what recipe takes longer to prep than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+which e0 recipe requires e1 for its preparation	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-requires string-= e1
+what recipe makes something for e0	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-meal string-= e0
+what is the total cooking time of the recipe	string-sum SW.getProperty entity-en.recipe string-cooking_time
+what is a recipe used for fewer than two meals	SW.countComparative entity-en.recipe string-meal string-< number2 entity-en.meal
+show recipes posted before e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what recipe requires fewer than two ingredients	SW.countComparative entity-en.recipe string-requires string-< number2 entity-en.ingredient
+what other ingredients do recipes that use e0 require	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+find me all recipes that require e0	SW.filter entity-en.recipe string-requires string-= e0
+which recipes require the same ingredients as e0	SW.filter entity-en.recipe string-requires string-= ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 )
+ingredients required in less than three recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-<= number2 entity-en.recipe
+which recipe needs more than two ingredients	SW.countComparative entity-en.recipe string-requires string-> number2 entity-en.ingredient
+show me recipes requiring the fewest ingredients	SW.countSuperlative entity-en.recipe string-min string-requires entity-en.ingredient
+which meal has least number of recipes	SW.countSuperlative entity-en.meal string-min SW.reverse string-meal entity-en.recipe
+what recipe takes no longer to prepare than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show me recipes that have the same or longer preparation time as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+recipe of cuisine of e0	SW.filter entity-en.recipe string-cuisine string-= SW.getProperty e0 string-cuisine
+what recipe requires the ingredients of e0	SW.filter entity-en.recipe string-requires string-= ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 )
+what recipe posted in d0 requires e0 as an ingredient	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d0 ) string-requires string-= e0
+show me recipes that require e0	SW.filter entity-en.recipe string-requires string-= e0
+what recipes preparation time is no more than the preparation time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what recipe was posted before d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity d0 )
+what meals are recipes for e0 for	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-meal string-= e0 )
+what e0 recipes posting date is d1	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-posting_date string-= d1
+what recipe was posted no later than the e0 recipe	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+show me recipes posted in d0	SW.filter entity-en.recipe string-posting_date string-= d0
+which recipes take less or as long to prepare as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what is the meal that e0 goes with	SW.filter ( SW.filter entity-en.meal SW.reverse string-meal string-= e0 ) SW.reverse string-meal string-= e0
+show me ingredients that two recipes require	SW.countComparative entity-en.ingredient SW.reverse string-requires string-= number2 entity-en.recipe
+what recipe can you prepare in the same or less time than it takes to cook e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+show me ingredients required for two recipes at most	SW.countComparative entity-en.ingredient SW.reverse string-requires string-<= number2 entity-en.recipe
+recipe cooked in preparation time of e0 or more	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show me recipes that are not e0 recipes	SW.filter entity-en.recipe string-meal string-!= e0
+which recipe requires e0 or e1	SW.concat
+what is the cooking time of e0	SW.getProperty e0 string-cooking_time
+recipes without e0	SW.filter entity-en.recipe string-requires string-!= e0
+what ingredient is not required to make e0	SW.filter entity-en.ingredient SW.reverse string-requires string-!= e0
+what is an ingredient required by the most recipes	SW.countSuperlative entity-en.ingredient string-max SW.reverse string-requires entity-en.recipe
+show me ingredients required for the most recipes	SW.countSuperlative entity-en.ingredient string-max SW.reverse string-requires entity-en.recipe
+show me two recipes for a meal	SW.countComparative entity-en.meal SW.reverse string-meal string-= number2 entity-en.recipe
+what is the total number of recipes	.size entity-en.recipe
+what recipes posting date is lesser than that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+which recipe falls under the most kinds of cuisine	SW.countSuperlative entity-en.recipe string-max string-cuisine
+what recipe can make fewer than two types of cuisine	SW.countComparative entity-en.recipe string-cuisine string-< number2
+how many total ingredients are used in all the recipes	.size entity-en.ingredient
+show me recipes with a cooking time greater or equal to the preparation time for e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+a recipe which takes at least as long to cook as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipes take the same amount of time or less to cook as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+show me recipes that have the fewest ingredients	SW.countSuperlative entity-en.recipe string-min string-requires entity-en.ingredient
+recipes total preparation time	string-sum SW.getProperty entity-en.recipe string-preparation_time
+what recipe requires the least ingredients	SW.countSuperlative entity-en.ingredient string-min SW.reverse string-requires entity-en.recipe
+what is the total time required for preparing the dish	string-sum SW.getProperty entity-en.recipe string-preparation_time
+which recipes were posted before e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+which recipe has the least amount of prep time	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-preparation_time
+what is the preparation time for that recipe	string-sum SW.getProperty entity-en.recipe string-preparation_time
+which recipe is used for the most meals	SW.countSuperlative entity-en.recipe string-max string-meal entity-en.meal
+ingredients in e0	SW.filter ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 ) SW.reverse string-requires string-= e0
+which recipe was posted first	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-posting_date
+which meals are recipes posted in d0 for	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+what ingredients go in e0	SW.filter ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 ) SW.reverse string-requires string-= e0
+recipe with cooking time not more than that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what recipe is most recent	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-posting_date
+what recipe can you prep in the same or longer amount of time as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+which recipe takes the longest to prepare	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-preparation_time
+show me recipes posted d0 and earlier	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity d0 )
+what recipe requires the lowest cooking time	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-cooking_time
+show me ingredients not required for e0	SW.filter entity-en.ingredient SW.reverse string-requires string-!= e0
+what recipes take more time to prepare than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what recipes were posted before d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity d0 )
+what recipes were posted after e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what recipe is not for a e0 meal	SW.filter entity-en.recipe string-meal string-= e0
+show me recipes posted in d0	SW.filter entity-en.recipe string-posting_date string-= d0
+what recipes cooking time is at lowest that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+which recipes are for two meals at most	SW.countComparative entity-en.recipe string-meal string-<= number2 entity-en.meal
+what is recipe for a meal	SW.countComparative entity-en.recipe string-meal string-< number2 entity-en.meal
+what recipe is for no more than two meals	SW.countComparative entity-en.recipe string-meal string-<= number2 entity-en.meal
+show me recipes posted no earlier than d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity d0 )
+what ingredients do e0 recipes call for	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-meal string-= e0 )
+what is the recipe that needs the minimum number of ingredients	SW.countSuperlative entity-en.recipe string-min string-requires entity-en.ingredient
+what recipes cooking time is the preparation time of e0	SW.filter entity-en.recipe string-cooking_time string-= SW.getProperty e0 string-preparation_time
+how long does the recipe take to prep	string-sum SW.getProperty entity-en.recipe string-preparation_time
+what ingredient is used by two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-= number2 entity-en.recipe
+what is a recipe from more than two cuisines	SW.countComparative entity-en.recipe string-cuisine string-> number2
+what recipes need three or more ingredients	SW.countComparative entity-en.recipe string-requires string-> number2 entity-en.ingredient
+what recipe prepare in less or same time to cook e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+when was the e0 recipe posted	SW.getProperty e0 string-posting_date
+name a recipe with a prep time no longer than the cook time for e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+show recipes with the preparation time as the cooking time of e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-cooking_time
+which recipe requires two ingredients	SW.countComparative entity-en.recipe string-requires string-= number2 entity-en.ingredient
+find meal recipes for e0	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-meal string-= e0 )
+a recipe which takes longer to cook than the preparation time for e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show me ingredients required by at least two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string->= number2 entity-en.recipe
+which recipe has a prep time no greater than the prep time for e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show me recipes that have a shorter preparation time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what is a cuisine of e0	SW.getProperty e0 string-cuisine
+a recipe requiring the fewest ingredients	SW.countSuperlative entity-en.recipe string-min string-requires entity-en.ingredient
+show me recipes that follows one or two cuisines	SW.countComparative entity-en.recipe string-cuisine string-<= number2
+what recipe can be prepped in less time than e0 can be cooked	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what time can be prepped in the same time as e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-preparation_time
+what recipes posting date is d0	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d0 ) string-posting_date string-= d0
+which recipes take less time to prepare than to cook e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipe posted in d0 can make a e0 meal	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-posting_date string-= d0
+a recipe for e0	SW.getProperty e0 string-cuisine
+show me recipes that require two ingredients	SW.countComparative entity-en.recipe string-requires string-= number2 entity-en.ingredient
+for which meal is the dish e0 used	SW.filter ( SW.filter entity-en.meal SW.reverse string-meal string-= e0 ) SW.reverse string-meal string-= e0
+what ingredient is required in two or more recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string->= number2 entity-en.recipe
+show me recipe that has at least have two cuisine	SW.countComparative entity-en.recipe string-cuisine string->= number2
+e0 or e1	SW.concat
+how many ingredients are needed	.size entity-en.ingredient
+show me ingredients required for fewer than two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-< number2 entity-en.recipe
+what recipe has at the most no more than two cuisines	SW.countComparative entity-en.recipe string-cuisine string-<= number2
+what recipe has the smallest preparation time	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-preparation_time
+which recipes require e0 or e1	SW.filter entity-en.recipe string-requires string-= SW.concat
+for what meal are there the fewest number of recipes	SW.countSuperlative entity-en.meal string-min SW.reverse string-meal entity-en.recipe
+which recipe requires less cooking time than e0 preparation	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what are ingredients required by the recipe posted in d0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+which recipes are for e0 or e1	SW.filter entity-en.recipe string-meal string-= SW.concat
+show me a recipe that requires only two ingredients	SW.countComparative entity-en.recipe string-requires string-= number2 entity-en.ingredient
+what recipe is for two	SW.countComparative entity-en.recipe string-meal string-<= number2 entity-en.meal
+show me recipes that required two or more ingredients	SW.countComparative entity-en.recipe string-requires string->= number2 entity-en.ingredient
+what is a recipe using e0 or e1 as an ingredient	SW.concat
+find recipes posted later than d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.concat )
+recipes for e0 or e1 menus	SW.concat
+find recipes that need two ingredients	SW.countComparative entity-en.recipe string-requires string-<= number2 entity-en.ingredient
+recipe of number of ingredients	SW.countSuperlative entity-en.recipe string-max string-requires entity-en.ingredient
+show me a meal that has more than two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-> number2 entity-en.recipe
+show recipes for the meal as the same for e0	SW.filter entity-en.recipe string-meal string-= ( SW.filter entity-en.meal SW.reverse string-meal string-= e0 )
+which recipe belongs to less number of cuisines	SW.countSuperlative entity-en.recipe string-min string-cuisine
+find the recipes for same cuisine as e0	SW.filter entity-en.recipe string-cuisine string-= SW.getProperty e0 string-cuisine
+show recipes whose posting date is not d0	SW.filter entity-en.recipe string-posting_date string-!= d0
+what recipe takes the shortest time to cook	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-cooking_time
+show me recipes posted after d0 or after d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.concat )
+show me recipes with two ingredients	SW.countComparative entity-en.recipe string-requires string-= number2 entity-en.ingredient
+when was the e0 recipe posted	SW.getProperty e0 string-posting_date
+show recipes for e0 or e1	SW.filter entity-en.recipe string-meal string-= SW.concat
+what recipes comes under less than three cuisine	SW.countComparative entity-en.recipe string-cuisine string-<= number2
+what ingredients are required in two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-= number2 entity-en.recipe
+what recipes  are prepared in less time tan e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+a recipe for a meal other than e0	SW.filter entity-en.recipe string-meal string-!= e0
+what recipe takes longer to cook than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+find a recipe which has a longer cooking time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+recipe having more than two cuisine	SW.countComparative entity-en.recipe string-cuisine string-> number2
+recipes posted with or after posting e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+recipe whose posting date is at least e0 posting date	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what meal has two or more recipes	SW.countComparative entity-en.meal SW.reverse string-meal string->= number2 entity-en.recipe
+how many total recipes are listed	.size entity-en.recipe
+what ingredients are used least in recipes	SW.countSuperlative entity-en.ingredient string-min SW.reverse string-requires entity-en.recipe
+recipes that require lesser time to prepare than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what ingredients do recipes posted in d0 call for	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+what recipe needs e0 or e1 for its preparation	SW.filter entity-en.recipe string-requires string-= SW.concat
+which recipes were posted when e0 was posted	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+show me recipes that fall under the same cuisine as e0	SW.filter entity-en.recipe string-cuisine string-= SW.getProperty e0 string-cuisine
+to which cuisine does e0 belong	SW.getProperty e0 string-cuisine
+how many total meals are there	.size entity-en.meal
+what e0 recipe requires e1	SW.filter ( SW.filter entity-en.recipe string-requires string-= e1 ) string-meal string-= e0
+what recipe was posted before e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+find recipes that can be prepared sooner than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what is a meal with a recipe posted in d0	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+find recipes posted after d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity d0 )
+which is the food item that is needed in two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-= number2 entity-en.recipe
+what is the used e0 or e1	SW.concat
+what recipe makes a non e0 meal	SW.filter entity-en.recipe string-meal string-!= e0
+which recipes were posted before d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity d0 )
+what recipe takes longer to cook than e0 takes to prep	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show me preparation time for e0	SW.getProperty e0 string-preparation_time
+what recipe can be prepped in equal or less time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what recipe was posted after or on the same day as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+for which meal is e0 had	SW.filter entity-en.meal SW.reverse string-meal string-= e0
+show recipes posted on the same date as e0	SW.filter entity-en.recipe string-posting_date string-= SW.getProperty e0 string-posting_date
+show me recipes with cooking time less than the preparation time for e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what are the recipe that at most use two ingredients	SW.countComparative entity-en.recipe string-requires string-<= number2 entity-en.ingredient
+for what meal can maximum recipes be found	SW.countSuperlative entity-en.meal string-max SW.reverse string-meal entity-en.recipe
+show me recipes with fewer than two ingredients	SW.countComparative entity-en.recipe string-requires string-< number2 entity-en.ingredient
+which recipe is for a lunchtime meal	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-meal string-= en.meal.lunch )
+how many ingredients are there	.size entity-en.ingredient
+what two ingredients does that recipe require	SW.countComparative entity-en.ingredient SW.reverse string-requires string-= number2 entity-en.recipe
+which ingredient is needed in more than one recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string->= number2 entity-en.recipe
+which is the recipe that was posted last	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-posting_date
+what recipe takes most time to cook	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-cooking_time
+recipe for the most number of meal	SW.countSuperlative entity-en.recipe string-max string-meal entity-en.meal
+show me recipes for e0 meals	SW.filter entity-en.recipe string-meal string-= ( SW.filter entity-en.meal SW.reverse string-meal string-= e0 )
+which recipes are intended for e0 or e1	SW.filter entity-en.recipe string-meal string-= SW.concat
+the e0 recipe  posting date is d1	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d1 ) string-meal string-= e0
+show me recipes with preparation time equal to or longer than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+a recipe for the fewest types of meals	SW.countSuperlative entity-en.recipe string-min string-meal entity-en.meal
+show me recipes that were not posted in d0	SW.filter entity-en.recipe string-posting_date string-!= d0
+recipes for least number of meals	SW.countSuperlative entity-en.recipe string-min string-meal entity-en.meal
+show me recipes that call for more than two ingredients	SW.countComparative entity-en.recipe string-requires string-> number2 entity-en.ingredient
+when was the recipe for e0 posted	SW.getProperty e0 string-posting_date
+recipes with just two ingredients	SW.countComparative entity-en.recipe string-requires string-= number2 entity-en.ingredient
+what recipe is the oldest	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-posting_date
+list the e0 recipes contains e1	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-requires string-= e1
+which recipe is found in only one cuisine	SW.countComparative entity-en.recipe string-cuisine string-< number2
+recipes posted after 2003	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.concat )
+which recipe needs more time than e0 preparation	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show recipes that does not have e0 as one of its ingredients	SW.filter entity-en.recipe string-requires string-!= e0
+what is an ingredient found in fewer than two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-< number2 entity-en.recipe
+list recipes that require e0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+find  e0 recipes posted in d1	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d1 ) string-meal string-= e0
+what recipe has the greatest cooking time	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-cooking_time
+show me recipes requiring an ingredient from e0	SW.filter entity-en.recipe string-requires string-= ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 )
+what recipes preparation time is lesser than the cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+show me ingredients required by recipes posted in d0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+what recipes require one or two ingredients	SW.countComparative entity-en.recipe string-requires string-<= number2 entity-en.ingredient
+which recipe was posted at the posting date of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what meal is e0 not used for	SW.filter entity-en.meal SW.reverse string-meal string-!= e0
+what recipes have the same cooking time as e0	SW.filter entity-en.recipe string-cooking_time string-= SW.getProperty e0 string-cooking_time
+which  recipe takes as much time to prepare as e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-preparation_time
+find the e0 recipes posted in d1	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d1 ) string-meal string-= e0
+find a recipe that needs e0 for its preparation	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-requires string-= e0
+show me recipes that use two ingredients or less	SW.countComparative entity-en.recipe string-requires string-<= number2 entity-en.ingredient
+show me recipes with preparation times longer than cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+recipe with only one ingredient	SW.countComparative entity-en.recipe string-requires string-< number2 entity-en.ingredient
+show me recipes with fewer than two cuisines	SW.countComparative entity-en.recipe string-cuisine string-< number2
+how long does the recipe take to prepare	string-sum SW.getProperty entity-en.recipe string-preparation_time
+what meal is e0 or e1 in	SW.filter entity-en.meal SW.reverse string-meal string-= SW.concat
+show me recipes requiring the ingredient e0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+show me recipes not posted in d0	SW.filter entity-en.recipe string-posting_date string-!= d0
+show me the ingredients for e0	SW.filter entity-en.ingredient SW.reverse string-requires string-= e0
+which recipe takes less time to prepare than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipe calling for e0 was posted in d1	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d1 ) string-requires string-= e0
+for what meals share two or more recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-> number2 entity-en.recipe
+show me recipes for e0 posted in d1	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-posting_date string-= d1
+what ingredients are used only for e0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-meal string-= e0 )
+what recipes posting date is at the greatest in d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity d0 )
+show me recipes posted the same day as e0 or before	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+show me recipes posted in d0 requiring e0	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d0 ) string-requires string-= e0
+what recipe has a cuisine including e0	SW.filter entity-en.recipe string-cuisine string-= SW.getProperty e0 string-cuisine
+show me the most required ingredient in recipes	SW.countSuperlative entity-en.ingredient string-max SW.reverse string-requires entity-en.recipe
+show me recipes with the longest cooking time	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-cooking_time
+show me recipes that were posted later than d0	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+what recipes need e0 or e1	SW.concat
+what is a recipe that was not posted in d0	SW.filter entity-en.recipe string-posting_date string-!= d0
+show me meals with two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-= number2 entity-en.recipe
+which meal has less than two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-< number2 entity-en.recipe
+which recipe takes longer to cook than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+show me meals with two or fewer recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-<= number2 entity-en.recipe
+which recipes take as long as prepare e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show me recipes that work for more than one meal	SW.countSuperlative entity-en.recipe string-min string-meal entity-en.meal
+what recipe takes equal or less time to cook than e0 takes to prep	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+whats the average preparation time of a recipe	string-avg SW.getProperty entity-en.recipe string-preparation_time
+how many recipes use more than two ingredients	SW.countComparative entity-en.recipe string-requires string-> number2 entity-en.ingredient
+what recipes cooking time is lower than the preparation time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what recipe calls for either e0 or e1	SW.filter entity-en.recipe string-requires string-= SW.concat
+which recipe was posted during d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity d0 )
+what meal has over two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-> number2 entity-en.recipe
+which recipes take longer to cook than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+show me recipes posted the same day as e0 or after	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+show me recipes for e0 or e1	SW.concat
+what is a recipe that is for more than two different meals	SW.countComparative entity-en.recipe string-meal string-> number2 entity-en.meal
+find recipes posted before d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity d0 )
+a recipe requiring fewer than two ingredients	SW.countComparative entity-en.recipe string-requires string-< number2 entity-en.ingredient
+what ingredient is required in only one recipe	SW.countComparative entity-en.ingredient SW.reverse string-requires string-< number2 entity-en.recipe
+what ingredient is most used	SW.countSuperlative entity-en.ingredient string-max SW.reverse string-requires entity-en.recipe
+show me recipes good for at least two meals	SW.countComparative entity-en.recipe string-meal string->= number2 entity-en.meal
+show me recipes posted in d0	SW.filter entity-en.recipe string-posting_date string-= d0
+show me recipes for fewer than two meals	SW.countComparative entity-en.recipe string-meal string-< number2 entity-en.meal
+what are the ingredients of e0 or e1	SW.filter entity-en.ingredient SW.reverse string-requires string-= SW.concat
+what recipe is cooked faster than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+for what meal is e0 used for	SW.filter entity-en.meal SW.reverse string-meal string-= e0
+what is the average time needed for the preparation of the dish	string-avg SW.getProperty entity-en.recipe string-cooking_time
+what recipe has the latest date posted	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-posting_date
+show me recipes with cooking time equal to or greater than cooking time for e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+recipe whose cooking time is not more than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what is the prep time for e0	SW.getProperty e0 string-preparation_time
+what is a recipe found in two or more cuisines	SW.countComparative entity-en.recipe string-cuisine string->= number2
+what recipe requires at the least two ingredients	SW.countComparative entity-en.recipe string-requires string->= number2 entity-en.ingredient
+what recipe was posted after e0 recipe	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+which meal had two recipes or more	SW.countComparative entity-en.meal SW.reverse string-meal string-> number2 entity-en.recipe
+show me recipes that can be used for two meals	SW.countComparative entity-en.recipe string-meal string-= number2 entity-en.meal
+which recipe has the same cooking time of e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-cooking_time
+what recipe posted in d0 makes a e0 meal	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d0 ) string-meal string-= e0
+which recipe has the least number of meals	SW.countSuperlative entity-en.recipe string-min string-meal entity-en.meal
+e0 or e1	SW.concat
+what meal has the least recipes	SW.countSuperlative entity-en.meal string-min SW.reverse string-meal entity-en.recipe
+what meal has maximum recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-<= number2 entity-en.recipe
+show me recipes that take the same amount of time to prepare as e0 does to cook	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-cooking_time
+name ingredients that is not required for e0	SW.filter entity-en.ingredient SW.reverse string-requires string-!= e0
+which recipe  s cooking time is equal to that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+find a meal with two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-= number2 entity-en.recipe
+for which meal is that recipe that has e0 as one of its ingredients	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+what recipe can you prep in the same or more time as it takes to cook e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+which recipes were posted after d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity d0 )
+which recipes were posted up to d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity d0 )
+find a e0 recipe that is prepared with e1	SW.filter ( SW.filter entity-en.recipe string-requires string-= e1 ) string-meal string-= e0
+show me a recipe that has a posting date of at least d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity d0 )
+what is a meal that incorporates e0	SW.filter ( SW.filter entity-en.meal SW.reverse string-meal string-= e0 ) SW.reverse string-meal string-= e0
+which meal has the least recipes dedicated to it	SW.countSuperlative entity-en.meal string-min SW.reverse string-meal entity-en.recipe
+what is a recipe that takes no more time to cook than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+name a recipe which was posted on or later than the posting date of the e0 recipe	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+recipe prepared in more time than cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipe requires three or more ingredients	SW.countComparative entity-en.recipe string-requires string-> number2 entity-en.ingredient
+show me recipes that take the same amount of time or more to cook as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+which recipes require the least amount of ingredients	SW.countSuperlative entity-en.recipe string-min string-requires entity-en.ingredient
+how many meals does this make	.size entity-en.meal
+which recipe takes the least amount of time to prepare	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-preparation_time
+ingredients not required to prepare e0	SW.filter entity-en.ingredient SW.reverse string-requires string-!= e0
+which ingredient is needed by e0 or e1	SW.filter entity-en.ingredient SW.reverse string-requires string-= SW.concat
+which recipe is intended for the least number of meals	SW.countSuperlative entity-en.recipe string-min string-meal entity-en.meal
+a e0 recipe posted in d1	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-posting_date string-= d1
+which is the last posted recipe	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-posting_date
+what recipe serves at the most three	SW.countSuperlative entity-en.recipe string-max string-meal entity-en.meal
+what recipe needs e0 and is for e1	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-meal string-= e1
+what recipe was posted in either d0 or d1	SW.filter entity-en.recipe string-posting_date string-= SW.concat
+recipe in least cuisines	SW.countSuperlative entity-en.recipe string-min string-cuisine
+show me recipes from the same cuisine as e0	SW.filter entity-en.recipe string-cuisine string-= SW.getProperty e0 string-cuisine
+what meal has the most number of recipes	SW.countSuperlative entity-en.meal string-max SW.reverse string-meal entity-en.recipe
+what is the cooking time of e0	SW.getProperty e0 string-cooking_time
+recipes that require same time to prepare than e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-preparation_time
+show me recipes that require less than two ingredients	SW.countComparative entity-en.ingredient SW.reverse string-requires string-< number2 entity-en.recipe
+show me the oldest recipe	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-posting_date
+which recipes fall under more than two cuisines	SW.countComparative entity-en.recipe string-cuisine string-> number2
+which recipe was posted the earliest	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-posting_date
+what recipe requires more prep time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+a recipe with e0 posted in d1	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d1 ) string-requires string-= e0
+either e0 or e1	SW.concat
+show the recipe that takes the longest time to cook	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-cooking_time
+what recipe doesnt require e0	SW.filter entity-en.recipe string-requires string-!= e0
+what ingrediant is used in the fewest recipes	SW.countSuperlative entity-en.ingredient string-min SW.reverse string-requires entity-en.recipe
+tell recipes with e0 for e1	SW.filter ( SW.filter entity-en.recipe string-meal string-= e1 ) string-requires string-= e0
+how long does the recipe take to cook	string-sum SW.getProperty entity-en.recipe string-cooking_time
+what recipe requiring e0 makes a e1 meal	SW.filter ( SW.filter entity-en.recipe string-meal string-= e1 ) string-requires string-= e0
+what is the average cooking time for that recipe	string-avg SW.getProperty entity-en.recipe string-cooking_time
+show recipes that could be used in any meal	SW.countComparative entity-en.recipe string-meal string-> number2 entity-en.meal
+what recipe requires less prep time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what is an ingredient found in a e0 recipe	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-meal string-= e0 )
+which recipes were posted in d0 for e0	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-posting_date string-= d0
+show me recipes posted after d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.concat )
+which recipe has a larger cooking time than the preparation time needed for e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+recipe for only one meal	SW.countComparative entity-en.recipe string-meal string-< number2 entity-en.meal
+show me recipes that requires the most time to prepare the dish	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-preparation_time
+what recipe was posted the earliest	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-posting_date
+show me recipes posted before d0 or before d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.concat )
+what recipes have the same or longer preparation time as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what ingredient is in than two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-> number2 entity-en.recipe
+what recipes can be prepared faster than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+is the recipe for e0 or e1	SW.concat
+what meal has two or fewer recipes designated for it	SW.countComparative entity-en.meal SW.reverse string-meal string-<= number2 entity-en.recipe
+show me recipes requiring two or fewer ingredients	SW.countComparative entity-en.recipe string-requires string-<= number2 entity-en.ingredient
+which meal has two or more recipes	SW.countComparative entity-en.meal SW.reverse string-meal string->= number2 entity-en.recipe
+which recipe needs the longest preparation tome	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-preparation_time
+what is a meal with no more than two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-<= number2 entity-en.recipe
+find me the recipes need more than one ingredients	SW.countComparative entity-en.recipe string-requires string->= number2 entity-en.ingredient
+show me recipes with posting dates from d0 or later	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.concat )
+find recipes posted in d0 or d1	SW.filter entity-en.recipe string-posting_date string-= SW.concat
+show me recipes with cooking times equal to cooking time of e0	SW.filter entity-en.recipe string-cooking_time string-= SW.getProperty e0 string-cooking_time
+what recipes require e0 and are for e1	SW.filter ( SW.filter entity-en.recipe string-meal string-= e1 ) string-requires string-= e0
+which meal has the least number of recipes	SW.countSuperlative entity-en.meal string-min SW.reverse string-meal entity-en.recipe
+show me recipe which take as much time as e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-cooking_time
+which recipes need two ingredients	SW.countComparative entity-en.recipe string-requires string-= number2 entity-en.ingredient
+which recipe was posted the earliest	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-posting_date
+find a recipe that was posted  by d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity d0 )
+show recipes that requires at most the preparation time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+which recipe is posted after the posting date of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+show me recipes that has e0 as one of its ingredients	SW.filter entity-en.recipe string-requires string-= e0
+show me e0 recipes that posted in d1	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d1 ) string-meal string-= e0
+recipes prepared in e0 cooking time	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-cooking_time
+which recipes can be used for most number of meals	SW.countSuperlative entity-en.recipe string-max string-meal entity-en.meal
+what is a recipe from no more than two different cuisines	SW.countComparative entity-en.recipe string-cuisine string-<= number2
+name ingredients used only in one or two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-<= number2 entity-en.recipe
+name ingredients used in more than one recipe	SW.countComparative entity-en.ingredient SW.reverse string-requires string-= number2 entity-en.recipe
+what is an ingredient used in more than two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-> number2 entity-en.recipe
+show me recipes for e0 or e1	SW.concat
+how many meals are there	.size entity-en.meal
+show me a recipe for the least number of meals	SW.countSuperlative entity-en.recipe string-min string-meal entity-en.meal
+show me recipes requiring e0	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-requires string-= e0
+show me recipe that require longer time to cook than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipe was posted in d0 and needs e0	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d0 ) string-requires string-= e0
+show me recipes not for e0	SW.filter entity-en.recipe string-meal string-!= e0
+show me recipes that take less time to prepare than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what ingredient is required in either e0 or e1	SW.filter entity-en.ingredient SW.reverse string-requires string-= SW.concat
+find recipe that needs the maximum number of food items	SW.countSuperlative entity-en.recipe string-max string-requires entity-en.ingredient
+show me meals with fewer than two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-< number2 entity-en.recipe
+which recipes are not for e0	SW.filter entity-en.recipe string-meal string-!= e0
+show recipes posted in d0 and has e0 as one of its ingredients	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-posting_date string-= d0
+what recipes cooking time is at least the preparation time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what is a recipe from the same cuisine as e0	SW.filter entity-en.recipe string-cuisine string-= SW.getProperty e0 string-cuisine
+how many total recipes are there	.size entity-en.recipe
+show me meal with less than two recipe	SW.countComparative entity-en.meal SW.reverse string-meal string-< number2 entity-en.recipe
+show me recipes with the most preparation time	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-preparation_time
+what e0 recipes contain e1	SW.filter ( SW.filter entity-en.recipe string-requires string-= e1 ) string-meal string-= e0
+show me recipes posted in d0 and d1	SW.filter entity-en.recipe string-posting_date string-= SW.concat
+how long does this recipe take to cook	string-sum SW.getProperty entity-en.recipe string-cooking_time
+show recipes that require at the most time as e0 preparation	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show me recipes that take less time to cook than it takes to prepare e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what ingredient is found in e0	SW.filter entity-en.recipe string-requires string-= ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 )
+which recipe was posted most recently	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-posting_date
+find a recipe that is good for e0 or e1	SW.filter entity-en.recipe string-meal string-= SW.concat
+what recipes posting date is in d0 and what ingredients does it require	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+how much time it takes to prepare recipe	string-sum SW.getProperty entity-en.recipe string-preparation_time
+show me recipes with a preparation time equal to the cooking time of e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-cooking_time
+what meal is the recipe e0 for	SW.filter entity-en.recipe string-meal string-= ( SW.filter entity-en.meal SW.reverse string-meal string-= e0 )
+what is the average preparation time across all recipes	string-avg SW.getProperty entity-en.recipe string-preparation_time
+which recipe requires the same ingredient as e0	SW.filter entity-en.recipe string-requires string-= ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 )
+what recipes cooking time is the same as e0	SW.filter entity-en.recipe string-cooking_time string-= SW.getProperty e0 string-cooking_time
+ingredients in recipe posted in d0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+show me recipe to do a meal for a single person	SW.countSuperlative entity-en.recipe string-min string-meal entity-en.meal
+show me recipes that take as long to prepare as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+show me e0 recipes that need e1	SW.filter ( SW.filter entity-en.recipe string-requires string-= e1 ) string-meal string-= e0
+show me recipes that require e0 or e1	SW.filter entity-en.recipe string-requires string-= SW.concat
+what recipe makes two types of cuisine	SW.countComparative entity-en.recipe string-cuisine string-= number2
+what recipe cooks in more or the same time as e0 takes to prep	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what recipe is for two meals	SW.countComparative entity-en.recipe string-meal string->= number2 entity-en.meal
+recipes that requires the same or more time to prepare as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+an ingredient required by at least two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string->= number2 entity-en.recipe
+show me recipes posted in d0 that use e0	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d0 ) string-requires string-= e0
+recipes posted after d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity d0 )
+how much time is needed to cook this dish	string-sum SW.getProperty entity-en.recipe string-cooking_time
+which recipe is prepared using the same amount of time as that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what recipes preparation time is at least that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+name the recipe with a cooking time with at least the cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipes have the same or less preparation time as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+find recipes for all kinds of meals	SW.countSuperlative entity-en.recipe string-max string-meal entity-en.meal
+what recipes cooking time is greater than that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what is the cuisine of e0	SW.getProperty e0 string-cuisine
+recipes with more preparation time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what meal can be made by the recipe posted in d0	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+find recipes that can be used for  more than two meals	SW.countComparative entity-en.recipe string-meal string-> number2 entity-en.meal
+what recipe is fastest cooked	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-cooking_time
+what type of cuisine is e0	SW.getProperty e0 string-cuisine
+are there any recipes which were posted twice in d0	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d0 ) string-posting_date string-= d0
+what recipes have a cooking time that is at least as long as e0 preparation time	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what recipes posting date is at most d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.concat )
+what meal doesnt call for e0	SW.filter entity-en.meal SW.reverse string-meal string-!= e0
+when is e0 recipe posted	SW.getProperty e0 string-posting_date
+what recipe requires highest number of ingredients	SW.countSuperlative entity-en.recipe string-max string-requires entity-en.ingredient
+which recipes can make two meals	SW.countComparative entity-en.recipe string-meal string-= number2 entity-en.meal
+show me recipes that posted no later than the e0 recipe	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+show recipes with e0 as an ingredient and is posted in d1	SW.filter ( SW.filter entity-en.recipe string-posting_date string-= d1 ) string-requires string-= e0
+what is the newest recipe	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-posting_date
+how long does it take to  make e0	SW.getProperty e0 string-cooking_time
+what recipes require e0	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-requires string-= e0
+which recipe has the shortest ingredient list	SW.countSuperlative entity-en.recipe string-min string-requires entity-en.ingredient
+what recipes share the cuisine of e0	SW.filter entity-en.recipe string-cuisine string-= SW.getProperty e0 string-cuisine
+show recipes whose cooking time is same as that of e0	SW.filter entity-en.recipe string-cooking_time string-= SW.getProperty e0 string-preparation_time
+which recipe has the shortest preparation time	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-preparation_time
+either d0 or d1	SW.concat
+what recipe cooks in less time than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+find recipes that were posted before d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.concat )
+what recipes require the same ingredients as e0	SW.filter entity-en.recipe string-requires string-= ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 )
+what recipe requires e0 or e1	SW.filter entity-en.recipe string-requires string-= SW.concat
+what ingredient is used for the least amount of recipes	SW.countSuperlative entity-en.ingredient string-min SW.reverse string-requires entity-en.recipe
+show me recipes posted before e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+show recipes that has e0 as its ingredient	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-requires string-= e0
+which recipes require more than two ingredients	SW.countComparative entity-en.recipe string-requires string-> number2 entity-en.ingredient
+what recipes posting date is greater than d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity d0 )
+which recipes have the most number of meals	SW.countSuperlative entity-en.recipe string-max string-meal entity-en.meal
+show me meals with more than two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-> number2 entity-en.recipe
+preparation time of recipe  not more than that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipes posting date is greater than that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+which recipe was not posted in d0	SW.filter entity-en.recipe string-posting_date string-!= d0
+show me recipe requiring e0 posted in d1	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-posting_date string-= d1
+show me meals with at least two recipes	SW.countComparative entity-en.meal SW.reverse string-meal string->= number2 entity-en.recipe
+show me recipes that require longer time to cook than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipes posting date is in d0	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+show recipes with one cuisine	SW.countSuperlative entity-en.recipe string-min string-cuisine
+what recipe was posted before e0 recipe	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+show me recipes posted before d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.concat )
+which recipes require two or more ingredients	SW.countComparative entity-en.ingredient SW.reverse string-requires string->= number2 entity-en.recipe
+recipes that have cooking time less than cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what recipes preparation time is the same as e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-preparation_time
+name the ingredient not required in e0	SW.filter entity-en.ingredient SW.reverse string-requires string-!= e0
+what is a recipe with the most ingredients	SW.countSuperlative entity-en.recipe string-max string-cuisine
+show me recipes with cooking times greater than cooking time of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what meal has two or less recipes	SW.countComparative entity-en.meal SW.reverse string-meal string-<= number2 entity-en.recipe
+what ingredients does e0 need	SW.filter ( SW.filter entity-en.ingredient SW.reverse string-requires string-= e0 ) SW.reverse string-requires string-= e0
+what is the total cooking time of the recipe	string-sum SW.getProperty entity-en.recipe string-cooking_time
+what meal is a recipe that requires e0 for	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+average cooking time	string-avg SW.getProperty entity-en.recipe string-cooking_time
+show me recipes without e0	SW.filter entity-en.recipe string-requires string-!= e0
+show me a recipe with the same prep time as e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-preparation_time
+which recipe needs longer preparation time than that of e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+ingredient required by least number of recipes	SW.countSuperlative entity-en.ingredient string-min SW.reverse string-requires entity-en.recipe
+which recipes require at most two ingredients	SW.countComparative entity-en.recipe string-requires string-<= number2 entity-en.ingredient
+which recipes have at least 2 cuisines	SW.countComparative entity-en.recipe string-cuisine string->= number2
+how many ingredients does that require	.size entity-en.ingredient
+show me recipes that have the same preparation time as e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-preparation_time
+show me recipes that have a cooking time equal to the preparation time of e0	SW.filter entity-en.recipe string-cooking_time string-= SW.getProperty e0 string-preparation_time
+what are the ingredients needed for recipes posted in d0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+what recipe requires e0	SW.filter entity-en.ingredient SW.reverse string-requires string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+which recipe requires the least cooking time	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-cooking_time
+show recipes that at most have two cuisine	SW.countComparative entity-en.recipe string-cuisine string-<= number2
+what ingredient is in over two recipes	SW.countComparative entity-en.ingredient SW.reverse string-requires string-> number2 entity-en.recipe
+what is a meal other than e0	SW.filter entity-en.meal SW.reverse string-meal string-!= e0
+what recipes share ingredients	SW.countComparative entity-en.ingredient SW.reverse string-requires string-= number2 entity-en.recipe
+what meal is the recipe posted in d0	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-posting_date string-= d0 )
+what recipes posting date is greater than d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.concat )
+what recipes posted in d0 require e0	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-posting_date string-= d0
+which ingredient is needed in the least number of recipes	SW.countSuperlative entity-en.ingredient string-min SW.reverse string-requires entity-en.recipe
+what recipe is found in two different meals	SW.countComparative entity-en.recipe string-meal string-= number2 entity-en.meal
+show me all the recipes posted after d0	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.concat )
+show me recipes with cooking time equal to e0	SW.filter entity-en.recipe string-cooking_time string-= SW.getProperty e0 string-cooking_time
+what recipes have the most ingredients	SW.countSuperlative entity-en.recipe string-max string-requires entity-en.ingredient
+which recipe posted in d0 needs e0 for preparation	SW.filter ( SW.filter entity-en.recipe string-requires string-= e0 ) string-posting_date string-= d0
+find a meal without e0	SW.filter entity-en.meal SW.reverse string-meal string-!= e0
+what meals does e0 not go with	SW.filter entity-en.meal SW.reverse string-meal string-!= e0
+show me recipes that fall under two cuisines or less	SW.countComparative entity-en.recipe string-cuisine string-<= number2
+single ingredient recipe	SW.countComparative entity-en.recipe string-requires string-< number2 entity-en.ingredient
+what recipes posting date is not in d0	SW.filter entity-en.recipe string-posting_date string-!= d0
+what recipe is for a meal for two	SW.countComparative entity-en.meal SW.reverse string-meal string->= number2 entity-en.recipe
+what recipe has the fewest number of cuisine	SW.countSuperlative entity-en.recipe string-min string-cuisine
+which ingredient is needed by many recipes	SW.countSuperlative entity-en.ingredient string-max SW.reverse string-requires entity-en.recipe
+which recipe has less cooking time like e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-cooking_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-cooking_time  )
+what is a recipe whose cooking time is the same as e0	SW.filter entity-en.recipe string-cooking_time string-= SW.getProperty e0 string-cooking_time
+what recipe takes the longest to prepare	SW.superlative entity-en.recipe string-max SW.ensureNumericProperty string-preparation_time
+meal with e0 recipe	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+recipes for two meal	SW.countComparative entity-en.recipe string-meal string-= number2 entity-en.meal
+show recipes posted on dates between d0 and d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.concat )
+find the recipes of multiple cuisine	SW.countComparative entity-en.recipe string-cuisine string->= number2
+which recipes were posted up to d0 or d1	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.concat )
+recipes posted till e0 is posted	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what meal has e0 and e1	SW.filter entity-en.meal SW.reverse string-meal string-= SW.concat
+what is the cooking time for e0	SW.getProperty e0 string-cooking_time
+which recipe has the least preparation time	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-preparation_time
+what is the average cooking time for that dish	string-avg SW.getProperty entity-en.recipe string-cooking_time
+what recipe has the least prep time	SW.superlative entity-en.recipe string-min SW.ensureNumericProperty string-preparation_time
+what is the posting date of e0	SW.getProperty e0 string-posting_date
+how many recipes are there	.size entity-en.recipe
+show me meals with the most recipes	SW.countSuperlative entity-en.meal string-max SW.reverse string-meal entity-en.recipe
+what is the cuisine of e0	SW.getProperty e0 string-cuisine
+how long does it take to prepare e0	SW.getProperty e0 string-preparation_time
+show recipes that requires lesser preparation than e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+find the recipes for e0	SW.filter ( SW.filter entity-en.recipe string-meal string-= e0 ) string-meal string-= e0
+recipes posted in d0 and later	SW.filter entity-en.recipe SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity d0 )
+show me recipes designed for two meals	SW.countComparative entity-en.recipe string-meal string-= number2 entity-en.meal
+find a recipe that takes the same time to cook as e0	SW.filter entity-en.recipe string-preparation_time string-= SW.getProperty e0 string-preparation_time
+which recipe uses e0 as an ingredient	SW.filter entity-en.recipe string-requires string-= e0
+which recipe has its posting date as d0	SW.filter entity-en.recipe string-posting_date string-= d0
+what is cuisine for e0	SW.getProperty e0 string-cuisine
+what recipe has the fewest amount of ingredients	SW.countSuperlative entity-en.recipe string-min string-requires entity-en.ingredient
+what is the preparation of e0	SW.getProperty e0 string-preparation_time
+what recipe is for less than two people	SW.countComparative entity-en.recipe string-meal string-< number2 entity-en.meal
+show me recipes for e0 or supper	SW.filter entity-en.recipe string-meal string-= SW.concat
+show recipes that take at least the preparation time of e0 to be done	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )
+what meals have recipes that use e0	SW.filter entity-en.meal SW.reverse string-meal string-= ( SW.filter entity-en.recipe string-requires string-= e0 )
+how many ingredients are used	.size entity-en.ingredient
+which recipe falls under the least kinds of cuisine	SW.countSuperlative entity-en.recipe string-min string-cuisine
+what is an ingredient found in a recipe for e0 or e1	SW.filter entity-en.ingredient SW.reverse string-requires string-= SW.concat
+what recipe takes at least as long to prepare as e0	SW.filter entity-en.recipe SW.ensureNumericProperty string-preparation_time  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-preparation_time  )

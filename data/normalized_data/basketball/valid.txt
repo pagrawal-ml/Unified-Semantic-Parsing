@@ -1,0 +1,312 @@
+find players with assist scores over any given season that tally more than 3	SW.filter var-s SW.ensureNumericProperty string-num_assists  string-> ( SW.ensureNumericEntity number3 assist ) ( SW.domain string-player ) ) string-player
+player with less points over a season than that of player e0 over a season	SW.filter var-s SW.ensureNumericProperty string-num_points  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_points ) ) ( SW.domain string-player ) ) string-player
+whos averaged no more than 3 rebounds each season	SW.filter var-s SW.ensureNumericProperty string-num_rebounds  string-<= ( SW.ensureNumericEntity number3 rebound ) ( SW.domain string-player ) ) string-player
+which year d0 or d1	SW.concat
+how many fouls were played by e0 after getting 3 steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-num_fouls
+who has more than 3 assists to their credit per season	SW.filter var-s SW.ensureNumericProperty string-num_assists  string-> ( SW.ensureNumericEntity number3 assist ) ( SW.domain string-player ) ) string-player
+which player averages more turnovers each season than e0	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_turnovers ) ) ( SW.domain string-player ) ) string-player
+number of points over a season of player e0 who has 3 fouls over a season	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_points
+how many steals did e0 have from point guards from any team	SW.getProperty ( SW.filter string-player  string-position string-= en.position.point_guard ) string-num_steals
+how many games did e0 get 3 points in	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_games_played
+player with most number of blocks over a season	SW.superlative var-s string-max SW.ensureNumericProperty string-num_blocks  ( SW.domain string-player ) ) string-player
+which players have 3 or more assists over the season	SW.filter var-s SW.ensureNumericProperty string-num_assists  string->= ( SW.ensureNumericEntity number3 assist ) ( SW.domain string-player ) ) string-player
+how many points does e0 average over a season	SW.filter var-s string-num_points string-!= number3 point ( SW.domain string-player ) ) string-player
+players that have at least 3 blocks a season	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string->= ( SW.ensureNumericEntity number3 block ) ( SW.domain string-player ) ) string-player
+what team did e0 play for while making 3 assists per season	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-team
+player who has not played more games than player e0 bryantover a season	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string-<= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_games_played ) ) ( SW.domain string-player ) ) string-player
+how many fouls does e0 average when hes played at least 3 games in a season	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_fouls
+which player had less than 3 points in a season	SW.filter var-s string-num_points string-!= number3 point ( SW.domain string-player ) ) string-player
+how many fouls did e0 have last season	SW.getProperty string-player  string-num_fouls
+what is e0 allseason point total	SW.getProperty string-player  string-num_points
+how many steals does e0 have over all seasons	SW.getProperty string-player  string-num_steals
+which player has made the minimum number of turnovers	SW.superlative var-s string-min SW.ensureNumericProperty string-num_turnovers  ( SW.domain string-player ) ) string-player
+what position did e0 play when making 3 allseason steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-position
+when e0 has had 2 blocks in a season how many turnovers had he made	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_turnovers
+how many rebounds did e0 get in 3 games	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_rebounds
+what players all season blocks were no less than 3	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string->= ( SW.ensureNumericEntity number3 block ) ( SW.domain string-player ) ) string-player
+how many turnovers has e0 had	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_turnovers
+player who never played 3 games over a season	SW.filter var-s string-num_games_played string-!= number3 game ( SW.domain string-player ) ) string-player
+how many games did e0 have three assists in over a season	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-num_games_played
+how many rebounds did e0 get after he made 3 blocks	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_rebounds
+players that have more points than e0 over all seasons	SW.filter var-s SW.ensureNumericProperty string-num_points  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_points ) ) ( SW.domain string-player ) ) string-player
+which player has the smallest number on the team	SW.countSuperlative var-s string-min string-team ( SW.domain string-player ) ) string-player
+how many points did e0 score in 3 games	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_points
+how many games did e0 play with three blocks	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_games_played
+over a season which player has the largest number of rebounds	SW.superlative var-s string-max SW.ensureNumericProperty string-num_rebounds  ( SW.domain string-player ) ) string-player
+what players made less points than e0 over a season	SW.filter var-s SW.ensureNumericProperty string-num_points  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_points ) ) ( SW.domain string-player ) ) string-player
+what player had the least points this season	SW.superlative var-s string-min SW.ensureNumericProperty string-num_points  ( SW.domain string-player ) ) string-player
+find the season in which e0 committed 3 fouls and note the number of turnovers in the same period	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_turnovers
+how many blocks did e0 have after 3 games	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_blocks
+name a player who did not have three turnovers	SW.filter var-s string-num_turnovers string-!= number3 turnover ( SW.domain string-player ) ) string-player
+how many rebounds did e0 make in d1	SW.getProperty ( SW.filter string-player  string-season string-= d1 ) string-num_rebounds
+what players had less than 3 games played over all seasons	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string-< ( SW.ensureNumericEntity number3 game ) ( SW.domain string-player ) ) string-player
+how many turnovers did e0 when playing with three fouls over the season	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_turnovers
+which year did e0 play e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-season
+what player had as many blocks as e0 over as season	SW.filter var-s string-num_blocks string-= ( SW.getProperty string-player  string-num_blocks ) ( SW.domain string-player ) ) string-player
+player who does not play e0	SW.filter var-s string-position string-!= e0 ( SW.domain string-player ) ) string-player
+name a player who has had fewer steals this season than e0	SW.filter var-s SW.ensureNumericProperty string-num_steals  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_steals ) ) ( SW.domain string-player ) ) string-player
+player who committed more fouls than e0	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_fouls ) ) ( SW.domain string-player ) ) string-player
+players that have more and less than 3 steals over all seasons	SW.filter var-s string-num_steals string-!= number3 steal ( SW.domain string-player ) ) string-player
+player who have played fewer than 3 games in a season	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string-< ( SW.ensureNumericEntity number3 game ) ( SW.domain string-player ) ) string-player
+number of turnovers of e0 who has 3 rebounds	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-num_turnovers
+how many turnovers did e0 have when he had three blocks	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_turnovers
+player with more fouls over a season than player e0	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_fouls ) ) ( SW.domain string-player ) ) string-player
+how many fouls were played by e0 in d1	SW.getProperty ( SW.filter string-player  string-season string-= d1 ) string-num_fouls
+how many players have had more turnovers in a season than e0	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_turnovers ) ) ( SW.domain string-player ) ) string-player
+who has the lowest average blocks per season	SW.superlative var-s string-min SW.ensureNumericProperty string-num_blocks  ( SW.domain string-player ) ) string-player
+players that played in the most games during a season	SW.superlative var-s string-max SW.ensureNumericProperty string-num_games_played  ( SW.domain string-player ) ) string-player
+how many assists did e0 get after playing 3 fouls	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_assists
+what teams has e0 played for in his career	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-team
+when did e0 have 3 all season assists	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-num_assists
+how many blocks has e0 achieved in seasons with at least 3 games played	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_blocks
+how many seasons has e0 played more than 3 games and whats his career rebound total	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_rebounds
+how many points were scored by e0	SW.getProperty string-player  string-num_points
+player with most points over a season	SW.superlative var-s string-max SW.ensureNumericProperty string-num_points  ( SW.domain string-player ) ) string-player
+which player has the minimum number of points of e0	SW.filter var-s SW.ensureNumericProperty string-num_points  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_points ) ) ( SW.domain string-player ) ) string-player
+what team did e0 have 3 turnovers on	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-team
+how many steals in a season did e0 have for the e1	SW.getProperty ( SW.filter string-player  string-team string-= e1 ) string-num_steals
+what player has no less than 3 all season assists	SW.filter var-s SW.ensureNumericProperty string-num_assists  string->= ( SW.ensureNumericEntity number3 assist ) ( SW.domain string-player ) ) string-player
+what player has the same number of all season assists as e0	SW.filter var-s string-num_assists string-= ( SW.getProperty string-player  string-num_assists ) ( SW.domain string-player ) ) string-player
+player who made lesser steals than e0 over a season	SW.filter var-s SW.ensureNumericProperty string-num_steals  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_steals ) ) ( SW.domain string-player ) ) string-player
+what player has held the most positions	SW.countSuperlative var-s string-max string-position ( SW.domain string-player ) ) string-player
+who has the record for steals	SW.superlative var-s string-max SW.ensureNumericProperty string-num_steals  ( SW.domain string-player ) ) string-player
+during the same season that he acquired 3 points how many turnovers did e0 have	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_turnovers
+how many assists did player e0 have over this season to get 3 turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_assists
+player with the same or fewer blocks per season as e0	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string-<= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_blocks ) ) ( SW.domain string-player ) ) string-player
+for which team e0 made 3 assists over a season	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-team
+what player did not play e0	SW.filter var-s string-position string-!= e0 ( SW.domain string-player ) ) string-player
+which player had played more fouls than e0	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_fouls ) ) ( SW.domain string-player ) ) string-player
+how many blocks does e0 have in a season with at least 3 turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_blocks
+how many steals has e0 had	SW.getProperty ( SW.filter string-player  string-season string-= date:2004:-1:-1 ) string-num_steals
+which player had the same number of turnovers as e0	SW.filter var-s string-num_turnovers string-= ( SW.getProperty string-player  string-num_turnovers ) ( SW.domain string-player ) ) string-player
+what players scored more or less than 3 points in a season	SW.filter var-s string-num_points string-!= number3 point ( SW.domain string-player ) ) string-player
+which player played more than 3 fouls	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-> ( SW.ensureNumericEntity number3 foul ) ( SW.domain string-player ) ) string-player
+what player gets more assists every season than e0	SW.filter var-s SW.ensureNumericProperty string-num_assists  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_assists ) ) ( SW.domain string-player ) ) string-player
+what is the number of assists by player e0 over the season	SW.getProperty string-player  string-num_assists
+how many games has e0 made more than 3 assists	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-num_games_played
+what position was e0 playing when he blocked three shots	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-position
+how many fouls did e0 have during the season	SW.getProperty string-player  string-num_fouls
+player with the least played games in a season	SW.superlative var-s string-min SW.ensureNumericProperty string-num_games_played  ( SW.domain string-player ) ) string-player
+player who has maximum two team	SW.countComparative var-s string-team string-<= number2 ( SW.domain string-player ) ) string-player
+in which year did e0 have three steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-season
+total points of e0 over a season	SW.getProperty string-player  string-num_points
+how many games did e0 play where he made three blocks	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_blocks
+what player has as much steals as most number of steals e0 made over a season	SW.filter var-s SW.ensureNumericProperty string-num_steals  string-<= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_steals ) ) ( SW.domain string-player ) ) string-player
+what position did e0 play	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-position
+how many rebounds  e0 made in the season he made 3 turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_rebounds
+how many allseason points did e0 score when rebounds equaled 3	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-num_points
+what position was e0 playing when he has 3 rebounds over a full season	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-position
+what was the total number of rebounds for e0 in season where he only had 3 steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-num_rebounds
+player with less than 3 steals	SW.filter var-s SW.ensureNumericProperty string-num_steals  string-< ( SW.ensureNumericEntity number3 steal ) ( SW.domain string-player ) ) string-player
+how many steals does e0 get in a season when hes got 3 points	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_steals
+the number of turnovers of player e0 over this season is 3	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_turnovers
+how many assists did e0 have who had three rebounds	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-num_assists
+which player plays the position of e0 or e1	SW.filter var-s string-position string-= SW.concat ( SW.domain string-player ) ) string-player
+what players allseason blocks are no more than e0 allseason blocks	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string-<= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_blocks ) ) ( SW.domain string-player ) ) string-player
+player whose number of blocks over a season is not less than that ofplayer e0 over a season	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_blocks ) ) ( SW.domain string-player ) ) string-player
+number of fouls over a season of player e0 with 3 assists over a season	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-num_fouls
+which player had fewer rebounds than e0	SW.filter var-s SW.ensureNumericProperty string-num_rebounds  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_rebounds ) ) ( SW.domain string-player ) ) string-player
+find those players with a total number of turnovers in any one specific season that is less than 3	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string-< ( SW.ensureNumericEntity number3 turnover ) ( SW.domain string-player ) ) string-player
+what players committed more fouls that e0 over a season	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_fouls ) ) ( SW.domain string-player ) ) string-player
+player with more than 3 blocks over a season	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string-> ( SW.ensureNumericEntity number3 block ) ( SW.domain string-player ) ) string-player
+how many turnovers does e0 e1 have in a season	SW.getProperty ( SW.filter SW.getProperty e1 SW.reverse string-player  string-position string-= e0 ) string-num_turnovers
+in how many games did e0 make 3 fouls	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_games_played
+what is number of the player	.size entity-en.player
+what position does e0 play who had three fouls in the season	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-position
+either d0 or d1	SW.concat
+who has had 3 or more assists	SW.filter var-s SW.ensureNumericProperty string-num_assists  string->= ( SW.ensureNumericEntity number3 assist ) ( SW.domain string-player ) ) string-player
+position of player e0 who has 3 turnovers over a season	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-position
+what player played in the same or less games as e0	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string-<= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_games_played ) ) ( SW.domain string-player ) ) string-player
+what player equal or more assists than e0	SW.filter var-s SW.ensureNumericProperty string-num_assists  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_assists ) ) ( SW.domain string-player ) ) string-player
+which player does not have3 rebounds	SW.filter var-s string-num_rebounds string-!= number3 rebound ( SW.domain string-player ) ) string-player
+how many games did e0 play where he had more than 3 fouls	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_games_played
+how many fouls did e0 get called for the season he had 3 assists	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-num_fouls
+in which season did e0 score 3 points	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-season
+how many turnovers has e0 lost in seasons with at least 3 points	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_turnovers
+how many turnovers does e0 make when hes got 3 assists in the season	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-num_turnovers
+who has played less than 4 games per season	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string-<= ( SW.ensureNumericEntity number3 game ) ( SW.domain string-player ) ) string-player
+which player has had as many fouls or more as e0	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_fouls ) ) ( SW.domain string-player ) ) string-player
+find those players committing a total number of steals that is larger than the total number of steals committed by e0 in any one season	SW.filter var-s SW.ensureNumericProperty string-num_steals  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_steals ) ) ( SW.domain string-player ) ) string-player
+name the number of turnovers achieved by e0 in d1	SW.getProperty ( SW.filter string-player  string-season string-= d1 ) string-num_turnovers
+how many blocks did e0 have in d1	SW.getProperty ( SW.filter string-player  string-season string-= d1 ) string-num_blocks
+what player had the fewest steals all season	SW.superlative var-s string-min SW.ensureNumericProperty string-num_steals  ( SW.domain string-player ) ) string-player
+name a player with fewer blocks than e0	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_blocks ) ) ( SW.domain string-player ) ) string-player
+e0 had3 turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_turnovers
+is there a player with the same number of turnovers in a specific season as e0 has in a specific season as well	SW.filter var-s string-num_turnovers string-= ( SW.getProperty string-player  string-num_turnovers ) ( SW.domain string-player ) ) string-player
+what was the total number of turnovers in a season for e0 at e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_turnovers
+number of points over a season of player e0 who has 3 turnovers over a season	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_points
+how many points has e0 gotten in a season	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-num_points
+name a player who did not have three assists	SW.filter var-s string-num_assists string-!= number3 assist ( SW.domain string-player ) ) string-player
+which player has played for only one team	SW.countComparative var-s string-team string-< number2 ( SW.domain string-player ) ) string-player
+who has had less assists than e0	SW.filter var-s SW.ensureNumericProperty string-num_assists  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_assists ) ) ( SW.domain string-player ) ) string-player
+players who had an equal amount of assists in a season to that of e0 lowest assists total	SW.filter var-s SW.ensureNumericProperty string-num_assists  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_assists ) ) ( SW.domain string-player ) ) string-player
+how many players had game time in at least 3 games over the season	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string->= ( SW.ensureNumericEntity number3 game ) ( SW.domain string-player ) ) string-player
+player with the most played games over all seasons	SW.superlative var-s string-max SW.ensureNumericProperty string-num_games_played  ( SW.domain string-player ) ) string-player
+how many points has e0 scored in each season with the e1	SW.getProperty ( SW.filter string-player  string-team string-= e1 ) string-num_points
+which player has more assists than e0	SW.filter var-s SW.ensureNumericProperty string-num_assists  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_assists ) ) ( SW.domain string-player ) ) string-player
+players with assists not equal to three in a season	SW.filter var-s string-num_assists string-!= number3 assist ( SW.domain string-player ) ) string-player
+who leads the points race so far this season	SW.superlative var-s string-max SW.ensureNumericProperty string-num_points  ( SW.domain string-player ) ) string-player
+how many turnovers does e0 give up as e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_turnovers
+how many blocks did e0 make when he had three points	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_blocks
+player with less than 3 turnovers over a season	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string-< ( SW.ensureNumericEntity number3 turnover ) ( SW.domain string-player ) ) string-player
+number of fouls over a season of player e0 who is at e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_fouls
+what position did e0 play when he got 3 rebounds	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-position
+what players did not play in the d0 season	SW.filter var-s string-season string-!= d0 ( SW.domain string-player ) ) string-player
+what year did e0 points total three	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-season
+what player had 3 or less blocks this season	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string-<= ( SW.ensureNumericEntity number3 block ) ( SW.domain string-player ) ) string-player
+which player has a maximum of 3 fouls	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-<= ( SW.ensureNumericEntity number3 foul ) ( SW.domain string-player ) ) string-player
+in what position did e0 get 3 turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-position
+how many players	.size entity-en.player
+number of points over a season of player e0 who is at e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_points
+which player has more rebounds than e0	SW.filter var-s SW.ensureNumericProperty string-num_rebounds  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_rebounds ) ) ( SW.domain string-player ) ) string-player
+what player had the same amount of steals in a season or less than e0	SW.filter var-s SW.ensureNumericProperty string-num_assists  string-<= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_assists ) ) ( SW.domain string-player ) ) string-player
+players that have no more than 3 fouls over all seasons	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-<= ( SW.ensureNumericEntity number3 foul ) ( SW.domain string-player ) ) string-player
+what position did e0 play for the e1	SW.getProperty ( SW.filter string-player  string-team string-= e1 ) string-position
+during the season in which e0 had game time in 3 games how many assists was he responsible for	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_assists
+what is the players number for a certain team	.size entity-en.team
+what position did e0 play when her had three turnover this season	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-position
+for the period of time in which e0 was e1 name the amount of rebounds he had in that season	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_rebounds
+how many points does e0 have allseason when he also has 3 blocks	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_points
+find the number of blocks in the season in which e0  also acquired 3 steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-num_blocks
+who were e0 team mates	SW.filter var-s string-team string-= ( SW.getProperty string-player  string-team ) ( SW.domain string-player ) ) string-player
+how many rebounds did e0 get as e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_rebounds
+how many steals did e0 have when he scored three points	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_steals
+which player is it e0 or e1	SW.concat
+note the player with the highest number of rebounds to their credit in any one season	SW.superlative var-s string-max SW.ensureNumericProperty string-num_rebounds  ( SW.domain string-player ) ) string-player
+which player had more rebounds than e0	SW.filter var-s SW.ensureNumericProperty string-num_rebounds  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_rebounds ) ) ( SW.domain string-player ) ) string-player
+what player scored equal or less points as e0	SW.filter var-s SW.ensureNumericProperty string-num_points  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_points ) ) ( SW.domain string-player ) ) string-player
+what team did e0 play 3 games for allseason	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-team
+what players played in d0 or d1	SW.filter var-s string-season string-= SW.concat ( SW.domain string-player ) ) string-player
+which player has more than 3 turnovers in each season theyve played	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string-> ( SW.ensureNumericEntity number3 turnover ) ( SW.domain string-player ) ) string-player
+how many rebounds in a season did e0 have	SW.getProperty string-player  string-num_rebounds
+how many assists did e0 have when he had 3 blocks	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_assists
+number of teams	.size entity-en.team
+during the season in which e0 had 3 turnovers how many assists were attributable to him	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_assists
+who gets no more fouls each year than e0	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-<= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_fouls ) ) ( SW.domain string-player ) ) string-player
+players with the same number of played games as e0 over all seasons	SW.filter var-s string-num_games_played string-= ( SW.getProperty string-player  string-num_games_played ) ( SW.domain string-player ) ) string-player
+what season did e0 get 3 assists	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-season
+what position is e0	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-position
+number of blocks over a season of player e0 who is at e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_blocks
+players whose number of points is less than 3 over a season	SW.filter var-s SW.ensureNumericProperty string-num_points  string-< ( SW.ensureNumericEntity number3 point ) ( SW.domain string-player ) ) string-player
+number of fouls over a season of player e0 from e1 team	SW.getProperty ( SW.filter string-player  string-team string-= e1 ) string-num_fouls
+who has had more steals than e0	SW.filter var-s SW.ensureNumericProperty string-num_steals  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_steals ) ) ( SW.domain string-player ) ) string-player
+who has had the least rebounds	SW.superlative var-s string-min SW.ensureNumericProperty string-num_rebounds  ( SW.domain string-player ) ) string-player
+what team did e0 have 3 steals on	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-team
+what team did e0 play when he made 3 rebounds over the season	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-team
+the total number of steals in all seasons for e0 e1	SW.getProperty ( SW.filter SW.getProperty e1 SW.reverse string-player  string-position string-= e0 ) string-num_steals
+who had more points than e0	SW.filter var-s SW.ensureNumericProperty string-num_points  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_points ) ) ( SW.domain string-player ) ) string-player
+players that did not play in d0	SW.filter var-s string-season string-!= d0 ( SW.domain string-player ) ) string-player
+what year did e0 play	SW.getProperty string-player  string-season
+how many fouls did e0 average in his three point total games over the season	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_fouls
+how many steals e0 made over a season	SW.getProperty string-player  string-num_steals
+team of player e0 who has 3 assists over a season	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-team
+who has played the fewest games in a season	SW.superlative var-s string-min SW.ensureNumericProperty string-num_games_played  ( SW.domain string-player ) ) string-player
+what other players play the same position as e0	SW.filter var-s string-position string-= ( SW.getProperty string-player  string-position ) ( SW.domain string-player ) ) string-player
+find those players with turnover amounts in a given season equalling at most 3	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string-<= ( SW.ensureNumericEntity number3 turnover ) ( SW.domain string-player ) ) string-player
+what was the position of e0 when he played 3 fouls	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-position
+which player has played the most positions	SW.countSuperlative var-s string-max string-position ( SW.domain string-player ) ) string-player
+who has played less games than e0	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_games_played ) ) ( SW.domain string-player ) ) string-player
+how many steals did e0 have with three turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_steals
+how many turnovers e0 made in the season he made 3 fouls	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_turnovers
+in how many games has e0 made 3 blocks	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_games_played
+who else plays the same position as e0	SW.filter var-s string-position string-= ( SW.getProperty string-player  string-position ) ( SW.domain string-player ) ) string-player
+which player has played with at most two teams	SW.countComparative var-s string-team string-<= number2 ( SW.domain string-player ) ) string-player
+what player has less rebound over all seasons	SW.superlative var-s string-min SW.ensureNumericProperty string-num_rebounds  ( SW.domain string-player ) ) string-player
+who has played the record number of games in a season	SW.superlative var-s string-max SW.ensureNumericProperty string-num_games_played  ( SW.domain string-player ) ) string-player
+name someone with more games per season played than e0	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_games_played ) ) ( SW.domain string-player ) ) string-player
+how many fouls does e0 have in seasons when he makes a total of 3 steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-num_fouls
+what team does e0 play for	SW.getProperty ( SW.filter string-player  string-position string-= en.position.point_guard ) string-team
+the player who made most fouls over a season	SW.superlative var-s string-max SW.ensureNumericProperty string-num_fouls  ( SW.domain string-player ) ) string-player
+who has had less than 3 turnovers	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string-< ( SW.ensureNumericEntity number3 turnover ) ( SW.domain string-player ) ) string-player
+player with most points scored over all seasons	SW.superlative var-s string-max SW.ensureNumericProperty string-num_points  ( SW.domain string-player ) ) string-player
+number of assists over a season of player e0 with 3 fouls over a season	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_assists
+player not with 3 turnovers over a season	SW.filter var-s string-num_turnovers string-!= number3 turnover ( SW.domain string-player ) ) string-player
+player who scored the least on the team	SW.countSuperlative var-s string-min string-team ( SW.domain string-player ) ) string-player
+how many rebounds did e0 get after 3 turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_rebounds
+how many games has e0 been in since he went pro	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_games_played
+name a e0 or a e1	SW.concat
+how many blocks did e0 have during his three point total game	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_blocks
+which position has e0 made more than 3 steals from	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-position
+name players who did not play in d0	SW.filter var-s string-season string-!= d0 ( SW.domain string-player ) ) string-player
+how many steals did e0 have in three played games	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_steals
+how many assists has e0 had	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_assists
+team of player e0 who has 3 steals over a season	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-team
+who has had the most fouls	SW.superlative var-s string-max SW.ensureNumericProperty string-num_fouls  ( SW.domain string-player ) ) string-player
+how many games has e0 played	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_games_played
+what player had the most points this season	SW.superlative var-s string-max SW.ensureNumericProperty string-num_points  ( SW.domain string-player ) ) string-player
+points of e0 over a season in which he made 3 blocks	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_points
+number of fouls e0  who has 3 assists	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-num_fouls
+what player has lesser assists than e0	SW.filter var-s SW.ensureNumericProperty string-num_assists  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_assists ) ) ( SW.domain string-player ) ) string-player
+which players scored less points over the season than e0	SW.filter var-s SW.ensureNumericProperty string-num_points  string-< ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_points ) ) ( SW.domain string-player ) ) string-player
+how many assists did e0 have with three blocks	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_assists
+in which season e0 has scored  3 points	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-season
+what player had less than 3 fouls	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-< ( SW.ensureNumericEntity number3 foul ) ( SW.domain string-player ) ) string-player
+who has had the same or less points this season as e0	SW.filter var-s SW.ensureNumericProperty string-num_points  string-<= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_points ) ) ( SW.domain string-player ) ) string-player
+what player had 3 or less assists this season	SW.filter var-s SW.ensureNumericProperty string-num_assists  string-<= ( SW.ensureNumericEntity number3 assist ) ( SW.domain string-player ) ) string-player
+season of player e0 who is at e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-season
+how many points e0 made over a season in which he made 3 assists	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-num_points
+how man fouls did e0 have in all seasons where he had three rebounds	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-num_fouls
+what player has no less than 3 allseason rebounds	SW.filter var-s SW.ensureNumericProperty string-num_rebounds  string->= ( SW.ensureNumericEntity number3 rebound ) ( SW.domain string-player ) ) string-player
+how many assists did e0 have allseason when had also had 3 points	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_assists
+what player has the lowest amount of rebounds in a season	SW.superlative var-s string-min SW.ensureNumericProperty string-num_rebounds  ( SW.domain string-player ) ) string-player
+e0 had 3 rebounds	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-num_rebounds
+which player is not in the position of e0	SW.filter var-s string-position string-!= e0 ( SW.domain string-player ) ) string-player
+name those players with total foul tallies of less than 3 in any one particular season	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-< ( SW.ensureNumericEntity number3 foul ) ( SW.domain string-player ) ) string-player
+which player has been apart of the most teams	SW.countSuperlative var-s string-max string-team ( SW.domain string-player ) ) string-player
+how many fouls has e0 had	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_fouls
+how many rebounds has e0 had	SW.getProperty ( SW.filter string-player  string-num_points string-= number3 point ) string-num_rebounds
+which player had at least three assists last season	SW.filter var-s SW.ensureNumericProperty string-num_assists  string->= ( SW.ensureNumericEntity number3 assist ) ( SW.domain string-player ) ) string-player
+players who played d0 to d1	SW.filter var-s string-season string-= SW.concat ( SW.domain string-player ) ) string-player
+how many points has e0 scored this season	SW.getProperty string-player  string-num_points
+what player had the same amount of assists as e0	SW.filter var-s string-num_assists string-= ( SW.getProperty string-player  string-num_assists ) ( SW.domain string-player ) ) string-player
+what player has had at least as many games played as e0 over a season	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_games_played ) ) ( SW.domain string-player ) ) string-player
+number of turnovers over a season of player e0	SW.getProperty string-player  string-num_turnovers
+what position did e0 play for only three games during the season	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-position
+how many fouls did e0 have when he made three turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_fouls
+what players have at least as many turnovers that e0 has during a season	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_turnovers ) ) ( SW.domain string-player ) ) string-player
+how many steals did e0 have as e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_steals
+how many turnovers did e0 make over a season when played as e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_turnovers
+how many points did e0 score as the e1	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-num_points
+how many steals e0 made in the season in which he played in e1 team	SW.getProperty ( SW.filter string-player  string-team string-= e1 ) string-num_steals
+what player had 3 or more blocks	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string->= ( SW.ensureNumericEntity number3 block ) ( SW.domain string-player ) ) string-player
+how many turnovers did e0 make over the season where he made 3 steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-num_turnovers
+what is e0 team	SW.getProperty string-player  string-team
+which player has not made3 blocks	SW.filter var-s string-num_blocks string-!= number3 block ( SW.domain string-player ) ) string-player
+how many assists were got by e0 who belonged to the los angeles team	SW.getProperty ( SW.filter string-player  string-team string-= en.team.lakers ) string-num_assists
+how many assists can e0 make in seasons with only 3 games played	SW.getProperty ( SW.filter string-player  string-num_games_played string-= number3 game ) string-num_assists
+player that scored three or more points per game last season	SW.filter var-s SW.ensureNumericProperty string-num_points  string->= ( SW.ensureNumericEntity number3 point ) ( SW.domain string-player ) ) string-player
+how many rebounds did e0 have when he made three fouls	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_rebounds
+what player had the same or more turnovers as e0	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string->= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_turnovers ) ) ( SW.domain string-player ) ) string-player
+name e0 position when he had three turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-position
+name the total points of e0 over the season and note the comparisonn to the player whose total number of blocks throughout the season was 3	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-num_points
+what position diddoes e0 play for the la e1	SW.getProperty ( SW.filter string-player  string-team string-= e1 ) string-position
+what player played more games than e0 this season	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string-> ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_games_played ) ) ( SW.domain string-player ) ) string-player
+players that have more than 3 turnovers over all seasons	SW.filter var-s SW.ensureNumericProperty string-num_turnovers  string-> ( SW.ensureNumericEntity number3 turnover ) ( SW.domain string-player ) ) string-player
+name players other than e0	SW.filter var-s string-position string-!= e0 ( SW.domain string-player ) ) string-player
+what player scored 3 or less points during a season	SW.filter var-s SW.ensureNumericProperty string-num_points  string-<= ( SW.ensureNumericEntity number3 point ) ( SW.domain string-player ) ) string-player
+find those players with point totals in any one season equalling at least 3	SW.filter var-s SW.ensureNumericProperty string-num_points  string->= ( SW.ensureNumericEntity number3 point ) ( SW.domain string-player ) ) string-player
+when e0 has given up 3 turnovers in a season how many fouls has he typically given	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_fouls
+what players played most games over a season same as e0	SW.filter var-s SW.ensureNumericProperty string-num_games_played  string-<= ( SW.ensureNumericEntity ( SW.getProperty string-player  string-num_games_played ) ) ( SW.domain string-player ) ) string-player
+players that had the same number of turnovers in a season as e0 byrant	SW.filter var-s string-num_turnovers string-= ( SW.getProperty string-player  string-num_turnovers ) ( SW.domain string-player ) ) string-player
+in which season did e0 play 3 fouls	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-season
+name a player who did not play in d0	SW.filter var-s string-season string-!= d0 ( SW.domain string-player ) ) string-player
+what players had more that three steals over all seasons	SW.filter var-s SW.ensureNumericProperty string-num_steals  string-> ( SW.ensureNumericEntity number3 steal ) ( SW.domain string-player ) ) string-player
+what was the total number of blocks for e0 in seasons where he had just three fouls	SW.getProperty ( SW.filter string-player  string-num_fouls string-= number3 foul ) string-num_blocks
+how many turnovers does e0 have in seasons with over 3 steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-num_turnovers
+which team does e0 play e1 for	SW.getProperty ( SW.filter string-player  string-position string-= e1 ) string-team
+what position was e0 playing when he had the season in which he had 3 steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-position
+name those players responsible for less than 3 blocks in any one season	SW.filter var-s SW.ensureNumericProperty string-num_blocks  string-< ( SW.ensureNumericEntity number3 block ) ( SW.domain string-player ) ) string-player
+how many turnovers did e0 have during the season he averaged three assists	SW.getProperty ( SW.filter string-player  string-num_assists string-= number3 assist ) string-num_turnovers
+how many turnovers did e0 get after the 3 rebounds	SW.getProperty ( SW.filter string-player  string-num_rebounds string-= number3 rebound ) string-num_turnovers
+what players has less than 3 allseason fouls	SW.filter var-s SW.ensureNumericProperty string-num_fouls  string-< ( SW.ensureNumericEntity number3 foul ) ( SW.domain string-player ) ) string-player
+how many rebounds did e0 have in 04	SW.getProperty ( SW.filter string-player  string-season string-= date:2004:-1:-1 ) string-num_rebounds
+what seasons did e0 only have three steals	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-season
+what player had the same amount of rebounds as e0	SW.filter var-s string-num_rebounds string-= ( SW.getProperty string-player  string-num_rebounds ) ( SW.domain string-player ) ) string-player
+what player made as much points as e0 made over a season	SW.filter var-s string-num_points string-= ( SW.getProperty string-player  string-num_points ) ( SW.domain string-player ) ) string-player
+during the season in which he had 3 turnovers name the number of games in which e0 participated in	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_games_played
+who has the same per season blocks as e0	SW.filter var-s string-num_blocks string-= ( SW.getProperty string-player  string-num_blocks ) ( SW.domain string-player ) ) string-player
+which player has played for no more than two teams	SW.countComparative var-s string-team string-<= number2 ( SW.domain string-player ) ) string-player
+how many assists did e0 have when he made three turnovers	SW.getProperty ( SW.filter string-player  string-num_turnovers string-= number3 turnover ) string-num_assists
+how many points did e0 score in the game that he had three steals last season	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-num_points
+what team is e0 on	SW.getProperty ( SW.filter string-player  string-num_blocks string-= number3 block ) string-team
+what team did e0 play for during his three steam season	SW.getProperty ( SW.filter string-player  string-num_steals string-= number3 steal ) string-team

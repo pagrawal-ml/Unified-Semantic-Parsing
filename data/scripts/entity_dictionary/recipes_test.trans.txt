@@ -1,0 +1,216 @@
+{d0=date:2004:-1:-1}
+{e0=en.meal.lunch}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.ingredient.milk, d1=date:2004:-1:-1}
+{}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{}
+{d0=date:2004:-1:-1, d1=date:2010:-1:-1}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.ingredient.milk}
+{}
+{}
+{}
+{}
+{}
+{}
+{d0=date:2004:-1:-1, d1=date:2010:-1:-1}
+{e0=en.ingredient.milk, e1=en.meal.lunch}
+{e0=en.ingredient.milk}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{}
+{e0=en.ingredient.milk, e1=en.ingredient.spinach}
+{}
+{e0=en.ingredient.milk, d0=date:2004:-1:-1}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.meal.lunch}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.meal.lunch}
+{}
+{e0=en.ingredient.milk}
+{}
+{}
+{}
+{d0=date:2004:-1:-1}
+{d0=date:2004:-1:-1}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.ingredient.milk, e1=en.ingredient.spinach}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.ingredient.milk, d0=date:2004:-1:-1}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.ingredient.milk, e1=en.meal.lunch}
+{e0=en.recipe.rice_pudding}
+{d0=date:2004:-1:-1, d1=date:2010:-1:-1}
+{}
+{d0=date:2004:-1:-1}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{}
+{e0=en.ingredient.milk}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.meal.lunch, e1=en.meal.dinner}
+{e0=en.ingredient.milk, d0=date:2004:-1:-1}
+{}
+{e0=en.recipe.rice_pudding}
+{d0=date:2004:-1:-1}
+{}
+{e0=en.ingredient.milk}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.meal.lunch}
+{}
+{}
+{}
+{}
+{d0=date:2004:-1:-1}
+{e0=en.ingredient.milk}
+{}
+{d0=date:2004:-1:-1}
+{e0=en.recipe.rice_pudding}
+{e0=en.meal.lunch, e1=en.ingredient.milk}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding, e1=en.recipe.quiche}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{e0=en.meal.lunch, d0=date:2004:-1:-1}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{}
+{e0=en.ingredient.milk}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.meal.lunch}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.ingredient.milk}
+{}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{d0=date:2004:-1:-1}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.ingredient.milk}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding, e1=en.recipe.quiche}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{d0=date:2010:-1:-1}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{e0=en.meal.lunch, d1=date:2004:-1:-1}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{}
+{}
+{e0=en.meal.lunch}
+{d0=date:2004:-1:-1}
+{}
+{e0=en.recipe.rice_pudding, e1=en.recipe.quiche}
+{}
+{d0=date:2004:-1:-1}
+{e0=en.meal.lunch, e1=en.meal.dinner}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding, e1=en.recipe.quiche}
+{d0=date:2004:-1:-1}
+{}
+{e0=en.recipe.rice_pudding, e1=en.recipe.quiche}
+{}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.meal.lunch}
+{}
+{d0=date:2004:-1:-1}
+{e0=en.meal.lunch, d0=date:2004:-1:-1}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding, e1=en.recipe.quiche}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{}
+{e0=en.recipe.rice_pudding, e1=en.recipe.quiche}
+{e0=en.recipe.rice_pudding}
+{}
+{}
+{e0=en.recipe.rice_pudding}
+{e0=en.recipe.rice_pudding}
+{}
+{}

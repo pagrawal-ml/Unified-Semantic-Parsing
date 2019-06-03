@@ -1,0 +1,602 @@
+units that have a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-has_private_room
+smallest e0	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-size
+which housing posted on a date other than january 2nd	SW.filter entity-en.housing_unit string-posting_date string-!= date:2015:1:2
+what is the monthly rent for e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+800 square foot e0 in e0	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-neighborhood string-= e0
+housing with monthly rent of 1500 dollars that was posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-posting_date string-= d0
+housing units that allow cats and charge 1500 rent monthly	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-allows_cats
+find housing units around e0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= e0
+what is the most numerous housing type	SW.countSuperlative entity-en.housing_unit string-max string-housing_type
+find all detached housing units	SW.countComparative entity-en.housing SW.reverse string-housing_type string-< number2 entity-en.housing_unit
+housing posted on or before d0 or on or before d1	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.concat )
+where is e0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 )
+housing that is 1500month or less	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity number1500 en.dollar )
+which housing posted after jan 2nd	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity date:2015:1:2 )
+find 800 square feet sized housing units	SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet
+which housing unit in the area permits cats	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-allows_cats )
+which housing unit has a  minimum  rent of 1500 dollars per month	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string->= ( SW.ensureNumericEntity number1500 en.dollar )
+cheapest housing	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-rent
+which housing in e0 has a private bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-neighborhood string-= e0
+find housing units with size lesser than that of e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+what day did e0 become available	SW.getProperty e0 string-posting_date
+what is the rent of e0	SW.getProperty e0 string-rent
+housing that is at least 1500month	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string->= ( SW.ensureNumericEntity number1500 en.dollar )
+find housing units that are same as or lesser than the size of e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+housing unit sizes on e0	SW.filter entity-en.housing_unit string-size string-= SW.getProperty e0 string-size
+housing that is smaller than 800 square feet or smaller than 1000 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-< ( SW.ensureNumericEntity SW.concat )
+seeking e0 between 1500 and 2000	SW.concat
+list all housing types that are not the same as those in e0	SW.filter entity-en.housing SW.reverse string-housing_type string-!= e0
+find housing unit with posting date between january 2nd or february 3rd	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.concat )
+housing unit with a post date earlier than d0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity d0 )
+e0 housing that was posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d1 ) string-housing_type string-= e0
+what is the average size of an e0	string-avg SW.getProperty entity-en.housing_unit string-size
+housing that was posted d0 or later	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity d0 )
+what housing unit posted on jan 2 has a monthly rent of 1500 dollars	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) string-rent string-= number1500 en.dollar
+housing that has at least two types	SW.countComparative entity-en.housing_unit string-housing_type string->= number2
+what is the monthly rent of this e0	string-sum SW.getProperty entity-en.housing_unit string-rent
+find housing units that are posted on the date same as e0 or later	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+800 square foot e0 in e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-size string-= number800 en.square_feet
+what housing using posted on jan 2 has a private bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-posting_date string-= date:2015:1:2
+which housing unit is posted before  the posting date of e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what kind of housing type is the only of its kind	SW.countComparative entity-en.housing SW.reverse string-housing_type string-< number2 entity-en.housing_unit
+housing unit with a posting date at the latest d0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity d0 )
+which housing unit has a lesser monthly rent than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+housing unit for rent posted on d0	SW.filter entity-en.housing_unit string-rent string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+what housing unit has two housing types	SW.countComparative entity-en.housing_unit string-housing_type string-= number2
+e0 with a private bath that allow dogs	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-has_private_bath
+find housing units that is not an e0	SW.filter entity-en.housing_unit string-housing_type string-!= e0
+what housing unit posted on jan 2 is the same kind as e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) SW.reverse string-housing_type string-= e0
+which neighborhood has under two housing units	SW.countComparative entity-en.neighborhood SW.reverse string-neighborhood string-< number2 entity-en.housing_unit
+what e0 costs 1500 dollars	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-rent string-= number1500 en.dollar
+what are housing types found in the neighborhoods of e0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 )
+housing that was posted on d0	SW.filter entity-en.housing_unit string-size string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+e0 that allow dogs	SW.filter entity-en.housing_unit string-allows_dogs
+what kind of housing is 800 square feet	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet )
+which area has the most number of housing units	SW.countSuperlative entity-en.housing_unit string-max string-neighborhood
+housing that is more than 1500month or more than 2000month	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity SW.concat )
+which housing units permit dogs and cats	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-allows_dogs
+which e0 housing have 800 square feet	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-neighborhood string-= e0
+housing units with a small amount of housing	SW.countSuperlative entity-en.housing_unit string-min string-housing_type
+rent between 1500 and 2000 dollars	SW.concat
+e0 are 1500	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-rent string-= number1500 en.dollar
+what housing unit is the same type as the unit posted on jan 2	SW.filter entity-en.housing_unit string-housing_type string-= ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 )
+what kind of housing was posted on d0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+private room in e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-has_private_room
+unit smaller than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+housing units that have a private room that was posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-posting_date string-= d0
+which housing unit is more expensive than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+what is units monthly rental	string-sum SW.getProperty entity-en.housing_unit string-rent
+housing with a private room that posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-posting_date string-= d0
+find housing units with a private room and is dog friendly	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-has_private_room
+an e0 that was posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d1 ) string-housing_type string-= e0
+what housing unit was posted on jan 2	SW.filter entity-en.housing_unit string-posting_date string-= ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 )
+which housing is no larger than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+housing with more square footage than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+e0 in e0 with a rent of 1500 a month	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-rent string-= number1500 en.dollar
+housing that is the same rent as or cheaper than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+e0 with rent above 1500	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity number1500 en.dollar )
+which housing unit with an area of 800 square feet is available fora rent of 1500 dollars per month	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-rent string-= number1500 en.dollar
+housing that is more than 800 square feet	SW.filter entity-en.housing_unit string-size string-!= number800 en.square_feet
+which housing posted jan 2nd at e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) SW.reverse string-posting_date string-= e0
+housing type of more than two available housings	SW.countComparative entity-en.housing SW.reverse string-housing_type string-> number2 entity-en.housing_unit
+find a housing unit posted on d0 and that has a private room	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) string-has_private_room
+e0 with a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-has_private_room
+which housing posted no earlier than jan 2nd or feb 3rd	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.concat )
+which housing unit resembles that of e0	SW.filter entity-en.housing_unit string-housing_type string-= SW.getProperty e0 string-housing_type
+housing unit with same housing type as that of e0	SW.filter entity-en.housing_unit string-housing_type string-= SW.getProperty e0 string-housing_type
+what are the neighborhoods of e0 and e1	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= SW.concat
+show me e0 with a private room	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-has_private_room
+e0 for rent at 1500	SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar
+cats allowed in e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-allows_cats
+what is the housing type number	.size entity-en.housing
+housing types like e0 or e1	SW.filter entity-en.housing SW.reverse string-housing_type string-= SW.concat
+what kind of housing has two housing types	SW.countComparative entity-en.housing_unit string-housing_type string->= number2
+housing that is 1500month and 800 square feet	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-size string-= number800 en.square_feet
+find housing units far from e0	SW.filter entity-en.housing_unit string-neighborhood string-!= e0
+housing found in the most neighborhoods	SW.countSuperlative entity-en.housing_unit string-max string-neighborhood
+what is the area of e0	SW.getProperty e0 string-size
+find housing units with a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-has_private_room
+d0 to d1	SW.concat
+housing posted after e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+e0 with a private room	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-has_private_room )
+housing that is 800 square feet with a private bath	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-has_private_bath
+what kinds of housing has a private bath	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-has_private_bath )
+what is the square footage of e0	SW.getProperty e0 string-size
+housing that is 800 square feet and includes a private bah	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-size string-= number800 en.square_feet
+find housing units posted before january 2nd	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity date:2015:1:2 )
+housing unit with a private room and bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-has_private_bath
+what is the housing type of the two housing units	SW.countComparative entity-en.housing SW.reverse string-housing_type string->= number2 entity-en.housing_unit
+catfriendly e0 with a private room	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-has_private_room
+neighborhood where i can find housing with a private room	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-has_private_room )
+show me housing whose rent is 1500 dollars and which provides a private bathroom	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-rent string-= number1500 en.dollar
+e0 in the same neighborhood at e0	SW.filter entity-en.housing_unit string-neighborhood string-= SW.getProperty e0 string-neighborhood
+which housing unit posted jan 2nd	SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2
+dogfriendly e0 with a private bathroom	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-allows_dogs
+find 800 square feet housing units in the neighborhoods of e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-size string-= number800 en.square_feet
+what housing unit is the same size as the unit posted on jan 2	SW.filter entity-en.housing_unit string-size string-= ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 )
+name the neighborhood of the housing unit with private bath	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-has_private_bath )
+unit with rent between 15002000 dollars	SW.filter entity-en.housing_unit string-rent string-= SW.concat
+e0 in a quiet neighborhood	SW.countSuperlative entity-en.housing_unit string-min string-neighborhood
+housing that is 800 square feet and 1500month	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-rent string-= number1500 en.dollar
+most expensive places to rent	SW.superlative entity-en.housing_unit string-max SW.ensureNumericProperty string-rent
+catfriendly e0 in e0	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-neighborhood string-= e0
+e0 with a private room in e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-has_private_room
+e0 with rent between 1500 and 2000	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-< ( SW.ensureNumericEntity SW.concat )
+private bath with 800 square feet	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-size string-= number800 en.square_feet
+compare e0 and e1	SW.concat
+which housing units in the neighbourhood permits dogs inside it	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-allows_dogs )
+show me housing which have a private bathroom and allow cats	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-allows_cats
+what housing units in the midtown east area also allow dogs	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-neighborhood string-= en.neighborhood.midtown_west
+800 square foot dogfriendly e0	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-size string-= number800 en.square_feet
+what is the date of e0 posting	SW.getProperty e0 string-posting_date
+show only neighborhood units of 800 square feet	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet )
+which housing unit has  an area of 800 or 1000 square feet	SW.filter entity-en.housing_unit string-size string-= SW.concat
+housing units with less than two nieghborhoods	SW.countComparative entity-en.housing_unit string-neighborhood string-< number2
+unit of 800 square feet	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet )
+what is the kind of housing available in 123 sesamre street	SW.filter entity-en.housing SW.reverse string-housing_type string-= en.housing_unit.123_sesame_street
+looking for housing that is either an e0 or e1	SW.filter entity-en.housing_unit string-housing_type string-= SW.concat
+what neighborhood is the housing unit in that was posted d0	SW.filter entity-en.housing_unit string-neighborhood string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+e0 with at least 2 units	SW.countComparative entity-en.housing SW.reverse string-housing_type string->= number2 entity-en.housing_unit
+e0 in e0 with a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-neighborhood string-= e0
+what housing unit was posted on jan 2 or feb 3	SW.filter entity-en.housing_unit string-posting_date string-= SW.concat
+which area has less than two housing units	SW.countComparative entity-en.housing_unit string-neighborhood string-< number2
+find housing units with monthly not equal to 1500 dollars	SW.filter entity-en.housing_unit string-rent string-!= number1500 en.dollar
+find housing units with 1500 dollars as rent and is near e0	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-neighborhood string-= e0
+what is the house number of the e0	.size entity-en.housing_unit
+what housing unit posted on jan 2 is the same size as e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) SW.reverse string-size string-= e0
+housing posted on d0 or d1	SW.filter entity-en.housing_unit string-posting_date string-= SW.concat
+find housing that is an e0	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-housing_type string-= e0
+housing units who have a posting date of january 2nd and on e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) SW.reverse string-size string-= e0
+e0 that are smaller than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+find e0 with a private bath	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-has_private_bath
+housing that includes two units	SW.countComparative entity-en.housing SW.reverse string-housing_type string-= number2 entity-en.housing_unit
+list all housing that have the size of 800 or 1000 square feet	SW.concat
+what 800 square housing allows dogs	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-size string-= number800 en.square_feet
+what housing unit is in two neighborhoods	SW.countComparative entity-en.housing_unit string-neighborhood string-= number2
+neighborhood of housing unit whose monthly rent is 1500 dollars	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar )
+find pet friendly housing units that charge 1500 dollars as rent	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-allows_dogs
+housing that costs the same as e0	SW.filter entity-en.housing_unit string-rent string-= SW.getProperty e0 string-rent
+what kind of housing is e0	SW.filter entity-en.housing SW.reverse string-housing_type string-= e0
+quiet e0	SW.countComparative entity-en.housing_unit string-neighborhood string-< number2
+which housing with a private room rents for 1500 dollar monthly	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-rent string-= number1500 en.dollar
+e0 in e1	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-neighborhood string-= e1
+housing unit with the largest posting date	SW.superlative entity-en.housing_unit string-max SW.ensureNumericProperty string-posting_date
+housing listed in the fewest neighborhoods	SW.countSuperlative entity-en.housing_unit string-min string-neighborhood
+e0 with private bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-housing_type string-= e0
+housing units with a private bath	SW.filter entity-en.housing_unit string-has_private_bath
+housing that is over 800 square feet or over 1000 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity SW.concat )
+what is the average price of e0	string-avg SW.getProperty entity-en.housing_unit string-rent
+housing that ranges between 800 and 1000 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity SW.concat )
+neighborhood that has at least 2 e0	SW.countComparative entity-en.neighborhood SW.reverse string-neighborhood string->= number2 entity-en.housing_unit
+catfriendly housing with a private bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-allows_cats
+which housing offers less than two kinds of units	SW.countComparative entity-en.housing_unit string-housing_type string-< number2
+find cat friendly housing units with a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-allows_cats
+seeking houses in quiet neighborhoods	SW.countSuperlative entity-en.housing_unit string-min string-housing_type
+housing that is beetween 800 and 1000 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity SW.concat )
+housing units that are at least the same square footage as the housing unit on e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+what is the housing type of the housing unit that allows dogs	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-allows_dogs )
+show me housing available for 1500 dollars a month or less	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity number1500 en.dollar )
+housing unit that is 800 or 1000 square feet	SW.filter entity-en.housing_unit string-size string-= SW.concat
+e0 between 800 and 1000 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity SW.concat )
+find all units available midtown east	SW.filter entity-en.housing_unit string-neighborhood string-= en.neighborhood.midtown_west
+housing unit with posting date less than that of e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+which housing unit resembles e0 or e1	SW.filter entity-en.housing SW.reverse string-housing_type string-= SW.concat
+housing that is 1500month or less or 2000month or less	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity SW.concat )
+dogfriendly housing	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-allows_dogs
+a housing unit posted on d0 in any neighborhood	SW.filter entity-en.housing_unit string-neighborhood string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+find housing units in the neighborhoods of e0 with 1500 dollars as monthly rent	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-rent string-= number1500 en.dollar
+which 1500monthly rentals are dogfriendly	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-rent string-= number1500 en.dollar
+housing unit with a private room in e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-has_private_room
+housing that allows dogs	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-allows_dogs )
+which housing unit with an area of 800 square permits dogs	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-allows_dogs
+housing units that allow cats in e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-allows_cats
+800 square foot e0 with rent at 1500 a month	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-rent string-= number1500 en.dollar
+what kind of housing is in e0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 )
+housing unit with size of either 800 or 1000 square feet	SW.filter entity-en.housing_unit string-size string-= SW.concat
+which housing unit was posted before jan 2	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity date:2015:1:2 )
+a housing unit that was posted on d0	SW.filter entity-en.housing_unit string-housing_type string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+find housing similar to the house located at e0	SW.filter entity-en.housing_unit string-housing_type string-= ( SW.filter entity-en.housing SW.reverse string-housing_type string-= e0 )
+which housing unit permits cats and had a private bath in it	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-has_private_bath
+what is the phone number of this e0 complex	.size entity-en.housing
+what is the average size of housing	string-avg SW.getProperty entity-en.housing_unit string-size
+housing posted in a neighborhood on d0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+find all 800 square foot units with private baths	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-size string-= number800 en.square_feet
+housing that allows dogs that posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) string-allows_dogs
+e0 with a private bathroom	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-has_private_bath
+how  many neighbourhoods are there	.size entity-en.neighborhood
+a housing unit in e0 that was posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-posting_date string-= d1
+which kind of housing is available for a rent of 1500 dollars per month	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar )
+catfriendly housing with a private room	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-has_private_room
+e0 that was posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d1 ) string-housing_type string-= e0
+what neighborhood is the housing unit in that was posted on d0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+what housing unit contains a private bath	SW.filter entity-en.housing_unit string-has_private_bath
+e0 type housing unit that has private bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-housing_type string-= e0
+housing unit in e0 that has monthly rent of 1500	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-neighborhood string-= e0
+housing that is 800 square feet or bigger	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity number800 en.square_feet )
+find all housing units posted on d0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+name housing types that has more than one housing unit of that type	SW.countComparative entity-en.housing SW.reverse string-housing_type string->= number2 entity-en.housing_unit
+e0 that were posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-posting_date string-= d1
+e0 with a private room	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-has_private_room
+housing with with largest posting date	SW.superlative entity-en.housing_unit string-max SW.ensureNumericProperty string-posting_date
+dogfriendly 800 square foot e0	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-allows_dogs
+show me housing with 800 square feet of space where cats are acceptable	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-size string-= number800 en.square_feet
+find housing types other than e0	SW.filter entity-en.housing SW.reverse string-housing_type string-!= e0
+housing with a master bedroom and private bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-has_private_room
+find a housing unit that is in two neighborhoods	SW.countComparative entity-en.housing_unit string-neighborhood string-= number2
+housing in e0 that posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d1 ) string-neighborhood string-= e0
+list all e0 in e1	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-neighborhood string-= e1
+neighborhood with e0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-housing_type string-= e0 )
+what size is the housing unit posted on d0	SW.filter entity-en.housing_unit string-size string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+show me housing which posted on or before the day e0 did	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what housing unit with a private bath was posted on jan 2	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) string-has_private_bath
+housing with fewer than two units	SW.countComparative entity-en.housing SW.reverse string-housing_type string-< number2 entity-en.housing_unit
+e0 with a private bathroom that allow cats	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-allows_cats
+find housing larger than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+what housing unit in e0 was posted on jan 2	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-posting_date string-= date:2015:1:2
+need a unit with a private room in the e0 area	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-neighborhood string-= e0
+units with larger rent than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+housing units with 2 neighborhoods	SW.countComparative entity-en.housing_unit string-neighborhood string-= number2
+find housing units with size lesser than 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-< ( SW.ensureNumericEntity number800 en.square_feet )
+800 square feet housing unit with a private bath	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-has_private_bath
+which housing unit is available for the least rent	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-rent
+housing unit in west midtown posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) string-neighborhood string-= en.neighborhood.midtown_west
+how many neighborhoods	.size entity-en.neighborhood
+which neighborhoods have housing where dogs are allowed	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-allows_dogs )
+which housing unit has a rent of 1500 dollars or 2000 dollars per month	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity SW.concat )
+housing unit smaller than 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-< ( SW.ensureNumericEntity number800 en.square_feet )
+what housing unit allowing cats was posted on jan 2	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) string-allows_cats
+units posted before january 2nd	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity date:2015:1:2 )
+aparartment or e0 units	SW.filter entity-en.housing_unit string-housing_type string-= SW.concat
+what are the rare housing types	SW.countSuperlative entity-en.housing string-min SW.reverse string-housing_type entity-en.housing_unit
+housing unit bigger than 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity number800 en.square_feet )
+800 square foot e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity number800 en.square_feet )
+neighborhood of e0	SW.filter ( SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= e0 ) SW.reverse string-neighborhood string-= e0
+specify the housing type of the housing unit that has a private bath	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-has_private_bath )
+how large is the unit at e0	SW.getProperty e0 string-size
+housing types in the e0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 )
+housing unit that is an aprtment	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= en.housing.apartment ) string-housing_type string-= en.housing.apartment
+show me housing units that arent e0	SW.filter entity-en.housing_unit string-housing_type string-!= e0
+what housing unit posted on jan 2 has the same rent as e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) SW.reverse string-rent string-= e0
+looking for a unit with a private bathroom and dog friendly	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-allows_dogs
+what kinds of housing include a private room	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-has_private_room )
+what kind of housing is available for 1500month	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar )
+which housing unit in this neighbourhood has the facility of a private bath	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-has_private_bath )
+show me housing with 800 square feet of space	SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet
+which housing unit has the least variety of houses	SW.countSuperlative entity-en.housing_unit string-min string-housing_type
+housing unit with 2 types of housing	SW.countComparative entity-en.housing_unit string-housing_type string-< number2
+what e0 housing unit has a private bath	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-has_private_bath
+what are the  units that  do  not belong to the area around e0	SW.filter entity-en.housing_unit string-neighborhood string-!= e0
+housing unit that allows cats	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-allows_cats
+e0 with a private bath	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-has_private_bath
+e0 that allow dogs	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-allows_dogs
+neighborhood with the most housing units	SW.countSuperlative entity-en.neighborhood string-max SW.reverse string-neighborhood entity-en.housing_unit
+housing type posted d0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+which housing consists of two units maximum	SW.countComparative entity-en.housing SW.reverse string-housing_type string-<= number2 entity-en.housing_unit
+e0 renting for 1500 a month	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-housing_type string-= e0
+800 foot e0 with a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-size string-= number800 en.square_feet
+housing that is 800 square feet or less or 1000 square feet or less	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity SW.concat )
+housing that is at least 800 square feet or at least 1000 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity SW.concat )
+cat friendly e0 in e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-allows_cats
+what is the neighborhood  of the housing unit with the monthly rent 1500 dollars	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar )
+what is the type of housing that has a private room	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-has_private_room )
+housing unit with the smallest posting date	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-posting_date
+how many neighborhoods are in the city	.size entity-en.neighborhood
+which housing unit has  the variety of houses	SW.countSuperlative entity-en.housing_unit string-max string-housing_type
+housing that allows dogs and was posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) string-allows_dogs
+housing posted before d0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity d0 )
+which housing posted on the same date as e0	SW.filter entity-en.housing_unit string-posting_date string-= SW.getProperty e0 string-posting_date
+what neighborhood is e0 in	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= e0
+which housing unit has the monthly rent of e0	SW.filter entity-en.housing_unit string-rent string-= SW.getProperty e0 string-rent
+find 800 square feet sized housing in the neighborhoods of e0	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-neighborhood string-= e0
+housing units with one housing type	SW.countComparative entity-en.housing_unit string-housing_type string-< number2
+a neighborhood with at most twohouse units	SW.countComparative entity-en.neighborhood SW.reverse string-neighborhood string-<= number2 entity-en.housing_unit
+800 square foot unit with rent of 1500 monthly	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-size string-= number800 en.square_feet
+what kinds of housing allow cats	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-allows_cats )
+find housing between 800 and 1000 square feet	SW.filter entity-en.housing_unit string-size string-= SW.concat
+e0 posted on d0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity d0 )
+what is the average find 800 square feet housing units that allow cats	string-avg SW.getProperty entity-en.housing_unit string-size
+e0 that were posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-posting_date string-= d1
+show me the housing with the most space available	SW.superlative entity-en.housing_unit string-max SW.ensureNumericProperty string-size
+what are the housing units in the area around e0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 )
+what e0 housing allows cats	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-neighborhood string-= e0
+e0 or e1	SW.filter entity-en.housing_unit string-housing_type string-= SW.concat
+which is the neighborhood shared by most nuumber of housing units	SW.countSuperlative entity-en.neighborhood string-max SW.reverse string-neighborhood entity-en.housing_unit
+housing not posted on d0	SW.filter entity-en.housing_unit string-posting_date string-!= d0
+find housing units around the neighborhoods of e0	SW.filter entity-en.housing_unit string-neighborhood string-= SW.getProperty e0 string-neighborhood
+show me housing in e0 where rent is 1500 dollars a month	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-rent string-= number1500 en.dollar
+which housing unit has a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-has_private_room
+what neighborhood is e0 in	SW.getProperty e0 string-neighborhood
+which housing unit has 1500 dollars as monthly rent	SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar
+which housing unit is in the area of e0 or e1	SW.filter entity-en.housing_unit string-neighborhood string-= SW.concat
+what kind of housing is e0	SW.getProperty e0 string-housing_type
+how much a month is the rent at e0	SW.getProperty e0 string-rent
+housing e0 with a private bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-housing_type string-= e0
+find housing units in the same housing type of e0	SW.filter entity-en.housing_unit string-housing_type string-= SW.getProperty e0 string-housing_type
+which housing unit is smaller than 800 square feet or 1000 square feet by area	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-< ( SW.ensureNumericEntity SW.concat )
+housing that allows cats and includes a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-allows_cats
+what type of housing is e0	SW.filter entity-en.housing SW.reverse string-housing_type string-= e0
+housing not in e0	SW.filter entity-en.housing_unit string-neighborhood string-!= e0
+housing found in less than two neighborhoods	SW.countComparative entity-en.housing_unit string-neighborhood string-< number2
+find housing units with posting date between january 2nd and february 3rd	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.concat )
+a unit with a private bath that posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) string-has_private_bath
+which housing unit has an e0 kind of house	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-housing_type string-= e0 )
+e0 that is the same size are e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+which housing unit permits cats in it	SW.filter entity-en.housing_unit string-allows_cats
+what neighborhoods have units with 800 square feet	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet )
+neighborhood with the most available housing	SW.countSuperlative entity-en.neighborhood string-max SW.reverse string-neighborhood entity-en.housing_unit
+what is the other areas around e0 that has housing units	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 )
+housing posted before e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+housing with posting dates before january 2nd and february 3rd	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.concat )
+looking for a quiet neighborhood	SW.countSuperlative entity-en.neighborhood string-min SW.reverse string-neighborhood entity-en.housing_unit
+what housing is the same type as the housing posted on d0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+housing unit that is not 800 square feet	SW.filter entity-en.housing_unit string-size string-!= number800 en.square_feet
+e0 in the e0 or e1 neighborhoods	SW.filter entity-en.housing_unit string-neighborhood string-= SW.concat
+housing units that are e0	SW.filter entity-en.housing_unit string-housing_type string-= e0
+housing unit with a cheaper rent than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+housing unit with a private bath and cost 1500 dollars rent	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-rent string-= number1500 en.dollar
+which housing unit does not belong to the e0 type with a monthly rent of 1500 dollars	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-housing_type string-= e0
+what housing unit allowing dogs was posted on jan 2	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) string-allows_dogs
+which housing unit has e0 kind of houses with an area of 800 square feet	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-size string-= number800 en.square_feet
+posting with at least two types of housing	SW.countComparative entity-en.housing_unit string-housing_type string->= number2
+which housing unit has more than two kinds of houses	SW.countComparative entity-en.housing SW.reverse string-housing_type string-> number2 entity-en.housing_unit
+housing that is 800 square feet or less	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity number800 en.square_feet )
+find housing units with rental charges between 1500 to 2000 dollars	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string->= ( SW.ensureNumericEntity SW.concat )
+800 square food housing units that have private baths	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-size string-= number800 en.square_feet
+find housing units less than 1000  square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity SW.concat )
+when was e0 posted	SW.getProperty e0 string-posting_date
+list all housing that is smaller than 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-< ( SW.ensureNumericEntity number800 en.square_feet )
+e0 in the e1 neighborhood	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-neighborhood string-= e1
+e0 with rent between 1500 and 2000	SW.filter entity-en.housing_unit string-rent string-= SW.concat
+find housing units with size greater than 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity number800 en.square_feet )
+what is the date of the e0 posting	SW.getProperty e0 string-posting_date
+800 square feet housing that allows dogs	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-size string-= number800 en.square_feet
+neighborhood with at most two housing	SW.countComparative entity-en.neighborhood SW.reverse string-neighborhood string-<= number2 entity-en.housing_unit
+how many housing units are there	.size entity-en.housing_unit
+unit with private bath	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-has_private_bath )
+which housing unit has a rent of 1500 dollars per month	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity number1500 en.dollar )
+housing that is less than 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-< ( SW.ensureNumericEntity number800 en.square_feet )
+housing that is at least as expensive as e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+find 800 square feet housing units that are cat friendly	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-size string-= number800 en.square_feet
+find housing units in the neighborhoods of e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-neighborhood string-= e0
+which is the housing unit that permits dogs inside it	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-allows_dogs
+housing unit near e0	SW.filter entity-en.housing_unit string-neighborhood string-= e0
+neighborhood with more than two housing units	SW.countComparative entity-en.neighborhood SW.reverse string-neighborhood string-> number2 entity-en.housing_unit
+find housing unit with the latest posting date	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-posting_date
+housing posted the same day or after e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+which housing unit is posted lately	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-posting_date
+housing that was posted after d0 or d1	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.concat )
+housing units that have more than two neighborhoods	SW.countComparative entity-en.housing_unit string-neighborhood string-> number2
+find cat friendly housing units with a private bath	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-has_private_bath
+housing in e0 with a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-neighborhood string-= e0
+what housing unit is in the same neighborhood as the unit posted on jan 2	SW.filter entity-en.housing_unit string-neighborhood string-= ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 )
+what kind of housing are the two housing units	SW.countComparative entity-en.housing SW.reverse string-housing_type string-= number2 entity-en.housing_unit
+what housing unit posted on jan 2 is in e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) string-neighborhood string-= e0
+units larger than 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity SW.concat )
+what neighborhood has the least amount of housing	SW.countSuperlative entity-en.neighborhood string-min SW.reverse string-neighborhood entity-en.housing_unit
+find 800 square feet housing units of the type e0	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-housing_type string-= e0
+housing with posting date of d0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+housing unit with a private room and allows cats	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-allows_cats
+housing that is bigger than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+which housing unit has e0 kind of house with an area of 800 square feet	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-housing_type string-= e0
+pet friendly housing near e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-allows_cats
+housing that is more than 1500month	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity number1500 en.dollar )
+pet friendly housing with 1500 dollars as rent	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-rent string-= number1500 en.dollar
+building with the least number of housing types	SW.countSuperlative entity-en.housing_unit string-min string-housing_type
+find cat friendly housing units that charge 1500 dollars as rent	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-rent string-= number1500 en.dollar
+800 square foot e0 with private bathroom	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-has_private_bath
+housing that was posted on d0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.concat )
+building with two or less kinds of unis	SW.countComparative entity-en.housing_unit string-housing_type string-<= number2
+which housing unit is in the area of e0	SW.filter entity-en.housing_unit string-neighborhood string-= ( SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= e0 )
+which housing unit permits dogs and has the facility of a private bath	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-has_private_bath
+housing that is the same size or bigger than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+e0 for rent below 1500	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity number1500 en.dollar )
+housing unit which is an e0 that is dogs friendly	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-housing_type string-= e0
+housing posted on or before d0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity d0 )
+housing units of either 800 square feet or 1000 square feet	SW.concat
+e0 with a master bathroom in e0 neighbourhood	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-has_private_bath
+housing that is not 1500month	SW.filter entity-en.housing_unit string-rent string-!= number1500 en.dollar
+which housing unit offers a private bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-has_private_bath
+housing posted on d0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+housing allowing cats that was posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) string-allows_cats
+a neighborhood with fewer than twohouse units	SW.countComparative entity-en.neighborhood SW.reverse string-neighborhood string-< number2 entity-en.housing_unit
+housing posted on d0 around e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) SW.reverse string-neighborhood string-= e0
+e0 unit with 1500 rent monthly	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-neighborhood string-= e0
+show housing types for three or more units	SW.countComparative entity-en.housing SW.reverse string-housing_type string-> number2 entity-en.housing_unit
+e0 that permit cats	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-housing_type string-= e0
+what kind of housing is e0 and e1	SW.filter entity-en.housing SW.reverse string-housing_type string-= SW.concat
+housing typical of e0 housing posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d1 ) SW.reverse string-size string-= e0
+housing unit that costs 1500 dollars rent and allows dogs	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-allows_dogs
+housing unit in e0 and allows dogs	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-allows_dogs
+housing in a neighborhood larger than two houses	SW.countComparative entity-en.neighborhood SW.reverse string-neighborhood string-> number2 entity-en.housing_unit
+housing unit that both have a private room and allow dogs	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-allows_dogs
+smallest available unit	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-size
+housing units that are 800 square feet and have private baths	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-has_private_bath
+which neighborhoods have dogfriendly housing	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-allows_dogs )
+which housing posted jan 2nd permits dogs	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-posting_date string-= date:2015:1:2
+housing unit with the same monthly rent as e0	SW.filter entity-en.housing_unit string-rent string-= SW.getProperty e0 string-rent
+find housing units with private room near e0	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-has_private_room
+what housing has been posted lately	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-posting_date
+a housing unit with a private bath that posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-posting_date string-= d0
+housing in e0 neighborhood that was posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d1 ) SW.reverse string-neighborhood string-= e0
+800 square foot e0 with a private room	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-has_private_room
+what housing unit has two or more housing types	SW.countComparative entity-en.housing_unit string-housing_type string-> number2
+housing type on e0	SW.getProperty e0 string-housing_type
+e0 complexes with the most units	SW.countSuperlative entity-en.housing_unit string-max string-housing_type
+e0 that are dog friendly	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-allows_dogs
+what is the average rent per month of a housing unit	string-avg SW.getProperty entity-en.housing_unit string-rent
+800 square foot housing unit with a private room	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-has_private_room
+find 800 square feet sized housing units with a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-size string-= number800 en.square_feet
+housing that was posted after d0 or after d1	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.concat )
+where are 800 square fee housing units that allow dogs	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-allows_dogs
+800 square feet in e0	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-neighborhood string-= e0
+cheapest places to rent	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-rent
+which housing unit is available in the area around mid town west	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= en.neighborhood.midtown_west ) string-neighborhood string-= en.neighborhood.midtown_west
+find housing with a private room and bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-has_private_bath
+find housing units posted before or on the same date as e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+exclude e0 from e0	SW.filter entity-en.housing_unit string-neighborhood string-!= e0
+which housing unit has the highest rent per month	SW.superlative entity-en.housing_unit string-max SW.ensureNumericProperty string-rent
+show me housing that is the same type as at least two others	SW.countComparative entity-en.housing SW.reverse string-housing_type string->= number2 entity-en.housing_unit
+which housing unit has a monthly rent of less than 1500 dollars	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-< ( SW.ensureNumericEntity number1500 en.dollar )
+housing with any monthly rent posted on d0	SW.filter entity-en.housing_unit string-rent string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+housing posted before d0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity d0 )
+which housing unit permits cats inside it	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-allows_cats
+dogfriendly housing that is 800 square feet	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-allows_dogs
+housing at least 800 to 1000 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity SW.concat )
+housing that is not an e0	SW.filter entity-en.housing_unit string-housing_type string-!= e0
+housing with 1500 dollars rent that has a private bath	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-has_private_bath
+what housing unit was posted on jan 2	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) string-posting_date string-= date:2015:1:2
+housing unit that allows dogs and cats	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-allows_cats
+which housing unit has the most kind of houses	SW.countSuperlative entity-en.housing string-max SW.reverse string-housing_type entity-en.housing_unit
+housing unit posted on d0 and that is the same size as e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) SW.reverse string-size string-= e0
+housing posted on january 2nd that allows dogs	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-posting_date string-= date:2015:1:2
+all housing units posted on d0	SW.filter entity-en.housing_unit string-posting_date string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+housing that was posted on d0	SW.filter entity-en.housing_unit string-posting_date string-= SW.concat
+what is the housing type at e0	SW.filter entity-en.housing SW.reverse string-housing_type string-= e0
+what is the housing type that allows cats	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-allows_cats )
+housing unit within at most 2 neighborhoods	SW.countComparative entity-en.housing_unit string-neighborhood string-<= number2
+which housing unit has a jan 2nd posting	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) string-posting_date string-= date:2015:1:2
+how large is e0	SW.getProperty e0 string-size
+housing with private bath that was posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) string-has_private_bath
+name housing types other than e0 type	SW.filter entity-en.housing SW.reverse string-housing_type string-!= e0
+what housing is priced at 1500 or 2000 dollars	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity SW.concat )
+housing that is not 800 square feet	SW.filter entity-en.housing_unit string-size string-!= number800 en.square_feet
+e0 with a private bathroom	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-has_private_bath )
+find housing units that satisfies two housing types	SW.countComparative entity-en.housing_unit string-housing_type string-<= number2
+housing e0 in a e1 neighborhood	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e1 ) string-housing_type string-= e0
+housing e0 that allows cats	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-housing_type string-= e0
+pet friendly housing unit	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-allows_cats
+e0 with rent that is more expensive than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+find housing units with the least number of neighborhoods	SW.countSuperlative entity-en.housing_unit string-min string-neighborhood
+e0 with a cheaper rent than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+what housing unit has 2 or more types	SW.countComparative entity-en.housing_unit string-housing_type string->= number2
+housing posted the same day as e0	SW.filter entity-en.housing_unit string-posting_date string-= SW.getProperty e0 string-posting_date
+what housing unit in the same neighborhood as e0 was posted on jan 2	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) SW.reverse string-neighborhood string-= e0
+which housing unit allows dogs and cats	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-allows_cats
+which housing unit with a rent of 1500 dollars per month permits cats in it	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-rent string-= number1500 en.dollar
+private housing in e0	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-neighborhood string-= e0
+housing that was posted on d0 of e0 kind	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) SW.reverse string-posting_date string-= e0
+what kind of housing offers 800 square feet and allows cats	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-allows_cats
+neighborhoods with housing that is 1500month	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar )
+which neighborhood is e0 in	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= e0
+e0 with a private bathroom for rent at 1500	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-has_private_bath
+housing that posted on the same day at e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+what neighborhood is the 800 square foot e0 in	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet )
+housing like e0 that was posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d1 ) SW.reverse string-size string-= e0
+rarest housing type	SW.countSuperlative entity-en.housing string-min SW.reverse string-housing_type entity-en.housing_unit
+housing posted before or on the same day as e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+e0 in the e1 neighborhood	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-neighborhood string-= e1
+e0 with a private bath for rent at 1500	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-rent string-= number1500 en.dollar
+find housing units with the most number of neighborhoods	SW.countSuperlative entity-en.housing_unit string-max string-neighborhood
+want a housing type like e0	SW.filter ( SW.filter entity-en.housing SW.reverse string-housing_type string-= e0 ) SW.reverse string-housing_type string-= e0
+show me housing in e0 or e1	SW.filter entity-en.housing_unit string-neighborhood string-= SW.concat
+housing in e0 neighborhood posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-posting_date string-= d1
+housing that has at least two neighborhood	SW.countComparative entity-en.housing_unit string-neighborhood string->= number2
+cats permitted in unit	SW.filter entity-en.housing_unit string-allows_cats
+housing unit posted d0 and the same rent as e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) SW.reverse string-rent string-= e0
+housing that allows dogs and was posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-posting_date string-= d0
+housing unit with a private room	SW.filter entity-en.housing_unit string-has_private_room
+which housing unit with an area of 800 square feet has a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-size string-= number800 en.square_feet
+how big is the housing unit	string-sum SW.getProperty entity-en.housing_unit string-size
+housing unit that is cheaper than 1500 dollars	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-< ( SW.ensureNumericEntity number1500 en.dollar )
+area around e0	SW.getProperty e0 string-neighborhood
+housing unit that allows cats and has a private bath	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-has_private_bath
+housing with a private room that is 800 square feet total	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-has_private_room
+which housing unit is bigger  in area by 800 square feet or 1000 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity SW.concat )
+housing unit at most 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity number800 en.square_feet )
+e0 with a private room	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-has_private_room
+housing of two types	SW.countComparative entity-en.housing SW.reverse string-housing_type string-= number2 entity-en.housing_unit
+what neighborhood was the housing unit posted on jan 2	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 )
+find housing units with just one neighborhood	SW.countComparative entity-en.housing_unit string-neighborhood string-< number2
+where are the most number of housing units found	SW.countSuperlative entity-en.neighborhood string-max SW.reverse string-neighborhood entity-en.housing_unit
+neighborhoods of housing units that allows cats	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-allows_cats )
+find housing units of the type e0	SW.filter entity-en.housing SW.reverse string-housing_type string-= ( SW.filter entity-en.housing_unit string-housing_type string-= e0 )
+housing costing more than 1500 dollars per month	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity number1500 en.dollar )
+condomonium or flat	SW.concat
+housing of 800 square feet posted on d0	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-posting_date string-= d0
+find housing units with 1500 dollars to 2000 as rent	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity SW.concat )
+housing that is either an e0 or townhouse	SW.countComparative entity-en.housing SW.reverse string-housing_type string-> number2 entity-en.housing_unit
+e0 with rent below 1500	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-< ( SW.ensureNumericEntity number1500 en.dollar )
+e0 with rent between 1500 to 2000 dollars	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity SW.concat )
+count of different units	.size entity-en.housing
+housing that is 800 square feet with a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-size string-= number800 en.square_feet
+neighborhoods with housing units with private rooms	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-has_private_room )
+neighborhoods medtown west or e0	SW.concat
+what is the most common housing type	SW.countSuperlative entity-en.housing string-max SW.reverse string-housing_type entity-en.housing_unit
+housing with no more than two housing units	SW.countComparative entity-en.housing SW.reverse string-housing_type string-<= number2 entity-en.housing_unit
+what housing unit is priced at 1500 dollars	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity number1500 en.dollar )
+find housing units with a private room and has 1500 dollars as monthly rent	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-rent string-= number1500 en.dollar
+housing unit that allows dogs and has a private bath	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-has_private_bath
+show me housing in e0 where dogs are welcome	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-allows_dogs
+find a housing unit posted on d0 with the same rent price as e0	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) SW.reverse string-rent string-= e0
+which housing unit in the e0 area has a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-neighborhood string-= e0
+find me a housing unti that chagres 1500 for rent and has a priiiiiiat bathroom	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-has_private_room
+which housing units are at least 800 square feet in size	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity number800 en.square_feet )
+housing the same size as e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+housing unit posted on d0	SW.filter entity-en.housing_unit string-neighborhood string-= ( SW.filter entity-en.housing_unit string-posting_date string-= d0 )
+which neighborhoods have housing with a private bath	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-has_private_bath )
+housing that is cheaper than 1500month	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-< ( SW.ensureNumericEntity number1500 en.dollar )
+which 1500monthly rentals are 800 square feet	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-size string-= number800 en.square_feet
+how much is e0 per month	SW.getProperty e0 string-rent
+which housing unit resembles e0 in size	SW.filter entity-en.housing_unit string-size string-= SW.getProperty e0 string-size
+find housing that has a private room and bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-has_private_room
+housing posted january 2nd that includes a private room	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) string-has_private_room
+which housing unit with an area of 800 square feet has the facility of a private room	SW.filter ( SW.filter entity-en.housing_unit string-size string-= number800 en.square_feet ) string-has_private_room
+what housing was posted no earlier than jan 2	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity date:2015:1:2 )
+what housing unit  posted on jan 2 has a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-posting_date string-= date:2015:1:2
+unit with one housing type	SW.countComparative entity-en.housing_unit string-housing_type string-< number2
+housing that posted after d0 or d1	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-> ( SW.ensureNumericEntity SW.concat )
+find housings unit posted on other dates except for january 2nd	SW.filter entity-en.housing_unit string-posting_date string-!= date:2015:1:2
+housing that is 1500month and includes a private room	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-has_private_room
+either 800 or 1000 square feet	SW.concat
+what housing units are the same size as those in e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+find housing units with rental charges greater than e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+what housing is cat friendly and costs 1500 dollars	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-rent string-= number1500 en.dollar
+find housing units posted after e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-posting_date  )
+housing that was posted on d0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string->= ( SW.ensureNumericEntity d0 )
+what is the neighborhood of the e0 that is pet friendly	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-allows_cats )
+which housing unit belongs to the e0 kind with the facility of a private troom	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-housing_type string-= e0
+unit larger than 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity number800 en.square_feet )
+e0 with a rent below 1500 a month	SW.filter entity-en.housing_unit string-rent string-!= number1500 en.dollar
+find the housing unit with the most monthly rent	SW.superlative entity-en.housing_unit string-max SW.ensureNumericProperty string-rent
+housing with the same rent as e0	SW.filter entity-en.housing_unit string-rent string-= SW.getProperty e0 string-rent
+housing units outsizing e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-> ( SW.ensureNumericEntity SW.getProperty e0 string-size  )
+catfriendly e0 with a private bathroom	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-allows_cats
+e0 that rent for at least 1500	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string->= ( SW.ensureNumericEntity number1500 en.dollar )
+housing near e0	SW.getProperty e0 string-neighborhood
+housing in e0 that was posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d1 ) string-neighborhood string-= e0
+housing unit with a private bath and 1500 dollar rent	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-rent string-= number1500 en.dollar
+housing with 2 surrounding neighborhoods	SW.countComparative entity-en.housing_unit string-neighborhood string-<= number2
+e0 with a private room that rents for 1500 a month	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-has_private_room
+housing that allows cats and is 1500 a month	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-allows_cats
+which housing unit is posted on the posting date of e0	SW.filter entity-en.housing_unit string-posting_date string-= SW.getProperty e0 string-posting_date
+what housing unit with a private room was posted on jan 2	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) string-has_private_room
+housing e0 with a private bath	SW.filter ( SW.filter entity-en.housing_unit string-housing_type string-= e0 ) string-has_private_bath
+e0 800 square feet and above	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string->= ( SW.ensureNumericEntity number800 en.square_feet )
+what is the neighborhood of e0	SW.getProperty e0 string-neighborhood
+seeking e0 or e1	SW.concat
+e0 that have a private bath	SW.filter ( SW.filter entity-en.housing_unit string-has_private_bath ) string-has_private_bath
+housing posted before d0 or d1	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-posting_date  string-< ( SW.ensureNumericEntity SW.concat )
+find housing units that are pet friendly	SW.filter ( SW.filter entity-en.housing_unit string-allows_dogs ) string-allows_dogs
+neighborhood that has two housing	SW.countComparative entity-en.neighborhood SW.reverse string-neighborhood string-= number2 entity-en.housing_unit
+in which area is e0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= e0
+e0 with a private bath that also accepts cats	SW.filter ( SW.filter entity-en.housing_unit string-allows_cats ) string-has_private_bath
+e0 or e1 housing	SW.concat
+what kind of housing is e0 or e1	SW.filter entity-en.housing SW.reverse string-housing_type string-= SW.concat
+housing that is at least 1500month or at least 2000month	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string->= ( SW.ensureNumericEntity SW.concat )
+which housing unit has the smallest size	SW.superlative entity-en.housing_unit string-min SW.ensureNumericProperty string-size
+800 square foot e0 for 1500 rent	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-size string-= number800 en.square_feet
+housing that is 1500month with a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-rent string-= number1500 en.dollar
+what housing unit posted was posted on jan 2	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= date:2015:1:2 ) SW.reverse string-posting_date string-= en.housing_unit.123_sesame_street
+which housing has a monthly rent of 1500 dollars	SW.filter ( SW.filter entity-en.housing_unit string-rent string-= number1500 en.dollar ) string-rent string-= number1500 en.dollar
+housing types of the most units	SW.countSuperlative entity-en.housing string-max SW.reverse string-housing_type entity-en.housing_unit
+housing units in e0 that allow dogs	SW.filter ( SW.filter entity-en.housing_unit string-neighborhood string-= e0 ) string-allows_dogs
+a twohousing unit	SW.countComparative entity-en.housing_unit string-housing_type string-= number2
+what is the neighborhood of the  housing unit with a private room	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.housing_unit string-has_private_room )
+find a housing that is no more than 800 square feet	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-size  string-<= ( SW.ensureNumericEntity number800 en.square_feet )
+show me housing that is the same type as e0	SW.filter ( SW.filter entity-en.housing SW.reverse string-housing_type string-= e0 ) SW.reverse string-housing_type string-= e0
+which housing unit with a rent of 1500 dollars per month has a private room	SW.filter ( SW.filter entity-en.housing_unit string-has_private_room ) string-rent string-= number1500 en.dollar
+housing kind of e0 that was posted on d1	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d1 ) SW.reverse string-housing_type string-= e0
+housing that does not have a higher rent then e0	SW.filter entity-en.housing_unit SW.ensureNumericProperty string-rent  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-rent  )
+a housing unit posted on d0 or d1	SW.filter entity-en.housing_unit string-posting_date string-= SW.concat
+housing in the neighborhood of e0	SW.filter entity-en.housing_unit string-neighborhood string-= SW.getProperty e0 string-neighborhood
+find a housing unit posted on d0 and that allows cats	SW.filter ( SW.filter entity-en.housing_unit string-posting_date string-= d0 ) string-allows_cats

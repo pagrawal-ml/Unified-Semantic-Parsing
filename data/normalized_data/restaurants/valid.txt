@@ -1,0 +1,265 @@
+what restaurant serves two different types of cuisines	SW.countComparative entity-en.restaurant string-cuisine string-= number2
+a restaurant with waiter service	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-waiter
+which restaurant has takeout service	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-takeout
+restaurants that serve e0 and takeout	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e0 ) string-takeout
+what are some restaurants rated 2 dollar signs or more	SW.filter entity-en.restaurant SW.ensureNumericProperty string-price_rating  string->= ( SW.ensureNumericEntity number2 en.dollar_sign )
+restaurants with the most locations in the area	SW.countSuperlative entity-en.restaurant string-max string-neighborhood
+what 3 star restaurant has waiter service	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-star_rating string-= number3 en.star
+restaurants that serve e0 and accept credit cards	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e0 ) string-credit
+list all restaurants that have ratings above 2	SW.filter entity-en.restaurant string-price_rating string-!= number2 en.dollar_sign
+what cuisine does the restaurant with reservations have	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-reserve )
+restaurants with waiter service	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-waiter )
+cuisine that is cuisine of e0 and that is cuisine of e0	SW.filter ( SW.filter entity-en.cuisine SW.reverse string-cuisine string-= e0 ) SW.reverse string-cuisine string-= e0
+list all e0 restaurants in e1	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-neighborhood string-= e1
+what is the average price rating of a restaurant	string-avg SW.getProperty entity-en.restaurant string-price_rating
+this restaurant has the most amount of cuisines	SW.countSuperlative entity-en.restaurant string-max string-cuisine
+restaurants with takeout that are group friendly	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-groups
+what are some restaurants serving any cuisine except e0	SW.filter entity-en.restaurant string-cuisine string-!= e0
+cuisine unlike e0	SW.filter entity-en.cuisine SW.reverse string-cuisine string-!= e0
+what is a kid friendly restaurant that serves e0	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e0 ) string-kids
+what is the cuisine of the restaurants with three star ratings	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-star_rating string-= number3 en.star )
+restaurants rated 3 stars	SW.filter entity-en.restaurant string-star_rating string-= number3 en.star
+what restaurants are not in e0	SW.filter entity-en.restaurant string-neighborhood string-!= e0
+which restaurants have price ratings above or below two dollar signs	SW.filter entity-en.restaurant string-price_rating string-!= number2 en.dollar_sign
+what restaurants have at least 2 meals on the menu	SW.countComparative entity-en.restaurant string-meals string-= number2 entity-en.food
+30 reviews or 40 reviews	SW.concat
+restaurant whose star rating is at most star rating of e0	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-star_rating  )
+restaurant whose cuisine is e0 and that has outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-outdoor
+what restaurants offer outdoor seating and takes reservations	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-outdoor
+a reservation e0 restaurant	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-reserve
+which restaurants have takeout and serve e0	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-meals string-= e0
+restaurants that are not open for e0	SW.filter entity-en.restaurant string-meals string-!= e0
+e0 restaurant for many people	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e0 ) string-groups
+restaurant that is good for kids and whose cuisine is e0	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-cuisine string-= e0
+which restaurants serve e0 and have an outdoor dining area	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-meals string-= e0
+what are some restaurants that are rated between 3 and 5 stars	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string-> ( SW.ensureNumericEntity SW.concat )
+neighborhoods with more than 2 restauraunts	SW.countComparative entity-en.neighborhood SW.reverse string-neighborhood string-> number2 entity-en.restaurant
+restaurant that serves e0 and whose star rating is 3 stars	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e0 ) string-star_rating string-= number3 en.star
+which restaurant offers fewer than two types of cuisine	SW.countComparative entity-en.restaurant string-cuisine string-< number2
+what 3 star restaurant offers delivery	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-star_rating string-= number3 en.star
+groupfriendly restaurants that accept reservations	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-groups
+3 star restaurants that offer takeout	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-star_rating string-= number3 en.star
+what kind of cuisine has at least two restaurants	SW.countComparative entity-en.cuisine SW.reverse string-cuisine string-= number2 entity-en.restaurant
+the restaurant that is midtown serves e0 food	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-neighborhood string-= en.neighborhood.midtown_west
+what kind of meals do 2 dollar signs rated restaurants serve	SW.filter entity-en.food SW.reverse string-meals string-= ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign )
+restaurants in e0 with an outdoor dining area	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e0 ) string-outdoor
+what restaurant is in two neighborhoods	SW.countComparative entity-en.restaurant string-neighborhood string-= number2
+restaurants that take credit and deliver	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-credit
+the 3 star restaurant is good for groups	SW.filter ( SW.filter entity-en.restaurant string-groups ) string-star_rating string-= number3 en.star
+cuisine that is cuisine of restaurant that is good for groups	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-groups )
+what 2 dollar signs restaurant offers delivery	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-price_rating string-= number2 en.dollar_sign
+restaurant that has takeout and that has waiter service	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-waiter
+what restaurants take credit cards and deliver	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-delivery
+restaurant in the area that has a 2 dollar sign price rating	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign )
+what is the price rating of the e0	SW.getProperty e0 string-price_rating
+restaurants similar to restaurants in e0	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-neighborhood string-= e0 )
+what restaurant is group friendly and takes a credit card	SW.filter ( SW.filter entity-en.restaurant string-groups ) string-credit
+a restaurant with delivery for a large group	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-groups
+what neighborhoods have restaurants that are good for large parties	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.restaurant string-groups )
+what restaurants serve good food for groups and have takeout	SW.filter ( SW.filter entity-en.restaurant string-groups ) string-takeout
+restaurants that accept reservations and offer takeout	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-reserve
+restaurant that has the most number of neighborhood	SW.countSuperlative entity-en.restaurant string-max string-neighborhood
+restaurants that are better for takeout	SW.countSuperlative entity-en.restaurant string-min string-meals entity-en.food
+restaurant that has delivery and that serves e0	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-meals string-= e0
+what 2 dollar signs offers e0	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-meals string-= e0
+price rating of e0	SW.getProperty e0 string-price_rating
+restaurant whose neighborhood is e0 and that serves e1	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e0 ) string-meals string-= e1
+restaurants with 3star ratings that have waiters	SW.filter ( SW.filter entity-en.restaurant string-star_rating string-= number3 en.star ) string-waiter
+what restaurant is good for groups and offers outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-groups
+list all restaurants similar to the cuisine of e0	SW.filter entity-en.restaurant string-cuisine string-= SW.getProperty e0 string-cuisine
+a restaurant with alot of meals	SW.countSuperlative entity-en.restaurant string-max string-meals entity-en.food
+group friendly restaurants rated 3 stars	SW.filter ( SW.filter entity-en.restaurant string-groups ) string-star_rating string-= number3 en.star
+restaurant whose neighborhood is e0 and whose star rating is 3 stars	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e0 ) string-star_rating string-= number3 en.star
+restaurants with the same or higher star rating as e0	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-star_rating  )
+what restaurants have less than a 3 star rating	SW.filter entity-en.restaurant string-star_rating string-!= number3 en.star
+what restaurants accept credit cards	SW.filter entity-en.restaurant string-credit
+restaurant that delivers and accepts credit cards	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-credit
+restaurant whose price rating is 2 dollar signs and also accept credit cards	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-price_rating string-= number2 en.dollar_sign
+restaurant that has delivery and whose cuisine is e0	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-cuisine string-= e0
+restaurants that cheaper than e0	SW.filter entity-en.restaurant SW.ensureNumericProperty string-price_rating  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-price_rating  )
+which meal does a e0 not serve	SW.filter entity-en.food SW.reverse string-meals string-!= e0
+restaurant that takes reservations and that has waiter service	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-waiter
+what restaurants offer waiter service	SW.filter entity-en.restaurant string-waiter
+restaurant with two cuisines	SW.countComparative entity-en.restaurant string-cuisine string-= number2
+e0 restaurants with optional outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-outdoor
+what e0 restaurants takes reservations	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-reserve
+neighborhood with the least number of restaurants	SW.countSuperlative entity-en.neighborhood string-min SW.reverse string-neighborhood entity-en.restaurant
+restaurant in e0 for kids	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-neighborhood string-= e0
+e0 restaurants that accept reservations	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-cuisine string-= e0
+restaurants with food not like e0	SW.filter entity-en.cuisine SW.reverse string-cuisine string-!= e0
+which restaurant has waiter and takeout service	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-waiter
+which neighborhoods have restaurants that serve e0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.restaurant string-meals string-= e0 )
+which 3 star restaurants have outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-star_rating string-= number3 en.star
+hotel which has a price rating of 2 dollar signs and offers delivery services	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-delivery
+has a 2 or 3 dollar sign rating	SW.concat
+restaurant whose star rating is 3 stars and that is good for kids	SW.filter ( SW.filter entity-en.restaurant string-star_rating string-= number3 en.star ) string-kids
+a restaurant for kids in e0	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e0 ) string-kids
+which restaurants accept credit cards for payment and also have takeout service	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-takeout
+what e0 restaurant has e1	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e1 ) string-cuisine string-= e0
+three star restaurants that serve e0	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e0 ) string-star_rating string-= number3 en.star
+restaurants with no more than two cuisines	SW.countComparative entity-en.restaurant string-cuisine string-<= number2
+what restaurants have a rating better than 3 or 5 stars	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string-> ( SW.ensureNumericEntity SW.concat )
+restaurant whose neighborhood is e0 and that takes reservations	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e0 ) string-reserve
+which restaurants with a 2 dollar price rating offer takeout	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-price_rating string-= number2 en.dollar_sign
+restaurants with delivery for e0	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-meals string-= e0
+what is a 3 star restaurant that is kid friendly	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-star_rating string-= number3 en.star
+a e0 or e1 restaurant	SW.filter entity-en.restaurant string-cuisine string-= SW.concat
+what is the cuisine of the restaurant with waiter service	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-waiter )
+restaurant that takes reservations and that is good for groups	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-groups
+restaurant whose cuisine is e0 and that is good for kids	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-kids
+list by type of cuisine the restaurants that serve e0	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-meals string-= e0 )
+hotel  that that has the star rating of e0	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-star_rating  )
+find a restaurant good for groups that has a 2 dollar price rating	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-groups
+what restaurant has the smallest number of cuisines	SW.countSuperlative entity-en.restaurant string-min string-cuisine
+restaurants rated 3 stars in e0	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e0 ) string-star_rating string-= number3 en.star
+how many restaurants are there total	.size entity-en.restaurant
+what 3 star restaurants have a price rating of 2 dollar signs	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-star_rating string-= number3 en.star
+what good kids restaurant is in the e0 area	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-neighborhood string-= e0
+what restaurant offers reservations and is good for kids	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-reserve
+what restaurant has 2 menu items and takes credit cards	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-credit
+kidfriendly restaurants that accept reservations	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-kids
+restaurants that are group friendly	SW.filter entity-en.restaurant string-groups
+restaurants that serve less than one meal	SW.countComparative entity-en.food SW.reverse string-meals string-< number2 entity-en.restaurant
+restaurant that is cheaper than e0	SW.filter entity-en.restaurant SW.ensureNumericProperty string-price_rating  string-< ( SW.ensureNumericEntity SW.getProperty e0 string-price_rating  )
+which restaurants serve e0 and have a 2 dollar sign price rating	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e0 ) string-price_rating string-= number2 en.dollar_sign
+restaurants that offer takeout	SW.filter entity-en.food SW.reverse string-meals string-= ( SW.filter entity-en.restaurant string-takeout )
+what is a meal served by a restaurant that accepts reservations	SW.filter entity-en.food SW.reverse string-meals string-= ( SW.filter entity-en.restaurant string-reserve )
+which cuisines match that of the e0	SW.filter ( SW.filter entity-en.cuisine SW.reverse string-cuisine string-= e0 ) SW.reverse string-cuisine string-= e0
+e0 restaurants that have takeout	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-takeout
+restaurants with the same price rating as e0	SW.filter entity-en.restaurant string-price_rating string-= SW.getProperty e0 string-price_rating
+what restaurant is good for groups and has waiter service	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-groups
+restaurants that are in the neighborhood of e0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.restaurant string-neighborhood string-= e0 )
+meals that few restaurants serve	SW.countSuperlative entity-en.food string-min SW.reverse string-meals entity-en.restaurant
+what restaurant has outdoor seating and a 2 dollar price rating	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-outdoor
+hotel that has the minimum star rating	SW.superlative entity-en.restaurant string-min SW.ensureNumericProperty string-star_rating
+what is a meal served by no more than two restaurants	SW.countComparative entity-en.food SW.reverse string-meals string-<= number2 entity-en.restaurant
+what good kids restaurant has delivery	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-kids
+what restaurant offers e0 and takes reservations	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-meals string-= e0
+what is a meal served by the e0	SW.filter entity-en.food SW.reverse string-meals string-= e0
+hotel that has waiter service  and take out facilities	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-takeout
+restaurant that has waiter service and whose neighborhood is e0	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-neighborhood string-= e0
+what cuisine has the least amount of restaurants	SW.countSuperlative entity-en.cuisine string-min SW.reverse string-cuisine entity-en.restaurant
+restaurant whose star rating is at least star rating of e0	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string->= ( SW.ensureNumericEntity SW.getProperty e0 string-star_rating  )
+what restaurants offer waiter service and takeout	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-waiter
+restaurant that takes credit cards and that takes reservations	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-reserve
+restaurant whose neighborhood is e0 and whose cuisine is e1	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e0 ) string-cuisine string-= e1
+restaurants that are good for groups and offer takeout	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-groups
+what restaurants take credit cards and offers waiter service	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-credit
+which restaurant in e0 has a 3star rating	SW.filter ( SW.filter entity-en.restaurant string-star_rating string-= number3 en.star ) string-neighborhood string-= e0
+restaurants that have outdoor seating and that deliver	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-delivery
+restaurants where you can sit outside	SW.filter entity-en.restaurant string-outdoor
+which e0 restaurant takes credit cards	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-cuisine string-= e0
+what restaurant serves cuisine and takes credit cards	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-credit )
+restaurant that has takeout and that serves e0	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-meals string-= e0
+what restaurants serve at least two cuisines	SW.countComparative entity-en.restaurant string-cuisine string->= number2
+restaurant that is good for groups and that takes reservations	SW.filter ( SW.filter entity-en.restaurant string-groups ) string-reserve
+restaurant that serves e0 and that has takeout	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e0 ) string-takeout
+what are the cuisines of all the 3 star rating restaurants	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-star_rating string-= number3 en.star )
+what meal is good to be served for groups	SW.filter entity-en.food SW.reverse string-meals string-= ( SW.filter entity-en.restaurant string-groups )
+which restaurants have the same star rating as e0	SW.filter entity-en.restaurant string-star_rating string-= SW.getProperty e0 string-star_rating
+e0 restaurant that is open for e1	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e0 ) string-meals string-= e1
+which restaurants are kid friendly	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-kids
+what is a meal served by a restaurant that accommodates groups	SW.filter entity-en.food SW.reverse string-meals string-= ( SW.filter entity-en.restaurant string-groups )
+what restaurant offers reservations and serves e0	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e0 ) string-reserve
+restaurants that take reservations and have waiters	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-waiter
+which resturants are good for groups	SW.filter entity-en.restaurant string-groups
+restaurant that has takeout and that has outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-outdoor
+which restaurants serve two meals	SW.countComparative entity-en.restaurant string-meals string-= number2 entity-en.food
+find a restaurant in a neighborhood	SW.countComparative entity-en.restaurant string-neighborhood string-< number2
+what cuisine is present at more than two restaurants	SW.countComparative entity-en.cuisine SW.reverse string-cuisine string-> number2 entity-en.restaurant
+what restaurant takes credit cards in e0 area	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-neighborhood string-= e0
+e0 restaurants that are inexpensive	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-cuisine string-= e0
+which restaurants are rated the same or below e0	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string-<= ( SW.ensureNumericEntity SW.getProperty e0 string-star_rating  )
+which restaurants serve e0 or e1	SW.filter entity-en.restaurant string-meals string-= SW.concat
+what 3 star restaurant is good for kids	SW.filter ( SW.filter entity-en.restaurant string-star_rating string-= number3 en.star ) string-kids
+neighborhood that is neighborhood of e0	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= e0
+restaurant whose price rating is larger than 2 dollar signs or 3 dollar signs	SW.filter entity-en.restaurant SW.ensureNumericProperty string-price_rating  string-> ( SW.ensureNumericEntity SW.concat )
+what is meal served in at least two restaurants	SW.countComparative entity-en.food SW.reverse string-meals string->= number2 entity-en.restaurant
+restaurant which serves e0 and accepts credit cards	SW.filter ( SW.filter entity-en.restaurant string-meals string-= e0 ) string-credit
+what is the price rating of e0	SW.getProperty e0 string-price_rating
+what restaurant can i make reservations at that takes credit cards	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-reserve
+restaurants that take credit cards and serve e0	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-meals string-= e0
+a restaurant that has at least a two star rating and does takeout	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-price_rating string-= number2 en.dollar_sign
+e0 cuisine restaurant which serves e1	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-meals string-= e1
+restaurants for groups with delivery	SW.filter ( SW.filter entity-en.restaurant string-groups ) string-delivery
+restaurant that takes reservations and that has delivery	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-delivery
+restaurant whose star rating is 3 stars and that takes reservations	SW.filter ( SW.filter entity-en.restaurant string-star_rating string-= number3 en.star ) string-reserve
+which resturant has a smaller star rating than thia cafe	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string-< ( SW.ensureNumericEntity SW.getProperty en.restaurant.thai_cafe string-star_rating  )
+list all restaurants that serves less than two meals	SW.countComparative entity-en.restaurant string-meals string-< number2 entity-en.food
+cuisine that is cuisine of restaurant that takes reservations	SW.filter entity-en.cuisine SW.reverse string-cuisine string-= ( SW.filter entity-en.restaurant string-reserve )
+what are some restaurants that doesnt serve e0	SW.filter entity-en.restaurant string-cuisine string-!= e0
+restaurant whose star rating is star rating of e0	SW.filter entity-en.restaurant string-star_rating string-= SW.getProperty e0 string-star_rating
+restaurant that has takeout and that has delivery	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-delivery
+restaurant that is at least 3 stars and kid friendly	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-star_rating string-= number3 en.star
+what are some kidfriendly restaurants that accept credit cards	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-credit
+2 dollar signed rated restaurants for kids	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-price_rating string-= number2 en.dollar_sign
+restaurants has rating below 3 stars	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string-<= ( SW.ensureNumericEntity SW.concat )
+which resturants have a price rating of at most two or three dollar signs	SW.filter entity-en.restaurant SW.ensureNumericProperty string-price_rating  string-<= ( SW.ensureNumericEntity SW.concat )
+what meal does the restaurant with a 2 dollar price rating serve	SW.filter entity-en.food SW.reverse string-meals string-= ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign )
+which neighborhoods is e0 not in	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-!= e0
+what restaurant has takeout and a 2 dollar price rating	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-takeout
+which restaurant in e0 has outdoor seating available	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-neighborhood string-= e0
+what restaurant offers outdoor seating and delivery	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-outdoor
+kidfriendly restaurants that are rated 3 stars	SW.filter ( SW.filter entity-en.restaurant string-star_rating string-= number3 en.star ) string-kids
+restaurant that has delivery and that has takeout	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-takeout
+which restaurant has fewer than 3 or 5 stars	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string-< ( SW.ensureNumericEntity SW.concat )
+which restaurants take credit cards	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-credit
+neighborhood of e0	SW.getProperty e0 string-neighborhood
+what good kids restaurant has a 2 dollar price rating	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-price_rating string-= number2 en.dollar_sign
+what restaurants take reservations and offer takeout	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-takeout
+restaurant with delivery that has a 2 dollar sign rating	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-price_rating string-= number2 en.dollar_sign
+what places serve food that is not e0	SW.filter entity-en.cuisine SW.reverse string-cuisine string-!= en.restaurant.thai_cafe
+restaurants with 2 price rating that is groupfriendly	SW.filter ( SW.filter entity-en.restaurant string-groups ) string-price_rating string-= number2 en.dollar_sign
+what restaurant offers outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-outdoor
+e0 restaurants rated 2 dollar signs	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-cuisine string-= e0
+restaurants with no more than 2 locations	SW.countComparative entity-en.restaurant string-neighborhood string-<= number2
+restaurant that serves e0 or e1	SW.filter entity-en.restaurant string-meals string-= SW.concat
+restaurants with 2 and lower price rating	SW.filter entity-en.restaurant SW.ensureNumericProperty string-price_rating  string-<= ( SW.ensureNumericEntity number2 en.dollar_sign )
+restaurants that serve the same cuisine	SW.countComparative entity-en.cuisine SW.reverse string-cuisine string-< number2 entity-en.restaurant
+restaurant that has takeout and that takes credit cards	SW.filter ( SW.filter entity-en.restaurant string-takeout ) string-credit
+restaurants with outdoor seating and takeout	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-takeout
+a restaurant in west midtown or e0	SW.filter entity-en.restaurant string-neighborhood string-= SW.concat
+which neighborhoods have restaurants with a 2 dollar sign price rating	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign )
+e0 restaurant that takes reservations	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-reserve
+retaurant with less number of neighbourhood	SW.countSuperlative entity-en.restaurant string-min string-neighborhood
+restaurant that takes credit cards and that is good for kids	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-kids
+what restaurant has the more cuisine then any other	SW.countSuperlative entity-en.restaurant string-max string-cuisine
+which restaurant has waiters and also offers takeout	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-takeout
+restaurants that take credit cards and reservations	SW.filter ( SW.filter entity-en.restaurant string-credit ) string-reserve
+list all restaurants that are cheaper than 2 dollar signs or 3 star dollar signs	SW.filter entity-en.restaurant SW.ensureNumericProperty string-price_rating  string-< ( SW.ensureNumericEntity SW.concat )
+restaurants rated 3 stars or higher	SW.filter entity-en.restaurant SW.ensureNumericProperty string-star_rating  string->= ( SW.ensureNumericEntity number3 en.star )
+a restaurant rated 2 dollar signs for e0	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-meals string-= e0
+restaurants that deliver and serve e0	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-meals string-= e0
+what restaurant is good for e0 or e1	SW.filter entity-en.restaurant string-meals string-= SW.concat
+restaurants with outdoor seating and is good for groups	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-groups
+which 3 star rated restaurant has outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-star_rating string-= number3 en.star
+restaurants that deliver and have waiter service	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-waiter
+which restaurant is not located in e0	SW.filter entity-en.restaurant string-neighborhood string-!= e0
+what restaurant is open for e0 and contains outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-meals string-= e0
+meal that the most number of restaurant serves	SW.countSuperlative entity-en.food string-max SW.reverse string-meals entity-en.restaurant
+neighborhood that is neighborhood of restaurant that is good for groups	SW.filter entity-en.neighborhood SW.reverse string-neighborhood string-= ( SW.filter entity-en.restaurant string-groups )
+the e0 restaurant takes credit cards	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-credit
+restaurants that take reservations and are good for groups	SW.filter ( SW.filter entity-en.restaurant string-groups ) string-reserve
+what are the hotels found in e0 or e1	SW.filter entity-en.restaurant string-neighborhood string-= SW.concat
+which resturant is good for kids	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-kids
+restaurant that has outdoor seating and that has outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-outdoor
+restaurant with no more than two cuisines	SW.countComparative entity-en.restaurant string-cuisine string-<= number2
+e0 restaurant which has a 3 star rating	SW.filter ( SW.filter entity-en.restaurant string-star_rating string-= number3 en.star ) string-cuisine string-= e0
+which restaurants have waiters and a price rating of two dollar signs	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-price_rating string-= number2 en.dollar_sign
+restaurant that has delivery and whose price rating is 2 dollar signs	SW.filter ( SW.filter entity-en.restaurant string-delivery ) string-price_rating string-= number2 en.dollar_sign
+restaurants with takeout that are good for large parties	SW.filter ( SW.filter entity-en.restaurant string-groups ) string-takeout
+what restaurants offer reservations and also have carryout	SW.filter ( SW.filter entity-en.restaurant string-reserve ) string-takeout
+restaurants that have outdoor seating	SW.filter entity-en.food SW.reverse string-meals string-= ( SW.filter entity-en.restaurant string-outdoor )
+a restaurant for e0 or e1	SW.concat
+what2 dollar sign restaurant has outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-outdoor ) string-price_rating string-= number2 en.dollar_sign
+what restaurant serves two meals	SW.countComparative entity-en.food SW.reverse string-meals string-= number2 entity-en.restaurant
+e0 restaurants with takeout	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-takeout
+restaurants price rated 2 dollar signs or less	SW.filter entity-en.restaurant SW.ensureNumericProperty string-price_rating  string-<= ( SW.ensureNumericEntity number2 en.dollar_sign )
+which restaurant has a price rating of two dollar signs and has outdoor seating	SW.filter ( SW.filter entity-en.restaurant string-price_rating string-= number2 en.dollar_sign ) string-outdoor
+list all e0 restaurants offering e1	SW.filter ( SW.filter entity-en.restaurant string-cuisine string-= e0 ) string-meals string-= e1
+what restaurant is amenable to children and has delivery	SW.filter ( SW.filter entity-en.restaurant string-kids ) string-delivery
+what restaurant takes reservations	SW.filter entity-en.restaurant string-reserve
+restaurants with multiple cuisines	SW.countSuperlative entity-en.restaurant string-max string-cuisine
+which resturant in e0 has waiter service	SW.filter ( SW.filter entity-en.restaurant string-waiter ) string-neighborhood string-= e0
+what same meals do all the other restaurants serve	SW.countSuperlative entity-en.food string-max SW.reverse string-meals entity-en.restaurant
+what are some e0 restaurants in e1	SW.filter ( SW.filter entity-en.restaurant string-neighborhood string-= e1 ) string-cuisine string-= e0

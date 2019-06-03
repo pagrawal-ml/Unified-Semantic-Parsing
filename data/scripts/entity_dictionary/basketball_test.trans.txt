@@ -1,0 +1,391 @@
+{}
+{}
+{}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.team.lakers, e1=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{d0=date:2004:-1:-1}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, d1=date:2004:-1:-1}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.position.point_guard}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{e0=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.position.point_guard, e1=en.position.forward}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, d1=date:2004:-1:-1}
+{d0=date:2004:-1:-1, d1=date:2010:-1:-1}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.team.lakers, e1=en.team.cavaliers}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.team.lakers}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, d1=date:2004:-1:-1}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.team.cavaliers, e1=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{d0=date:2004:-1:-1, d1=date:2010:-1:-1}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{}
+{e0=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{e0=en.position.point_guard, e1=en.player.kobe_bryant}
+{e0=en.team.lakers, e1=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, d0=date:2004:-1:-1}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{d0=date:2004:-1:-1}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, d1=date:2004:-1:-1}
+{e0=en.team.lakers, e1=en.team.cavaliers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.team.lakers}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.team.lakers}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.position.point_guard, e1=en.position.forward}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, e1=en.team.lakers}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.position.point_guard, e1=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.team.lakers}
+{e0=en.team.lakers, e1=en.player.kobe_bryant}
+{}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{e0=en.player.kobe_bryant}
+{}
+{}
+{e0=en.player.kobe_bryant, d1=date:2004:-1:-1}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{e0=en.player.kobe_bryant, e1=en.position.point_guard}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{e0=en.player.kobe_bryant}
+{}
+{}
